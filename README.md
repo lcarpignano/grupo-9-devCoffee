@@ -9,11 +9,7 @@ Es un propuesta de valor pensada para personas que trabajan desde su hogar donde
 Significa el comienzo del día, una pausa o un compañero para esas largas noches de trabajo.
 
 ## Referentes:
-https://fernweh.nz/ 
-https://nomadcoffee.es/
-https://goodmylk.co/
-https://www.drinktrade.com/
-https://www.squarespace.com/templates/crosby-demo
+https://fernweh.nz/ / https://nomadcoffee.es/ / https://goodmylk.co/ / https://www.drinktrade.com/ / https://www.squarespace.com/templates/crosby-demo
 
 ## WireFrame:
 (Falta el link)

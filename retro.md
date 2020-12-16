@@ -1,7 +1,9 @@
 # Retro Sprint 1
 
 ## Metodo estrella de Mar
+
 ________________________
+
 ### 1. Comenzar a hacer:
 
  * Avanzar los temas a ver en forma individual antes de las reuniones grupales.

@@ -14,3 +14,7 @@ https://fernweh.nz/ / https://nomadcoffee.es/ / https://goodmylk.co/ / https://w
 ## WireFrame:
 https://www.figma.com/file/TijBdP7ehEkhIlzZRY5yH3/COFFEE-ECOMMERCE?node-id=20%3A439
 
+##Tablero##
+
+https://trello.com/invite/b/iBmC4Ogd/c5aa18604baf00f2407dabe6a474bcef/ecommerce 
+

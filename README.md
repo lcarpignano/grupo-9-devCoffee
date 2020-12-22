@@ -2,10 +2,10 @@
 ☕
 
 ## Tematica
-Remote Coffee es un modelo de suscripción café exclusivo para trabajadores remotos.
+Coffee Break es un modelo de suscripción café exclusivo para desarrolladores.
 
 ## Publico objetivo:
-Es un propuesta de valor pensada para personas que trabajan desde su hogar donde el cafe es más que una bebida. 
+Es un propuesta de valor pensada para desarrolladores que trabajan desde su hogar donde el cafe es más que una bebida. 
 Significa el comienzo del día, una pausa o un compañero para esas largas noches de trabajo.
 
 ## Referentes:

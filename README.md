@@ -17,3 +17,6 @@ https://www.figma.com/file/TijBdP7ehEkhIlzZRY5yH3/COFFEE-ECOMMERCE?node-id=20%3A
 ## Tablero:
 https://trello.com/invite/b/iBmC4Ogd/c5aa18604baf00f2407dabe6a474bcef/ecommerce 
 
+## Paleta de colores:
+https://coolors.co/463f3a-8a817c-bcb8b1-f4f3ee-e0afa0
+

@@ -1,0 +1,481 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Global */
+
+/*
+https://coolors.co/463f3a-8a817c-bcb8b1-f4f3ee-e0afa0 
+
+#463f3a Dark Lava
+#8a817c Middle Grey
+#bcb8b1 Pale Silver
+#f4f3ee Alabaster
+#e0afa0 Melon
+
+*/
+
+
+
+h1 {
+  font-size: 2.2rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+h4 {
+  font-size: 1.2rem;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.btn {
+  
+  border-radius: 1rem;
+  background-color: #e0afa0;
+  color: #463f3a;
+  padding: 0.5rem 1.2rem;
+  margin: 0.5rem 0;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+
+  transition: background-color 0.6s ease;
+}
+
+/* Header */
+
+header {
+  width: 100%;
+  height: 7rem;
+  
+  color: #463f3a;
+  background-color: #f4f3ee;
+
+  position: fixed;
+   
+}
+
+.logo {
+  font-family: "IBM Plex Mono";
+  color: #463f3a;
+  font-size: 1.5rem;
+  text-decoration: none;
+  padding-left: 2rem;
+}
+
+.icon {
+  font-size: 1.8rem;
+}
+
+.header-nav {
+  width: 100%;
+  padding: 0rem 1.5rem;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-nav-search-bar button {
+  color: #463f3a;
+  background-color: #f4f3ee;
+  border: 1px solid #bcb8b1;
+  border-left: 0.1px solid #bcb8b1;
+}
+.fa-search {
+  color: #463f3a;
+}
+
+.header-nav-search-bar input {
+  background-color: #f4f3ee;
+  display: inline-block;
+  border: 1px solid #bcb8b1;
+  border-right: 0.1px solid #bcb8b1;
+}
+
+.header-nav-right-icons i {
+  padding-left: 1rem;
+}
+
+.header-nav-right-dkt,
+input {
+  display: none;
+}
+
+/* Main */
+
+.main-hero {
+  background-image: url("/img/hero.jpg");
+  width: 100%;
+  margin: 0rem;
+  height: calc(100vh - 70px);
+  background-size: cover;
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.main-box {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: #f4f3ee;
+
+  padding: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-box h1 {
+  margin: 0rem 0rem 3rem;
+}
+
+.main-box h3 {
+  font-weight: 400;
+  margin: 0rem 0rem 1.2rem;
+}
+
+.main-box p {
+  color: #bcb8b1;
+}
+
+/* Main Products */
+
+
+.product-title {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.6rem;
+  color: #463f3a;
+}
+
+.product-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70%;
+  margin: auto;
+  padding: 2rem 0rem;
+}
+
+.product-box-image img {
+  max-width: 100%;
+  border-radius: 1rem;
+}
+
+.product-box-info {
+  font-size: 1.7rem;
+  text-align: center;
+  padding: 1rem 0rem;
+  color: #463f3a;
+}
+
+.product-box-info i {
+  font-size: 2rem;
+}
+
+.product-box-info h2,
+h3 {
+  font-size: 1.2rem;
+  margin: 0rem 0rem 0.5rem;
+}
+
+.btn-product {
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: #f4f3ee;
+  background: #463f3a;
+  padding: 0.6rem 1.8rem;
+  display: inline-block;
+  border-radius: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+
+
+.how {
+  color: #F4F3EE;
+  background-color: rgb(22, 21, 21);
+  
+}
+
+.how-explenaition{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.how h2 {
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 1.7rem;
+  
+}
+
+.step {
+  margin: 1.5rem 1.5rem;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.icon-how {
+    font-size: 3rem;
+    margin: 0.5rem;
+}
+
+.step h5 {
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 0rem 0rem 1.5rem;
+  
+}
+
+.explainer {
+  max-width: 70%;
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+
+/* Home - quiz */
+
+.quiz {
+  width: 100%;
+  
+  padding: 0rem 1rem;
+  height: 10vh;
+  font-size: 0.8rem;
+  
+  background-color:#F4F3EE;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+}
+
+
+
+.btn-quiz {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #F4F3EE;
+  background: #463F3A;
+  padding: 0.3rem 1.4rem;
+  display: inline-block;
+  border-radius: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.btn-quiz:hover {
+  letter-spacing: 0.2rem;
+}
+
+
+
+/* Why */
+
+.reason-why {
+  width: 100%;
+  
+  font-size: 0.8rem;
+  background-color:white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.reason-why h3 {
+  padding: 0.3rem 1.4rem;
+  margin-top: 2.4rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #463F3A;
+  line-height: 1.2;
+}
+
+.reason-why p {
+  padding: 0.1rem 3rem;
+  margin: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #463F3A;
+  line-height: 1.4;
+}
+
+.cta-img {
+  width: 100%;
+  height: 30vh;
+  background-image: url("/img/beans5.jpeg");
+  background-size: cover;
+  background-size: cover;
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.4);
+  
+
+  padding: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tagline {
+  
+  padding: 0.3rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.2rem;
+  
+  line-height: 1.2;
+  
+  color: #f4f3ee;
+}
+
+.reason-why img {
+  width: 100%; 
+  height: auto; 
+  
+}
+
+
+
+/* Footer */
+
+footer {
+  color: #463f3a;
+  background-color: #f4f3ee;
+  height: 7rem;
+  
+}
+
+.footer-block {
+  width: 90%;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-nav {
+  width: 90%;
+  margin: 1.5rem 0rem 0rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media (min-width: 460px) {
+  /* Tablets */
+}
+
+@media (min-width: 768px) {
+  /* Laptop */
+
+  /* Header */
+
+  .fa-bars {
+    display: none;
+  }
+
+  .header-nav-right {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header-nav-search-bar {
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+  }
+
+
+  .header-nav-right-dkt {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .header-nav-right-dkt a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #463f3a;
+  }
+
+  .header-nav-right-dkt a:hover {
+    color: #bcb8b1;
+  }
+
+  .header-nav-right-icons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .header-nav-right-icons .fa-instagram {
+    margin-right: 1rem;
+  }
+
+ /* Products */
+
+.product-products {
+  display: flex;
+  justify-content: space-around;
+}
+
+.product-box {
+  margin: 0.5rem;
+}
+
+/* How */
+
+.how-explenaition {
+
+  padding: 0.5rem 5rem;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.step {
+  margin: 0.5rem;
+  width: calc( 33% - 3rem);
+}
+
+/* Quiz */
+
+.quiz {
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+}
+
+

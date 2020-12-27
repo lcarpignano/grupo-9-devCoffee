@@ -416,62 +416,11 @@ footer {
   align-items: center;
 }
 
-@media (min-width: 460px) {
-  /* Tablets */
-}
-
-@media (min-width: 768px) {
-  /* Laptop */
-
-  /* Header */
-
-  .fa-bars {
-    display: none;
-  }
-
-  .header-nav-right-dkt {
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-  }
-
-  /* Products */
-
-  .product-products {
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .product-box {
-    margin: 0.5rem;
-  }
-
-  /* How */
-
-  .how-explenaition {
-    padding: 0.5rem 5rem;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-start;
-  }
-
-  .step {
-    margin: 0.5rem;
-    width: calc(33% - 3rem);
-  }
-
-  /* Quiz */
-
-  .quiz {
-    flex-direction: row;
-    justify-content: space-evenly;
-  }
-}
-
 
 /* ---------------------------------------- */
-/* ----------- product catalogue ---------- */
+/* ---------product catalogue page -------- */
 /* ---------------------------------------- */
+
 
 .intro-products {
   width: 100%;
@@ -494,7 +443,6 @@ footer {
   font-weight: 200;
   color: #f4f3ee;
 }
-
 
 .product-filter {
   display: flex;
@@ -522,6 +470,10 @@ footer {
   padding: 1rem;
 }
 
+.product-box-info p {
+  padding: 1rem 3rem;
+}
+
 .close-catalog img{
   width: 100%; 
   height: auto; 
@@ -532,4 +484,76 @@ footer {
   font-size: 2.8rem;
 }
 
-/* Faltan media querys */
+/* ---------------------------------------- */
+/* ----------- media querys ---------- */
+/* ---------------------------------------- */
+
+
+@media (min-width: 460px) {
+  /* Tablets */
+
+.product-products {
+    display: flex; 
+    flex-flow: wrap; 
+    margin: 0 auto;
+    padding: 1rem 0.5rem;
+}
+
+.product-box {
+  flex: 1 0 48%; 
+  margin: 1%; 
+}
+}
+
+@media (min-width: 768px) {
+  /* Laptop */
+
+  /* Header */
+
+  .fa-bars {
+    display: none;
+  }
+
+  .header-nav-right-dkt {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  /* Products */
+
+  .product-products {
+    display: flex;
+    flex-flow: wrap;
+    margin: 0 auto;
+    padding: 1rem 3rem;
+  }
+
+  .product-box {
+    flex: 1 0 31%; 
+    margin: 0.5rem;
+  }
+
+  /* How */
+
+  .how-explenaition {
+    padding: 0.5rem 5rem;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+  .step {
+    margin: 0.5rem;
+    width: calc(33% - 3rem);
+  }
+
+  /* Quiz */
+
+  .quiz {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+}
+
+/* Faltan media querys de pagina de producto */

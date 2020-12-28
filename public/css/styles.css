@@ -65,6 +65,8 @@ header {
   background-color: #f4f3ee;
 
   position: fixed;
+  top: 0rem;
+  z-index: 1;
 }
 
 .logo {
@@ -160,7 +162,7 @@ input {
 .main-hero {
   background-image: url("/img/hero.jpg");
   width: 100%;
-  margin: 0rem;
+  margin: 7rem 0rem 0rem;
   height: calc(100vh - 70px);
   background-size: cover;
   background-blend-mode: overlay;
@@ -294,7 +296,6 @@ h3 {
 
 .quiz {
   width: 100%;
-
   padding: 0rem 1rem;
   height: 10vh;
   font-size: 0.8rem;
@@ -386,6 +387,7 @@ h3 {
 .reason-why img {
   width: 100%;
   height: auto;
+  object-fit: cover;
 }
 
 /* Footer */
@@ -414,8 +416,93 @@ footer {
   align-items: center;
 }
 
+
+/* ---------------------------------------- */
+/* ---------product catalogue page -------- */
+/* ---------------------------------------- */
+
+
+.intro-products {
+  width: 100%;
+  height: 20vh;
+  background-image: url("/img/reason2.jpeg");
+  background-size: cover;
+  background-size: cover;
+  background-blend-mode: overlay;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  padding: none;
+  margin: 7rem 0rem 0rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 200;
+  color: #f4f3ee;
+}
+
+.product-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.5rem 3rem;
+  height: 100%;
+}
+
+.product-filter h2 {
+  flex-grow: 1;
+  font-weight: 100;
+  color: #463f3a;
+  font-size: 1.2rem;
+}
+
+.sort {
+  display: flex;
+}
+
+.collection-sort {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.product-box-info p {
+  padding: 1rem 3rem;
+}
+
+.close-catalog img{
+  width: 100%; 
+  height: auto; 
+  object-fit: cover; 
+}
+
+.product-title {
+  font-size: 2.8rem;
+}
+
+/* ---------------------------------------- */
+/* ----------- media querys ---------- */
+/* ---------------------------------------- */
+
+
 @media (min-width: 460px) {
   /* Tablets */
+
+.product-products {
+    display: flex; 
+    flex-flow: wrap; 
+    margin: 0 auto;
+    padding: 1rem 0.5rem;
+}
+
+.product-box {
+  flex: 1 0 48%; 
+  margin: 1%; 
+}
 }
 
 @media (min-width: 768px) {
@@ -437,10 +524,13 @@ footer {
 
   .product-products {
     display: flex;
-    justify-content: space-around;
+    flex-flow: wrap;
+    margin: 0 auto;
+    padding: 1rem 3rem;
   }
 
   .product-box {
+    flex: 1 0 31%; 
     margin: 0.5rem;
   }
 
@@ -465,3 +555,5 @@ footer {
     justify-content: space-evenly;
   }
 }
+
+/* Faltan media querys de pagina de producto */

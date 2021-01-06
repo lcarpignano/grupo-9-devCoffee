@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/36e5dd7a28.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-nav">
+        <i class="fas fa-bars icon"></i>
+
+        <a href="#" class="logo"
+          ><i class="icon fas fa-file-code"></i> Coffee Break</a
+        >
+
+        <div class="header-nav-right">
+          <div class="header-nav-right-dkt">
+            <div class="header-nav-bar">
+              <a href="#">Ingresa</a>
+              <a href="#">Nuestros Cafés</a>
+              <a href="#">Contacto</a>
+            </div>
+            <div class="header-nav-search-bar">
+              <input type="search" name="search" id="search" />
+              <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+          </div>
+          <div class="header-nav-right-icons">
+            <i class="icon fas fa-shopping-cart"></i>
+
+            <i class="fab fa-instagram icon"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="main-hero">
+          <div class="main-box">
+            <h3>Suscripción de café a domicilio.</h3>
+            <h1>
+              Completá tus datos y te enviamos <br />
+              el cafe veloz a la <br />
+              puerta de tu hogar.
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <form action="/register" class="registe-form-container">
+          <div class="register-inputs-text">
+            <div class="form-row">
+              <label for="name" class="form-row-label-desktop"
+                >Nombre y Apellido:</label
+              >
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="Nombre y Apellido"
+                class="input-text"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <label for="user-name" class="form-row-label-desktop"
+                >Nombre de usuari@:</label
+              >
+              <input
+                type="text"
+                name="user-name"
+                id="user-name"
+                placeholder="Nombre de usuari@"
+                class="input-text"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <label for="password" class="form-row-label-desktop"
+                >Contraseña:</label
+              >
+              <input
+                type="text"
+                name="password"
+                id="password"
+                placeholder="Contraseña"
+                minlength="8"
+                class="input-text"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <label for="check-pass" class="form-row-label-desktop"
+                >Confirmar contraseña:</label
+              >
+              <input
+                type="text"
+                name="check-pass"
+                id="check-pass"
+                placeholder="Confirma tu contraseña"
+                minlength="8"
+                class="input-text"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <label for="birth" class="form-row-label-desktop">Fecha de nacimiento:</label>
+              <input type="date" name="birth" id="birth" class="input-text" />
+            </div>
+
+            <div class="form-row">
+              <label for="adress" class="form-row-label-desktop"
+                >Domicilio:</label
+              >
+              <input
+                type="text"
+                name="adress"
+                id="adress"
+                placeholder="Domicilio"
+                class="input-text"
+              />
+            </div>
+          </div>
+
+          <div class="form-row-buttons">
+            
+            <button type="submit" class="input-text">Enviar</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-block">
+        <nav class="footer-nav">
+          <a href="">Terminos y Condiciones</a>
+          <a href="">Políticas de Privacidad</a>
+        </nav>
+        <p>
+          Coffee Break<i class="far fa-registered"></i> 2021. Todos los derechos
+          reservados.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

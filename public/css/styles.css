@@ -44,20 +44,19 @@ p {
 .btn {
   border-radius: 1rem;
   background-color: #e0afa0;
-  color: #463f3a;
+  color: black;
   padding: 0.5rem 1.2rem;
   margin: 0.5rem 0;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 700;
 
-  transition: all 0.6s ease;
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
   background-color: #463f3a;
-  color: #e0afa0;
-  font-size: 1.4rem;
+  color: white;
 }
 
 /* Header */
@@ -105,6 +104,7 @@ header {
 .header-nav-bar {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .header-nav-bar a {
@@ -125,24 +125,25 @@ header {
 }
 
 .header-nav-search-bar button {
+  font-size: 1.6rem;
   color: #463f3a;
-  background-color: #f4f3ee;
+  background-color: white;
   border: 1px solid #bcb8b1;
-  border-left: 0.1px solid #bcb8b1;
+  
+  border-radius: 0rem 0.5rem 0.5rem 0rem;
 }
 
 .header-nav-search-bar input {
   width: 30rem;
 
-  background-color: #f4f3ee;
+  background-color: white;
   display: inline-block;
   border: 1px solid #bcb8b1;
-  border-right: 0.1px solid #bcb8b1;
+  
+  border-radius: 0.5rem 0rem 0rem 0.5rem;
 }
 
-.fa-search {
-  color: #463f3a;
-}
+
 
 .header-nav-right-icons {
   display: flex;
@@ -165,13 +166,14 @@ input {
 /* Main */
 
 .main-hero {
-  background-image: url("/img/hero.jpg");
+  background-image: url("/img/herodesktop1.jpg");
   width: 100%;
   margin: 7rem 0rem 0rem;
-  height: calc(100vh - 70px);
+  height: calc(100vh - 7rem);
   background-size: cover;
+  background-position: center;
   background-blend-mode: overlay;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .main-box {
@@ -189,7 +191,8 @@ input {
 }
 
 .main-box h1 {
-  margin: 0rem 0rem 3rem;
+  margin: 0rem 4rem 3rem;
+  line-height: 1.3;
 }
 
 .main-box h3 {
@@ -205,8 +208,8 @@ input {
 
 .product-title {
   text-align: center;
-  margin-top: 2rem;
-  font-size: 1.6rem;
+  margin-top: 5rem;
+  font-size: 2rem;
   color: #463f3a;
 }
 
@@ -222,6 +225,10 @@ input {
 .product-box-image img {
   max-width: 100%;
   border-radius: 1rem;
+}
+
+.product-box:hover {
+  transform: scale(1.1);
 }
 
 .product-box-info {
@@ -254,9 +261,16 @@ input {
   transition: 0.5s;
 }
 
+/*
+.product-box:hover {
+    box-shadow: 0 0px 28px rgba(0,0,0,0.25), 0 4px 10px rgba(0,0,0,0.22)
+} */
+
 .how {
   color: #f4f3ee;
   background-color: rgb(22, 21, 21);
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .how-explenaition {
@@ -266,9 +280,9 @@ input {
 }
 
 .how h2 {
-  padding-top: 2rem;
   text-align: center;
-  font-size: 1.7rem;
+  font-size: 2rem;
+  padding-bottom: 2rem;
 }
 
 .step {
@@ -281,13 +295,13 @@ input {
 
 .icon-how {
   font-size: 3rem;
-  margin: 0.5rem;
+  margin: 1rem;
 }
 
 .step h5 {
   font-size: 1.3rem;
   text-align: center;
-  margin: 0rem 0rem 1.5rem;
+  margin: 0rem 0rem 0.5rem;
 }
 
 .explainer {
@@ -527,34 +541,42 @@ div.breadcrumb-list-pd {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 4rem;
+  padding-top: 3rem;
+}
+
+.reason-why img {
+  width: 30%;
+  height: auto;
+  object-fit: cover;
 }
 
 .reason-why h3 {
   padding: 0.3rem 1.4rem;
-  margin-top: 2.4rem;
+  
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   color: #463f3a;
   line-height: 1.2;
 }
 
 .reason-why p {
-  padding: 0.1rem 3rem;
-  margin: 1rem;
+  padding: 0.1rem 7rem;
+  font-style: italic;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #463f3a;
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .cta-img {
   width: 100%;
-  height: 30vh;
-  background-image: url("/img/beans5.jpeg");
+  height: 38vh;
+  background-image: url("/img/close-img.png");
   background-size: cover;
-  background-size: cover;
+  background-position: center;    
   background-blend-mode: overlay;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
 
   padding: none;
 
@@ -566,21 +588,16 @@ div.breadcrumb-list-pd {
 
 .tagline {
   padding: 0.3rem;
-  margin-bottom: 2rem;
+  margin: 0rem 3rem 2rem;
   font-weight: 600;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 2rem;
 
   line-height: 1.2;
 
   color: #f4f3ee;
 }
 
-.reason-why img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
 
 /* Footer */
 
@@ -609,6 +626,57 @@ footer {
 }
 
 
+
+
+/* Register.html */
+
+.registe-form-container {
+  width: 80%;
+  max-width: 100rem;
+  margin: auto;
+  padding: 2rem;
+  background-color: #f4f3ee;
+}
+
+.input-text {
+  width: 100%;
+  height: 2rem;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.form-row {
+  width: 100%;
+  margin: 1.2rem 0.5rem;
+  padding: 0rem 0.5rem;
+}
+
+.form-row input, label, button {
+  /* width: 100%; */
+  height: 3rem;
+  font-size: 1.4rem;
+  line-height: 2.2rem;
+}
+
+.form-row-buttons {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0rem;
+}
+
+.form-row-buttons button {
+  width: 48%;
+  max-width: 30rem;
+  height: 4rem;
+  margin: 0.5rem;
+  background-color: #6f6f6f80;
+}
+
+
+
+
+
 /* ---------------------------------------- */
 /* ---------product catalogue page -------- */
 /* ---------------------------------------- */
@@ -617,11 +685,11 @@ footer {
 .intro-products {
   width: 100%;
   height: 20vh;
-  background-image: url("/img/reason2.jpeg");
+  background-image: url("/img/beans5.jpeg");
   background-size: cover;
-  background-size: cover;
+  background-position: center;
   background-blend-mode: overlay;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.5);
 
   padding: none;
   margin: 7rem 0rem 0rem;
@@ -673,7 +741,7 @@ footer {
 }
 
 .product-title {
-  font-size: 2.8rem;
+  font-size: 2rem;
 }
 
 /* ---------------------------------------- */
@@ -695,6 +763,13 @@ footer {
   flex: 1 0 48%; 
   margin: 1%; 
 }
+
+/*reason-why*/
+
+.reason-why img {
+  width: 20%;
+}
+
 }
 
 @media (min-width: 768px) {
@@ -712,12 +787,28 @@ footer {
     justify-content: flex-end;
   }
 
+  
+  .header-nav-right-dkt input{
+    display: flex;
+  } 
+
+  /*home-hero*/
+
+  .main-box h1 {
+    font-size: 3.5rem;
+  }
+
   /* Products */
+
+  .product-title {
+    font-size: 2.3rem;
+  }
 
   .product-products {
     display: flex;
     flex-flow: wrap;
     margin: 0 auto;
+    margin-bottom: 2rem;
     padding: 1rem 3rem;
   }
 
@@ -790,12 +881,38 @@ footer {
     width: calc(33% - 3rem);
   }
 
+  /*reason-why*/
+
+  .reason-why img {
+    width: 15%;
+  }
+
   /* Quiz */
 
   .quiz {
     flex-direction: row;
     justify-content: space-evenly;
   }
-}
 
-/* Faltan media querys de pagina de producto */
+
+  /* Register */
+
+  .form-row-label-desktop {
+    display: inline-block;
+  }
+
+  .form-row {
+    width: calc(50% - 1rem);
+ }
+  
+  .form-row-buttons {
+    width: 30rem;
+   }
+
+   .register-inputs-text {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+
+}

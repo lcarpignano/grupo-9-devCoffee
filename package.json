@@ -1,7 +1,7 @@
 {
-  "name": "ProyectoIntegrador",
+  "name": "proyectointegrador",
   "version": "1.0.0",
-  "description": "",
+  "description": "☕",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +11,15 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "nodemon": "^2.0.6",
     "normalize.css": "^8.0.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lcarpignano/grupo-9-devCoffee.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lcarpignano/grupo-9-devCoffee/issues"
+  },
+  "homepage": "https://github.com/lcarpignano/grupo-9-devCoffee#readme"
 }

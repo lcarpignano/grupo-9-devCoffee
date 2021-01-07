@@ -373,7 +373,7 @@ h3 {
 
 .reason-why p {
   padding: 0.1rem 7rem;
-  
+  font-style: italic;
   text-align: center;
   font-size: 1.3rem;
   color: #463f3a;

@@ -158,7 +158,7 @@ header {
   margin-right: 1rem;
 }
 
-.header-nav-right-dkt, /* aaa */
+.header-nav-right-dkt,
 input {
   display: none;
 }
@@ -455,6 +455,7 @@ div.breadcrumb-list-pd {
 
 .upper-section div{
   width: 65%;
+  padding-right: 2rem;
 }
 
 .suscription-button-pd{
@@ -651,7 +652,9 @@ footer {
   padding: 0rem 0.5rem;
 }
 
-.form-row input, label, button {
+.form-row input, 
+.form-row label, 
+.form-row button {
   /* width: 100%; */
   height: 3rem;
   font-size: 1.4rem;

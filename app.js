@@ -21,5 +21,9 @@ app.get('/catalogo', (req, res) => {
     res.sendFile(path.join(__dirname, '/views/productcatalog.html'))
 })
 
+app.get('/shopping-cart', (req, res) => {
+    res.sendFile(path.join(__dirname, '/views/shopping-cart.html'))
+})
+
 app.listen(3030, console.log('Ya puedes ir a http://localhost:3030'));
 

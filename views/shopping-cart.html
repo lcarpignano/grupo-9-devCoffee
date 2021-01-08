@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/36e5dd7a28.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-nav">
+        <i class="fas fa-bars icon"></i>
+
+        <a href="#" class="logo"
+          ><i class="icon fas fa-file-code"></i> Coffee Break</a
+        >
+
+        <div class="header-nav-right">
+          <div class="header-nav-right-dkt">
+            <div class="header-nav-bar"></div>
+            <div class="header-nav-search-bar"></div>
+          </div>
+          <div class="header-nav-right-icons">
+            <i class="fab fa-instagram icon"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="shopping-cart">
+        <h2>Carrito de Compras</h2>
+        <div class="shopping-cart-items-list">
+          <div class="shopping-cart-item">
+            <img
+              src="img/producthtmltwhite.png"
+              class="shopping-cart-item-img"
+            />
+            <div class="shopping-cart-item-description">
+              <h3>Café Node.js</h3>
+              <h4>Tamaño: 250grms</h4>
+              <h4>Tipo de Molienda: Espresso</h4>
+            </div>
+            <div class="shopping-cart-item-pq">
+              <div class="shopping-cart-item-price">
+                <h4>Precio</h4>
+                <h3>$12.00</h3>
+              </div>
+              <div class="shopping-cart-item-quantity">
+                <h4>Cantidad</h4>
+                <input type="number" name="" id="" maxlength="1">
+              </div>
+              <div class="shopping-cart-item-subtotal">
+                <h4>Subtotal</h4>
+                <h3>$12.00</h3>
+              </div>
+              <div class="shopping-cart-item-trash">
+              <i class="fas fa-trash"></i>
+            </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="shopping-cart-resumen">
+          <div class="shopping-cart-shipping">
+            <form action="">
+              <div class="form-row">
+                <label for="country" class="form-row-label-desktop"
+                  >Selecciona tu país:</label>
+                  <select name="country" id="country" required>
+                    <option value="esp">España</option>
+                    <option value="eng">Inglaterra</option>
+                    <option value="fra">Francia</option>
+                    <option value="por">Portugal</option>
+                    <option value="ita">Italia</option>
+                  </select>
+
+                  <label for="state" class="form-row-label-desktop"
+                  >Selecciona tu región:</label>
+                  <select name="country" id="country" required>
+                    <option value="reg1">Región</option>
+                    <option value="reg2">Región</option>
+                    <option value="reg3">Región</option>
+                    <option value="reg4">Región</option>
+                    <option value="reg5">Región</option>
+                  </select>
+
+                  <div class="form-row">
+                    <label for="zip-code" class="form-row-label-desktop"
+                      >Código Postal:</label
+                    >
+                    <input
+                      type="text"
+                      name="zip-code"
+                      id="zip-code"
+                      placeholder="Ingresa tu codigo postal"
+                      minlength="5"
+                      class="input-text"
+                      required
+                    />
+                  </div>
+                
+              </div>
+            </form>
+          </div>
+          <div class="shopping-cart-taxes"></div>
+          <button type="submit">CHECKOUT</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-block">
+        <nav class="footer-nav">
+          <a href="">Terminos y Condiciones</a>
+          <a href="">Políticas de Privacidad</a>
+        </nav>
+        <p>
+          Coffee Break<i class="far fa-registered"></i> 2021. Todos los derechos
+          reservados.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

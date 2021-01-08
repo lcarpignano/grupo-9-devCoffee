@@ -67,14 +67,13 @@
         <form action="/register" class="registe-form-container">
           <div class="register-inputs-text">
             <div class="form-row">
-              <label for="name" class="form-row-label-desktop"
-                >Nombre y Apellido:</label
-              >
+              <label for="name" class="form-row-label-desktop">Nombre y Apellido:
+              </label>
               <input
                 type="text"
                 name="name"
                 id="name"
-                placeholder="Nombre y Apellido"
+                placeholder="Ingresa tu nombre y apellido"
                 class="input-text"
                 required
               />
@@ -92,15 +91,46 @@
                 required
               />
             </div>
+
+            <div class="form-row">
+              <label for="mail" class="form-row-label-desktop">Correo Electrónico:
+              </label>
+              <input
+                type="email"
+                name="mail"
+                id="mail"
+                placeholder="Ingresa tu Email"
+                class="input-text"
+                required
+              />
+            </div>
+
+            <div class="form-row">
+              <label for="mail" class="form-row-label-desktop">Correo Electrónico:
+              </label>
+              <input
+                type="email"
+                name="mail"
+                id="mail"
+                placeholder="Re ingresa tu Email"
+                class="input-text"
+                required
+              />
+            </div>
+
+
+
+
+
             <div class="form-row">
               <label for="password" class="form-row-label-desktop"
                 >Contraseña:</label
               >
               <input
-                type="text"
+                type="password"
                 name="password"
                 id="password"
-                placeholder="Contraseña"
+                placeholder="Ingresa tu contraseña"
                 minlength="8"
                 class="input-text"
                 required
@@ -111,7 +141,7 @@
                 >Confirmar contraseña:</label
               >
               <input
-                type="text"
+                type="password"
                 name="check-pass"
                 id="check-pass"
                 placeholder="Confirma tu contraseña"
@@ -121,7 +151,9 @@
               />
             </div>
             <div class="form-row">
-              <label for="birth" class="form-row-label-desktop">Fecha de nacimiento:</label>
+              <label for="birth" class="form-row-label-desktop"
+                >Fecha de nacimiento:</label
+              >
               <input type="date" name="birth" id="birth" class="input-text" />
             </div>
 
@@ -133,14 +165,13 @@
                 type="text"
                 name="adress"
                 id="adress"
-                placeholder="Domicilio"
+                placeholder="Ingresa tu domicilio"
                 class="input-text"
               />
             </div>
           </div>
 
           <div class="form-row-buttons">
-            
             <button type="submit" class="input-text">Enviar</button>
           </div>
         </form>

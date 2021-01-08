@@ -50,7 +50,7 @@
               class="shopping-cart-item-img"
             />
             <div class="shopping-cart-item-description">
-              <h3>Café Node.js</h3>
+              <h3>Café HTML + CSS</h3>
               <h4>Tamaño: 250grms</h4>
               <h4>Tipo de Molienda: Espresso</h4>
             </div>
@@ -61,63 +61,90 @@
               </div>
               <div class="shopping-cart-item-quantity">
                 <h4>Cantidad</h4>
-                <input type="number" name="" id="" maxlength="1">
+                <input type="number" name="" id="" maxlength="1" />
               </div>
               <div class="shopping-cart-item-subtotal">
                 <h4>Subtotal</h4>
                 <h3>$12.00</h3>
               </div>
               <div class="shopping-cart-item-trash">
-              <i class="fas fa-trash"></i>
-            </div>
+                <a href=""><i class="fas fa-trash"></i> </a>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="shopping-cart-resumen">
+        <div class="shopping-cart-resume">
           <div class="shopping-cart-shipping">
             <form action="">
-              <div class="form-row">
-                <label for="country" class="form-row-label-desktop"
-                  >Selecciona tu país:</label>
+              <div class="register-inputs-text">
+                <div class="form-row-cart">
+                  <label for="country" class="form-row-label-desktop"
+                    >Selecciona tu país:</label
+                  >
                   <select name="country" id="country" required>
+                    <option disabled selected>Selecciona una opción...</option>
                     <option value="esp">España</option>
                     <option value="eng">Inglaterra</option>
                     <option value="fra">Francia</option>
                     <option value="por">Portugal</option>
                     <option value="ita">Italia</option>
                   </select>
-
+                </div>
+                <div class="form-row-cart">
                   <label for="state" class="form-row-label-desktop"
-                  >Selecciona tu región:</label>
+                    >Selecciona tu región:</label
+                  >
                   <select name="country" id="country" required>
+                    <option disabled selected>Selecciona una opción...</option>
                     <option value="reg1">Región</option>
                     <option value="reg2">Región</option>
                     <option value="reg3">Región</option>
                     <option value="reg4">Región</option>
                     <option value="reg5">Región</option>
                   </select>
-
-                  <div class="form-row">
-                    <label for="zip-code" class="form-row-label-desktop"
-                      >Código Postal:</label
-                    >
-                    <input
-                      type="text"
-                      name="zip-code"
-                      id="zip-code"
-                      placeholder="Ingresa tu codigo postal"
-                      minlength="5"
-                      class="input-text"
-                      required
-                    />
-                  </div>
-                
+                </div>
+                <div class="form-row-cart">
+                  <label for="zip-code" class="form-row-label-desktop"
+                    >Código Postal:</label
+                  >
+                  <input
+                    type="text"
+                    name="zip-code"
+                    id="zip-code"
+                    placeholder="C.P. aquí"
+                    minlength="5"
+                    class="input-text"
+                    required
+                  />
+                </div>
+                <div class="form-row-cart">
+                  <h4>Calcula el costo de tu envío <a href=""><i class="fas fa-truck"></i> </a> </h4>
+                </div>
               </div>
             </form>
           </div>
-          <div class="shopping-cart-taxes"></div>
-          <button type="submit">CHECKOUT</button>
+          <div class="shopping-cart-taxes">
+            <div class="form-row-cart-total">
+              <h3>Subtotal</h3>
+              <h3>$12.00</h3>
+            </div>
+            <div class="form-row-cart-total">
+              <h3>Impuestos</h3>
+              <h3>$0.96</h3>
+            </div>
+            <div class="form-row-cart-total">
+              <h3>Envío</h3>
+              <h3>$3.66</h3>
+            </div>
+            <div class="form-row-cart-total">
+              <h3>TOTAL</h3>
+              <h3>$16.62</h3>
+            </div>
+
+
+            <button type="submit" class="add-to-cart-buttom-pd">CHECKOUT</button>
+          </div>
         </div>
       </section>
     </main>

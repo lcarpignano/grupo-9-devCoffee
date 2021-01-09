@@ -512,10 +512,8 @@ div.breadcrumb-list-pd {
 
 .quiz {
   width: 100%;
-  padding: 0rem 1rem;
-  height: 10vh;
+  height: 13vh;
   font-size: 0.8rem;
-
   background-color: #f4f3ee;
   display: flex;
   flex-direction: column;
@@ -523,21 +521,29 @@ div.breadcrumb-list-pd {
   align-items: center;
 }
 
-.btn-quiz {
-  font-size: 0.8rem;
+.quiz select {
+  width: auto;
+  font-size: 1.2rem;
+}
+
+.submit-quiz {
+  font-size: 1rem;
   font-weight: 600;
   color: #f4f3ee;
   background: #463f3a;
-  padding: 0.3rem 1.4rem;
-  display: inline-block;
-  border-radius: 1rem;
-  text-transform: uppercase;
+  padding: 0.5rem 2rem;
+  border-radius: 5rem;
+  border: none;
   text-decoration: none;
   transition: 0.5s;
+  width: auto;
+  cursor: pointer;
+  margin: 1rem auto;
 }
 
-.btn-quiz:hover {
-  letter-spacing: 0.2rem;
+.submit-quiz:hover {
+  background-color: #e0afa0;
+  color: black;
 }
 
 /* Why */
@@ -1039,8 +1045,13 @@ footer {
   /* Quiz */
 
   .quiz {
+    height: 10vh;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .quiz h3, select {
+    margin: 2rem;
   }
 
   /* Register */

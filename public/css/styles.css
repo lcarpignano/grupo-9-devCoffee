@@ -53,10 +53,10 @@ p {
 }
 
 .btn {
-  border-radius: 1rem;
+  border-radius: 5rem;
   background-color: #e0afa0;
   color: black;
-  padding: 0.5rem 1.2rem;
+  padding: 1.5rem 10rem;
   margin: 0.5rem 0;
   text-decoration: none;
   font-size: 1.4rem;
@@ -927,7 +927,7 @@ footer {
   /* Header */
 
   .fa-bars {
-    display: none;
+    display: none !important; 
   }
 
   .header-nav-right-dkt {

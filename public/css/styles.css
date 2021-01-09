@@ -784,7 +784,7 @@ footer {
   /* Header */
 
   .fa-bars {
-    display: none;
+    display: none !important; 
   }
 
   .header-nav-right-dkt {

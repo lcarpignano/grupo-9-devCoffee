@@ -41,8 +41,8 @@
     </header>
 
     <main class="container">
+      <h2>Carrito de Compras</h2>
       <section class="shopping-cart">
-        <h2>Carrito de Compras</h2>
         <div class="shopping-cart-items-list">
           <div class="shopping-cart-item">
             <img
@@ -72,6 +72,34 @@
               </div>
             </div>
           </div>
+          <div class="shopping-cart-item">
+            <img
+              src="img/productnodewhite.png"
+              class="shopping-cart-item-img"
+            />
+            <div class="shopping-cart-item-description">
+              <h3>Café Node.js</h3>
+              <h4>Tamaño: 250grms</h4>
+              <h4>Tipo de Molienda: Espresso</h4>
+            </div>
+            <div class="shopping-cart-item-pq">
+              <div class="shopping-cart-item-price">
+                <h4>Precio</h4>
+                <h3>$11.00</h3>
+              </div>
+              <div class="shopping-cart-item-quantity">
+                <h4>Cantidad</h4>
+                <input type="number" name="" id="" maxlength="1" />
+              </div>
+              <div class="shopping-cart-item-subtotal">
+                <h4>Subtotal</h4>
+                <h3>$11.00</h3>
+              </div>
+              <div class="shopping-cart-item-trash">
+                <a href=""><i class="fas fa-trash"></i> </a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="shopping-cart-resume">
@@ -82,7 +110,7 @@
                   <label for="country" class="form-row-label-desktop"
                     >Selecciona tu país:</label
                   >
-                  <select name="country" id="country" required>
+                  <select name="country" id="country" class="input-text" required>
                     <option disabled selected>Selecciona una opción...</option>
                     <option value="esp">España</option>
                     <option value="eng">Inglaterra</option>
@@ -95,7 +123,7 @@
                   <label for="state" class="form-row-label-desktop"
                     >Selecciona tu región:</label
                   >
-                  <select name="country" id="country" required>
+                  <select name="state" id="state" class="input-text" required>
                     <option disabled selected>Selecciona una opción...</option>
                     <option value="reg1">Región</option>
                     <option value="reg2">Región</option>
@@ -119,7 +147,7 @@
                   />
                 </div>
                 <div class="form-row-cart">
-                  <h4>Calcula el costo de tu envío <a href=""><i class="fas fa-truck"></i> </a> </h4>
+                  <h4> <a href=""><i class="fas fa-truck"></i> </a> Calcula el costo de tu envío  </h4>
                 </div>
               </div>
             </form>
@@ -127,11 +155,11 @@
           <div class="shopping-cart-taxes">
             <div class="form-row-cart-total">
               <h3>Subtotal</h3>
-              <h3>$12.00</h3>
+              <h3>$23.00</h3>
             </div>
             <div class="form-row-cart-total">
               <h3>Impuestos</h3>
-              <h3>$0.96</h3>
+              <h3>$1.84</h3>
             </div>
             <div class="form-row-cart-total">
               <h3>Envío</h3>
@@ -139,7 +167,7 @@
             </div>
             <div class="form-row-cart-total">
               <h3>TOTAL</h3>
-              <h3>$16.62</h3>
+              <h3>$28.50</h3>
             </div>
 
 

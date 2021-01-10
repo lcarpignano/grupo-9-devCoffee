@@ -255,7 +255,7 @@ header {
 }
 
 .btn-product {
-  font-size: 0.5rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #f4f3ee;
   background: #463f3a;
@@ -524,6 +524,7 @@ div.breadcrumb-list-pd {
 .quiz select {
   width: auto;
   font-size: 1.2rem;
+  border-radius: 0.4rem;
 }
 
 .submit-quiz {
@@ -645,8 +646,8 @@ footer {
 .register-form-container {
   
   max-width: 100rem;
-  margin: 6rem auto 3rem;
-  padding: 4rem 1rem;
+  margin: 6rem auto;
+  padding: 5rem 1rem 3rem;
   background-color: #f4f3ee;
 }
 
@@ -718,6 +719,7 @@ footer {
 
 .shopping-cart-item-pq {
   width: 50%;
+  max-width: 20rem;
   margin: auto;
   display: flex;
 }
@@ -727,6 +729,10 @@ footer {
 }
 .shopping-cart-item-pq h4 {
   margin: 0.2rem;
+}
+
+.shopping-cart-item-trash {
+  padding-top: 0.4rem;
 }
 
 /* Shopcart cart resume */
@@ -891,6 +897,12 @@ footer {
   padding: 1rem;
 }
 
+.collection-sort select {
+  width: auto;
+    font-size: 1.2rem;
+    border-radius: 0.4rem;
+}
+
 .product-box-info p {
   padding: 1rem 3rem;
 }
@@ -1052,7 +1064,8 @@ footer {
     justify-content: center;
     flex-wrap: wrap;
   }
-  .quiz h3, select {
+  .quiz h3, 
+  .quiz select {
     margin: 2rem;
   }
 

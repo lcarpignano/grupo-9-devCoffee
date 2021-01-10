@@ -963,6 +963,7 @@ footer {
   .product-box {
     flex: 1 0 31%;
     margin: 0.5rem;
+    transition: all 450ms;
   }
 
   /* ---Product Detail--- */
@@ -972,10 +973,11 @@ footer {
     align-items: center;
     max-width: 120rem;
     margin: auto;
+    width: 100%;
   }
 
   .product-conteiner-pd {
-    width: auto;
+    width: 60%;
   }
 
   .product-title-pd {
@@ -987,10 +989,6 @@ footer {
   .product-title-pd h2 {
     margin-right: 1.5rem;
     font-size: 4.5rem;
-  }
-
-  .product-image-pd img {
-    max-width: 80rem;
   }
 
   .product-description-pd {
@@ -1008,11 +1006,11 @@ footer {
 
   .form-container-pd {
     margin: 3rem auto;
+    width: 40%;
   }
 
   .product-image-pd img {
-    width: auto;
-    margin: auto;
+    margin: 0;
     max-width: 80rem;
   }
 

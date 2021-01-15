@@ -1,53 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/36e5dd7a28.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/styles.css" />
-    <title>Document</title>
-  </head>
+  
+<%- include('./partials/head.ejs') %> 
+
   <body>
-    <header>
-      <div class="header-nav">
-        <i class="fas fa-bars icon"></i>
-
-        <a href="/" class="logo"
-          ><i class="icon fas fa-file-code"></i> Coffee Break</a
-        >
-
-        <div class="header-nav-right">
-          <div class="header-nav-right-dkt">
-            <div class="header-nav-bar">
-              <a href="/login">Ingresa</a>
-              <a href="/register">Crea tu cuenta</a>
-              <a href="/catalogo">Nuestros Cafés</a>
-            </div>
-            <div class="header-nav-search-bar">
-              <input type="search" name="search" id="search" />
-              <button type="submit"><i class="fas fa-search"></i></button>
-            </div>
-          </div>
-          <div class="header-nav-right-icons">
-            <a href="/shopping-cart"><i class="icon fas fa-shopping-cart"></i> </a>
-
-            <i class="fab fa-instagram icon"></i>
-          </div>
-        </div>
-      </div>
-    </header>
+   
+    <%- include('./partials/header.ejs') %> 
 
     <main>
       <section>
@@ -172,17 +130,7 @@
       </section>
     </main>
 
-    <footer>
-      <div class="footer-block">
-        <nav class="footer-nav">
-          <a href="">Terminos y Condiciones</a>
-          <a href="">Políticas de Privacidad</a>
-        </nav>
-        <p>
-          Coffee Break<i class="far fa-registered"></i> 2021. Todos los derechos
-          reservados.
-        </p>
-      </div>
-    </footer>
+    <%- include('./partials/footer.ejs') %> 
+
   </body>
 </html>

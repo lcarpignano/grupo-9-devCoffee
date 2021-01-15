@@ -11,13 +11,13 @@ app.use('/', mainRouter);
 
 
 const userRouter = require('./routes/userRouter')
-app.use('/register', userRouter);
-app.use('/login', userRouter);
+app.use('/user', userRouter);
+app.use('/user', userRouter);
 
 
 const productRouter = require('./routes/productRouter')
-app.use('/catalog', productRouter);
-app.use('/shoppingCart',productRouter);
+app.use('/product', productRouter);
+app.use('/product',productRouter);
 app.use('/product', productRouter);
 
 

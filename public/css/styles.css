@@ -725,6 +725,27 @@ footer {
   background-color: #6f6f6f80;
 }
 
+
+/* CReate and Edit */
+
+.file-upload {
+  width: 8rem;
+  height: 4rem;
+  padding: 0.5rem 0.8rem;
+  margin: 0.5rem;
+  background-color: #6f6f6f80;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+#actual-btn {
+  height: 2.6rem;
+}
+
+
+
 /* ---------------------------------------- */
 /* ---------shopping cart page ------------ */
 /* ---------------------------------------- */

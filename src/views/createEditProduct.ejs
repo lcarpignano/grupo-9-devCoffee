@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-  <%- include('./partials/head.ejs') %> 
+  <%- include('./partials/head.ejs') %>
 
   <body>
-    <%- include('./partials/header.ejs') %> 
+    <%- include('./partials/header.ejs') %>
 
     <main>
       <section>
@@ -14,16 +13,18 @@
             <i class="far fa-smile-wink"></i>
           </h2>
           <h3>y modificar el catálago.</h3>
-          
         </div>
       </section>
 
       <section class="container">
-        <form action="../database/coffees.js?_method=PUT" method="POST" class="register-form-container">
+        <form
+          action="../database/coffees.json?_method=PUT"
+          method="POST"
+          class="register-form-container"
+        >
           <div class="register-inputs-text">
             <div class="form-row">
-              <label for="name">Nombre del Café:
-              </label>
+              <label for="name">Nombre del Café: </label>
               <input
                 type="text"
                 name="name"
@@ -34,9 +35,7 @@
               />
             </div>
             <div class="form-row">
-              <label for="description"
-                >Descripción del café:</label
-              >
+              <label for="description">Descripción del café:</label>
               <input
                 type="textarea"
                 name="description"
@@ -47,12 +46,8 @@
               />
             </div>
 
-
-            
-
             <div class="form-row">
-              <label for="price">Precio del Café:
-              </label>
+              <label for="price">Precio del Café: </label>
               <input
                 type="number"
                 name="price"
@@ -65,35 +60,19 @@
 
             <div class="form-row">
               <input
-              class="input-text hidden"
-              type="file"
-              name="photo"
-              id="actual-btn"
-              accept=".jpg .png"
-              multiple
-              required
-              
+                class="input-text hidden"
+                type="file"
+                name="photo"
+                id="actual-btn"
+                accept=".jpg .png"
+                multiple
+                required
               />
               <label for="photo">Foto del café:</label>
               <label for="actual-btn" class="file-upload input-text"
                 >Elige la foto</label
               >
             </div>
-
-
-
-
-
-
-          
-
-   
-
-           
-           
-            
-
-            
           </div>
 
           <div class="form-row-buttons">
@@ -103,7 +82,6 @@
       </section>
     </main>
 
-    <%- include('./partials/footer.ejs') %> 
-
+    <%- include('./partials/footer.ejs') %>
   </body>
 </html>

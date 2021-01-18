@@ -1,7 +1,6 @@
-const coffees = require('../database/coffees');
+const fs = require('fs');
 
 module.exports = {
-  coffees: coffees,
   product: (req, res) => {
     res.render("product");
   },
@@ -15,14 +14,19 @@ module.exports = {
     res.render("createEditProduct");
   },
   CreateProduct: (req, res) => {
-    let product = {
+    let coffee = {
       id: (coffees.length + 2),
       name: req.body.name,
       photo: req.body.photo,
       description: req.body.description,
       price: "$ " + req.body.price,
     }
-    coffees.push(product);
+    let coffees = fs.readFileSync('../database/coffees.json', 'utf-8');
+    let coffeesJson = JSON.parse(coffees);
+    coffeesJson.push(coffee);
+
+    coffees = JSON.stringify(coffeesJson);
+    fs.writeFileSync('../database/coffees.json', coffees);
 
     res.redirect("createEditProduct");
   },

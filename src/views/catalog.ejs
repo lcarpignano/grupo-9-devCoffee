@@ -31,23 +31,24 @@
             <div class="collection-sort">
               <label>Filter by:</label>
               <select>
-                <option value="/">Todos los cafés</option>
-                <option value="/">HTML</option>
-                <option value="/">Javascript</option>
-                <option value="/">Node</option>
-                <option value="/">JAVA</option>
-                <option value="/">python</option>
-                <option value="/">PHP</option>
+                
+                <option value="/" >Todos los cafés</option>
+                <% products.forEach(coffee => { %> 
+                <option value="/"> <%= coffee.name %> </option>
+              
+                <% }); %>
               </select>
             </div>
         
             <div class="collection-sort">
               <label>Sort by:</label>
               <select>
+                
                 <option value="/">Recomendados</option>
                 <option value="/">Suave</option>
                 <option value="/">Intenso</option>
                 <option value="/">Moderado</option>
+                
               </select>
             </div>
         
@@ -58,83 +59,23 @@
 
       <section>
         <div class="product-products">
+          <% products.forEach(coffee => { %> 
           <article class="product-box">
             <div class="product-box-image">
-              <img src="/img/producthtmltwhite.png"/>
+                
+              <img src= <%= coffee.photo %>   />
             </div>
             <div class="product-box-info">
               <i class="fab fa-css3-alt"></i>
-              <h2 class="product-title">Café HTML + CSS</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
-              <h3>$99.99</h3>
+              <h2 class="product-title"> <%= coffee.name %>  </h2>
+              <p> <%= coffee.description %> </p>
+                 <h3>$<%= Number(coffee.price).toFixed(2)  %></h3>
               <a href="/product/product" class="btn-product">agregar al carrito</a>
             </div>
           </article>
+          <% }); %>
 
-          <article class="product-box">
-            <div class="product-box-image">
-              <img src="/img/productjavascriptwhite.png" />
-            </div>
-            <div class="product-box-info">
-              <i class="fab fa-js"></i>
-              <h2 class="product-title">Café Javascript</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
-              <h3>$99.99</h3>
-              <a href="/product/product" class="btn-product">agregar al carrito</a>
-            </div>
-          </article>
-
-          <article class="product-box">
-            <div class="product-box-image">
-              <img src="/img/productnodewhite.png" />
-            </div>
-            <div class="product-box-info">
-              <i class="fab fa-node"></i>
-              <h2 class="product-title">Café Node.js</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
-              <h3>$99.99</h3>
-              <a href="/product/product" class="btn-product">agregar al carrito</a>
-            </div>
-          </article>
-
-          <article class="product-box">
-            <div class="product-box-image">
-              <img src="/img/productpythonwhite.png" />
-            </div>
-            <div class="product-box-info">
-              <i class="fab fa-python"></i>
-              <h2 class="product-title">Café python</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
-              <h3>$99.99</h3>
-              <a href="/product/product" class="btn-product">agregar al carrito</a>
-            </div>
-          </article>
-
-          <article class="product-box">
-            <div class="product-box-image">
-              <img src="/img/productjavawhite.png" />
-            </div>
-            <div class="product-box-info">
-              <i class="fab fa-java"></i>
-              <h2 class="product-title">Café Java</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
-              <h3>$99.99</h3>
-              <a href="/product/product" class="btn-product">agregar al carrito</a>
-            </div>
-          </article>
-
-          <article class="product-box">
-            <div class="product-box-image">
-              <img src="/img/productphpwhite.png" />
-            </div>
-            <div class="product-box-info">
-              <i class="fab fa-php"></i>
-              <h2 class="product-title">Café PHP</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.</p>
-              <h3>$99.99</h3>
-              <a href="/product/product" class="btn-product">agregar al carrito</a>
-            </div>
-          </article>
+         
         </div>
       </section>
       <section>

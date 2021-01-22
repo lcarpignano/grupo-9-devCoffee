@@ -1,81 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-  <%- include('./partials/head.ejs') %> 
+  <%- include('../partials/head.ejs') %>
 
   <body>
-    <%- include('./partials/header.ejs') %> 
+    <%- include('../partials/header.ejs') %>
 
     <main>
       <section>
-        <section>
-          <div>
-            <div class="intro-products">
-              <h2>
-                Es hora de tomar un break
-                <i class="far fa-smile-wink"></i>
-              </h2>
-              
-            </div>
-          </div>
+        <div class="intro-products">
+          <h2>
+            Es hora de tomar un break
+            <i class="far fa-smile-wink"></i>
+          </h2>
+        </div>
 
-        </section>
-
-        <section>
         <nav class="product-filter">
-
           <h2>Elige el lenguaje de café que quieras</h2>
-        
+
           <div class="sort">
-        
             <div class="collection-sort">
               <label>Filter by:</label>
               <select>
-                
-                <option value="/" >Todos los cafés</option>
-                <% products.forEach(coffee => { %> 
-                <option value="/"> <%= coffee.name %> </option>
-              
+                <option value="/">Todos los cafés</option>
+                <% products.forEach(coffee => { %>
+                <option value="/"><%= coffee.name %></option>
+
                 <% }); %>
               </select>
             </div>
-        
+
             <div class="collection-sort">
               <label>Sort by:</label>
               <select>
-                
                 <option value="/">Recomendados</option>
                 <option value="/">Suave</option>
                 <option value="/">Intenso</option>
                 <option value="/">Moderado</option>
-                
               </select>
             </div>
-        
           </div>
-        
         </nav>
       </section>
 
       <section>
         <div class="product-products">
-          <% products.forEach(coffee => { %> 
+          <% products.forEach(coffee => { %>
           <article class="product-box">
             <div class="product-box-image">
-                
-              <img src= <%= coffee.photo %>   />
+              <img src="<%= coffee.photo %>" alt="">
+              
             </div>
             <div class="product-box-info">
               <i class="fab fa-css3-alt"></i>
-              <h2 class="product-title"> <%= coffee.name %>  </h2>
-              <p> <%= coffee.description %> </p>
-                 <h3>$<%= Number(coffee.price).toFixed(2)  %></h3>
-              <a href="/product/product" class="btn-product">agregar al carrito</a>
+              <h2 class="product-title"><%= coffee.name %></h2>
+              <p><%= coffee.description %></p>
+              <h3>$<%= Number(coffee.price).toFixed(2) %></h3>
+              <a href="/products/detail" class="btn-product">
+                agregar al carrito </a>
+              
             </div>
           </article>
           <% }); %>
-
-         
         </div>
       </section>
       <section>
@@ -88,9 +73,8 @@
               <option value="Option 2">Americano</option>
               <option value="Option 3">Latte</option>
             </select>
-            <button type="submit" class="submit-quiz">
-              Enviar</button>      
-            </div>
+            <button type="submit" class="submit-quiz">Enviar</button>
+          </div>
         </div>
       </section>
       <section>
@@ -99,13 +83,12 @@
             <p class="tagline">
               Somos desarrolladores<br />haciendo café para desarrolladores.
             </p>
-            <a href="/product/product" class="btn">Quiero mi café</a>
+            <a href="/products/detal" class="btn">Quiero mi café</a>
           </div>
         </div>
       </section>
     </main>
 
-    <%- include('./partials/footer.ejs') %> 
-    
+    <%- include('../partials/footer.ejs') %>
   </body>
 </html>

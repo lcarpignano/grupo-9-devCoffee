@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+
+  <body>
+    <%- include('../partials/header.ejs') %>
+
+    <main>
+      <section>
+        <div class="intro-products">
+          <h2>
+            Es hora de tomar un break
+            <i class="far fa-smile-wink"></i>
+          </h2>
+          <h3>y modificar el catálago.</h3>
+        </div>
+      </section>
+
+      <section class="container">
+        <form
+          action="/users/<%= product.id %>?_method=PUT"
+          method="POST"
+          class="register-form-container"
+        >
+          <div class="register-inputs-text">
+            <div class="form-row">
+              <label for="name">Nombre del Café: </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value="<%= product.name %>"
+                class="input-text"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <label for="description">Descripción del café:</label>
+              <input
+                type="textarea"
+                name="description"
+                id="description"
+                value="<%= product.description %>"
+                class="input-text"
+                required
+              />
+            </div>
+
+            <div class="form-row">
+              <label for="price">Precio del Café: </label>
+              <input
+                type="number"
+                name="price"
+                id="price"
+                value="<%= product.price %>"
+                class="input-text"
+                required
+              />
+            </div>
+
+            <div class="form-row">
+              <input
+                class="input-text hidden"
+                type="file"
+                name="photo"
+                id="actual-btn"
+                accept=".jpg .png"
+                multiple
+                required
+              />
+              <label for="photo">Foto del café:</label>
+              <label for="actual-btn" class="file-upload input-text"
+                >Elige la foto</label
+              >
+            </div>
+          </div>
+
+          <div class="form-row-buttons">
+            <button type="submit" class="input-text">Enviar</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

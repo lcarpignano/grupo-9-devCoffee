@@ -1,34 +1,33 @@
 const fs = require("fs");
 const path = require('path');
-
-let products = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/coffees.json'), 'utf-8'));
-
+const jsonPath = path.join(__dirname, '../database/coffees.json');
+let products = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
 
 module.exports = {
   catalog: (req, res) => {
     res.render("products/catalog", { products });
   },
-  create: (req, res) => {
-    res.render("products/create");
-  },
   show: (req, res) => {
     let product = products.find((product) => product.id == req.params.id);
-
     if (product) {
       res.render("products/detail", { product });
     } else {
       res.render("products/catalog");
     }
   },
+  create: (req, res) => {
+    res.render("products/create");
+  },
   store: (req, res) => {
     let product = req.body;
     products.push(product);
-
-    let productsJson = JSON.stringify(products, null, " ");
-    fs.writeFileSync(jsonPath, productsJson);
-
-    res.send(req.body);
+    
+    fs.writeFileSync(jsonPath, JSON.stringify(products, null, " "));
+    
+    res.redirect('/products/catalog');
   },
+  
+  
   edit: (req, res) => {
     let product = products.find((product) => product.id == req.params.id);
 

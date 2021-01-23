@@ -12,13 +12,13 @@
             Es hora de tomar un break
             <i class="far fa-smile-wink"></i>
           </h2>
-          <h3>y modificar el catálago.</h3>
+          <h3>y sumar otro producto al catálogo.</h3>
         </div>
       </section>
 
       <section class="container">
         <form
-          action="/createEditProduct"
+          action="/products/create"
           method="POST"
           class="register-form-container"
         >
@@ -45,7 +45,6 @@
                 required
               />
             </div>
-
             <div class="form-row">
               <label for="price">Precio del Café: </label>
               <input
@@ -57,7 +56,6 @@
                 required
               />
             </div>
-
             <div class="form-row">
               <input
                 class="input-text hidden"
@@ -76,7 +74,7 @@
           </div>
 
           <div class="form-row-buttons">
-            <button type="submit" class="input-text">Enviar</button>
+            <button type="submit" class="input-text">Crear Producto</button>
           </div>
         </form>
       </section>

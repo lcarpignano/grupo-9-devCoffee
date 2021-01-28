@@ -2,12 +2,14 @@
  {
   "id": 1,
   "name": "Café HTML + CSS",
+  "logo": "fab fa-html5",
   "photo": "/img/producthtmltwhite.png",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
   "price": 10
  },
  {
   "name": "Café Javascript",
+  "logo": "fab fa-js-square",
   "description": "Mauro x 2!, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
   "price": "12",
   "id": 2,
@@ -16,6 +18,7 @@
  {
   "id": 3,
   "name": "Café Node.js",
+  "logo": "fab fa-node-js",
   "photo": "/img/productnodewhite.png",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
   "price": 10
@@ -23,6 +26,7 @@
  {
   "id": 4,
   "name": "Café python",
+  "logo": "fab fa-python",
   "photo": "/img/productpythonwhite.png",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
   "price": 10.5
@@ -30,6 +34,7 @@
  {
   "id": 5,
   "name": "Café Java",
+  "logo": "fab fa-java",
   "photo": "/img/productjavawhite.png",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
   "price": 11
@@ -37,12 +42,14 @@
  {
   "id": 6,
   "name": "Café PHP",
+  "logo": "fab fa-php",
   "photo": "/img/productphpwhite.png",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
   "price": 9
  },
  {
   "name": "C++",
+  "logo": " ",
   "description": "Cafe de Nicaragua y Arevalo",
   "price": "23",
   "photo": "/img/product-1611792104560.jpg",
@@ -50,9 +57,10 @@
  },
  {
   "name": "Ruby",
-  "description": "Algo riquis",
+  "logo": " ",
+  "description": "Algo riquis Mauro x 2 ",
   "price": "13",
-  "photo": "/img/product-1611792299305.jpg",
-  "id": 8
+  "id": 8,
+  "photo": "/img/product-1611792299305.jpg"
  }
 ]

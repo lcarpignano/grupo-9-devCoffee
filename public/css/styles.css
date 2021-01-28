@@ -710,7 +710,7 @@ footer {
 }
 
 .form-row-buttons {
-  margin: 2rem auto 0rem;
+  margin: -3rem auto 0rem;
   display: flex;
   justify-content: center;
   padding: 1rem 0rem;

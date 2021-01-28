@@ -1,41 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/36e5dd7a28.js"
-      crossorigin="anonymous"
-    ></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/styles.css" />
-    <title>Document</title>
-  </head>
+  <%- include('../partials/head.ejs') %>
+
   <body>
     <header>
       <div class="header-nav">
         <i class="fas fa-bars icon"></i>
 
         <a href="/" class="logo"
-        ><i class="icon fas fa-file-code"></i> Coffee Break</a
-      >
+          ><i class="icon fas fa-file-code"></i> Coffee Break</a
+        >
 
         <div class="header-nav-right">
           <div class="header-nav-right-dkt">
             <div class="header-nav-bar"></div>
             <div class="header-nav-search-bar"></div>
           </div>
-          <div class="header-nav-right-icons">
-            
-          </div>
+          <div class="header-nav-right-icons"></div>
         </div>
       </div>
     </header>
@@ -45,52 +26,61 @@
       <section class="shopping-cart">
         <div class="shopping-cart-items-list">
           <div class="shopping-cart-item">
-            <img
-              src="img/producthtmltwhite.png"
-              class="shopping-cart-item-img"
-            />
-            <div class="shopping-cart-item-description">
-              <h3>Café HTML + CSS</h3>
-              <h4>Tamaño: 250grms</h4>
-              <h4>Tipo de Molienda: Espresso</h4>
-            </div>
-            <div class="shopping-cart-item-pq">
-              <div class="shopping-cart-item-price">
-                <h4>Precio</h4>
-                <h3>$12.00</h3>
+            <div class="shopping-cart-item-card">
+              <div class="shopping-cart-item-img-dscrptn">
+                <img
+                  src="/img/producthtmltwhite.png"
+                  class="shopping-cart-item-img"
+                />
+                <div class="shopping-cart-item-description">
+                  <h3>Café HTML + CSS</h3>
+                  <h4>Tamaño: 250grms</h4>
+                  <h4>Tipo de Molienda: Espresso</h4>
+                </div>
               </div>
-              <div class="shopping-cart-item-quantity">
-                <h4>Cantidad</h4>
-                <input type="number" name="" id="" maxlength="1" />
-              </div>
-              
-              <div class="shopping-cart-item-trash">
-                <a href=""><i class="fas fa-trash"></i> </a>
+              <div class="shopping-cart-item-pq">
+                <div class="shopping-cart-item-price">
+                  <h4>Precio</h4>
+                  <h3>$12.00</h3>
+                </div>
+                <div class="shopping-cart-item-quantity">
+                  <h4>Cantidad</h4>
+                  <input type="number" name="" id="" maxlength="1" />
+                </div>
+
+                <div class="shopping-cart-item-trash">
+                  <a href=""><i class="fas fa-trash"></i> </a>
+                </div>
               </div>
             </div>
           </div>
           <div class="shopping-cart-item">
-            <img
-              src="img/productnodewhite.png"
-              class="shopping-cart-item-img"
-            />
-            <div class="shopping-cart-item-description">
-              <h3>Café Node.js</h3>
-              <h4>Tamaño: 250grms</h4>
-              <h4>Tipo de Molienda: Espresso</h4>
-            </div>
-            <div class="shopping-cart-item-pq">
-              <div class="shopping-cart-item-price">
-                <h4>Precio</h4>
-                <h3>$11.00</h3>
+            <div class="shopping-cart-item-card">
+              <div class="shopping-cart-item-img-dscrptn">
+                <img
+                  src="/img/productnodewhite.png"
+                  class="shopping-cart-item-img"
+                />
+                <div class="shopping-cart-item-description">
+                  <h3>Café Node.js</h3>
+                  <h4>Tamaño: 250grms</h4>
+                  <h4>Tipo de Molienda: Espresso</h4>
+                </div>
               </div>
-              <div class="shopping-cart-item-quantity">
-                <h4>Cantidad</h4>
-                <input type="number" name="" id="" maxlength="1" />
-              </div>
-              
-              <div class="shopping-cart-item-trash">
-                <a href=""><i class="fas fa-trash"></i> </a>
+
+              <div class="shopping-cart-item-pq">
+                <div class="shopping-cart-item-price">
+                  <h4>Precio</h4>
+                  <h3>$11.00</h3>
+                </div>
+                <div class="shopping-cart-item-quantity">
+                  <h4>Cantidad</h4>
+                  <input type="number" name="" id="" maxlength="1" />
+                </div>
+
+                <div class="shopping-cart-item-trash">
+                  <a href=""><i class="fas fa-trash"></i> </a>
+                </div>
               </div>
             </div>
           </div>
@@ -104,7 +94,12 @@
                   <label for="country" class="form-row-label-desktop"
                     >Selecciona tu país:</label
                   >
-                  <select name="country" id="country" class="input-text" required>
+                  <select
+                    name="country"
+                    id="country"
+                    class="input-text"
+                    required
+                  >
                     <option disabled selected>Selecciona una opción...</option>
                     <option value="esp">España</option>
                     <option value="eng">Inglaterra</option>
@@ -141,7 +136,10 @@
                   />
                 </div>
                 <div class="form-row-cart">
-                  <h4> <a href=""><i class="fas fa-truck"></i> </a> Calcula el costo de tu envío  </h4>
+                  <h4>
+                    <a href=""><i class="fas fa-truck"></i> </a> Calcula el
+                    costo de tu envío
+                  </h4>
                 </div>
               </div>
             </form>
@@ -164,8 +162,9 @@
               <h3>$28.50</h3>
             </div>
 
-
-            <button type="submit" class="add-to-cart-buttom-pd">CHECKOUT</button>
+            <button type="submit" class="add-to-cart-buttom-pd">
+              CHECKOUT
+            </button>
           </div>
         </div>
       </section>
@@ -173,10 +172,6 @@
 
     <footer>
       <div class="footer-block">
-        <nav class="footer-nav">
-          <a href="">Terminos y Condiciones</a>
-          <a href="">Políticas de Privacidad</a>
-        </nav>
         <p>
           Coffee Break<i class="far fa-registered"></i> 2021. Todos los derechos
           reservados.

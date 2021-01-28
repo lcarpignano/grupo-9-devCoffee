@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+
+  <body>
+    <%- include('../partials/header.ejs') %>
+
+    <main>
+      <section>
+        <div class="intro-products">
+          <h2>
+            Es hora de tomar un break
+            <i class="far fa-smile-wink"></i>
+          </h2>
+          <h3>y modificar el registro.</h3>
+        </div>
+      </section>
+
+      <section class="container">
+        <form
+          method="POST"
+          enctype="multipart/form-data"
+          action="/users/<%= user.id %>?_method=PUT"
+          class="register-form-container"
+        >
+          <div class="register-inputs-text">
+            <div class="form-row">
+              <label for="name">Nombre y Apellido: </label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value="<%= user.first_name %> <%= user.last_name %>"
+                class="input-text"
+                required
+              />
+            </div>
+            <div class="form-row">
+              <label for="user-name">Nombre de usuari@:</label>
+              <input
+                type="text"
+                name="user-name"
+                id="user-name"
+                value="<%= user.nick_name %>"
+                class="input-text"
+                required
+              />
+            </div>
+
+            <div class="form-row">
+              <label for="mail">Correo Electrónico: </label>
+              <input
+                type="email"
+                name="mail"
+                id="mail"
+                value="<%= user.email %>"
+                class="input-text"
+                required
+              />
+            </div>
+
+            
+
+            <div class="form-row">
+              <label for="password">Contraseña:</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Ingresa tu contraseña"
+                minlength="8"
+                class="input-text"
+                required
+              />
+            </div>
+            
+            <div class="form-row">
+              <label for="birth">Fecha de nacimiento:</label>
+              <input type="date" name="birth" id="birth" class="input-text" />
+            </div>
+
+            <div class="form-row">
+              <label for="adress">Domicilio:</label>
+              <input
+                type="text"
+                name="adress"
+                id="adress"
+                value="<%= user.birth_date %>"
+                class="input-text"
+              />
+            </div>
+          </div>
+
+          <div class="form-row-buttons">
+            <button type="submit" class="input-text">Modificar</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

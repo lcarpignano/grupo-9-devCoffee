@@ -1,81 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="/img/font/flaticon.css" />
-    <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
-    rel="stylesheet"
-    />
-    <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap"
-    rel="stylesheet"
-    />
-    <script
-      src="https://kit.fontawesome.com/36e5dd7a28.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/styles.css" />
-    <title>Document</title>
-  </head>
+ 
+  <%- include('../partials/head.ejs') %> 
+
   <body>
-    <header>
-      <div class="header-nav">
-        <i class="fas fa-bars icon"></i>
-
-        <a href="/" class="logo"
-          ><i class="icon fas fa-file-code"></i> Coffee Break</a
-        >
-
-        <div class="header-nav-right">
-          <div class="header-nav-right-dkt">
-            <div class="header-nav-bar">
-              <a href="/login">Ingresa</a>
-              <a href="/register">Crea tu cuenta</a>
-              <a href="/catalogo">Nuestros Cafés</a>
-            </div>
-            <div class="header-nav-search-bar">
-              <input type="search" name="search" id="search" />
-              <button type="submit"><i class="fas fa-search"></i></button>
-            </div>
-          </div>
-          <div class="header-nav-right-icons">
-            <a href="/shopping-cart"><i class="icon fas fa-shopping-cart"></i> </a>
-
-            <i class="fab fa-instagram icon"></i>
-          </div>
-        </div>
-      </div>
-    </header>
+    <%- include('../partials/header.ejs') %> 
     <main>
       <div class="conteiner-main-pd">
         <div class="breadcrumb-list-pd">
-          <p>Café > HTML + CSS</p>
+          <p>Café <%= product.name %>  </p>
         </div>
 
         <div class="desktop-product-container-pd">
           <section class="product-conteiner-pd">
             <div class="product-image-pd">
-              <img src="/img/producthtmltwhite.png" alt="html css coffee" />
+              <img src="<%= product.photo %>" alt="html css coffee" />
             </div>
           </section>
           <section class="form-container-pd">
             <div class="product-description-pd">
               <div class="product-title-pd">
                 <i class="fab fa-html5"></i>
-                <h2>HTML + CSS</h2>
+                <h2><%= product.name %></h2>
               </div>
               <div class="product-details-pd">
                 <h3>Café con estructura y estilo</h3>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad
-                  animi harum tenetur iusto sunt distinctio facere illo, eius,
-                  suscipit, velit earum quidem est quas maiores vitae?
-                  Perspiciatis voluptatibus veritatis doloremque?
+                  <%= product.description %>
                 </p>
-                <h3>$99.99/kg</h3>
+                <h3>$ <%= Number(product.price).toFixed(2) %></h3>
               </div>
             </div>
             <form action="" method="POST" class="form-pd">
@@ -190,7 +143,7 @@
                 <a href="#" class="suscription-button-pd"> SUSCRIBIRME </a>
               </div>
               <div class="add-to-cart-buttom-conteiner-pd">
-                 <a href="/shopping-cart"> <button type="submit" class="add-to-cart-buttom-pd">
+                 <a href="/product/shoppingCart"> <button type="submit" class="add-to-cart-buttom-pd">
                   AGREGAR AL CARRITO <i class="fas fa-cart-plus"></i>
                 </button></a>
               </div>
@@ -204,7 +157,7 @@
             <div class="product-products">
               <article class="product-box">
                 <div class="product-box-image">
-                  <img src="img/productpythonwhite.png" />
+                  <img src="/img/productpythonwhite.png" />
                 </div>
                 <div class="product-box-info">
                   <i class="fab fa-python"></i>
@@ -240,7 +193,7 @@
 
               <article class="product-box">
                 <div class="product-box-image">
-                  <img src="img/productnodewhite.png" />
+                  <img src="/img/productnodewhite.png" />
                 </div>
                 <div class="product-box-info">
                   <i class="fab fa-node"></i>
@@ -260,17 +213,8 @@
         </section>
       </div>
     </main>
-    <footer>
-      <div class="footer-block">
-        <nav class="footer-nav">
-          <a href="">Terminos y Condiciones</a>
-          <a href="">Políticas de Privacidad</a>
-        </nav>
-        <p>
-          Coffee Break<i class="far fa-registered"></i> 2021. Todos los derechos
-          reservados.
-        </p>
-      </div>
-    </footer>
+    
+    <%- include('../partials/footer.ejs') %> 
+
   </body>
 </html>

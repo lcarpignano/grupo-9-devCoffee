@@ -725,6 +725,27 @@ footer {
   background-color: #6f6f6f80;
 }
 
+
+/* CReate and Edit */
+
+.file-upload {
+  width: 8rem;
+  height: 4rem;
+  padding: 0.5rem 0.8rem;
+  margin: 0.5rem;
+  background-color: #6f6f6f80;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+#actual-btn {
+  height: 2.6rem;
+}
+
+
+
 /* ---------------------------------------- */
 /* ---------shopping cart page ------------ */
 /* ---------------------------------------- */
@@ -734,6 +755,10 @@ footer {
 .shopping-cart {
   border-top: solid #8a817c 0.1rem;
   border-bottom: solid #8a817c 0.1rem;
+}
+
+.shopping-cart-items-list {
+  width: 60%;
 }
 
 .shopping-cart-item {
@@ -748,15 +773,32 @@ footer {
   border-bottom: none;
 }
 
+.shopping-cart-item-card {
+  width: 100%;
+  max-width: 40rem;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.shopping-cart-item-img-dscrptn{
+  width: 100%;
+  display: flex;
+  
+
+}
+
+
+
 .shopping-cart-item-img {
-  width: 35%;
+  width: 33%;
   max-width: 15rem;
 }
 
 .shopping-cart-item-pq {
-  width: 50%;
-  max-width: 20rem;
-  margin: auto;
+  width: 100%;
+  max-width: 35rem;
+  margin: 0rem 0rem 0rem 33%;
   display: flex;
 }
 
@@ -781,7 +823,7 @@ footer {
 .shopping-cart-item-price,
 .shopping-cart-item-quantity,
 .shopping-cart-item-subtotal {
-  margin: 0rem 0.5rem;
+  margin: 0rem 1rem 0rem 0rem;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -1,56 +1,68 @@
-const fs = require("fs");
-const path = require("path");
-const jsonPath = path.join(__dirname, "../database/users.json");
-let users = JSON.parse(fs.readFileSync(jsonPath, "utf-8"));
+const fs = require('fs');
+const path = require('path');
+const jsonTable = require('../database/jasonTable');
+const usersTable = jsonTable('users');
 
 module.exports = {
+  index: (req, res) => {
+    let users = usersTable.all()
+    
+    res.render('users/index', { users });
+},
   register: (req, res) => {
     res.render("users/register");
   },
   store: (req, res) => {
-    users.push(user);
-    fs.writeFileSync(jsonPath, JSON.stringify(users, null, " "));
+    let user = req.body;
 
-    res.send(req.body);
+        if (req.file) {
+            user.image = req.file.filename;
+        } else {
+            res.send('La imagen es obligatoria');
+        }
+        
+        let userId = usersTable.create(user);
+        
+        res.redirect('/users/' + userId);
+    
   },
   show: (req, res) => {
-    let user = users.find((user) => user.id == req.params.id);
+    let user = usersTable.find(req.params.id);
 
-    if (user) {
-      res.send(user);
-    } else {
-      res.send("No encontré el usuario");
-    }
+        if ( user ) {
+            res.render('users/detail', { user });
+        } else {
+            res.send('No encontré el usuario');
+        }
   },
   edit: (req, res) => {
-    let user = users.find((user) => user.id == req.params.id);
+    let user = usersTable.find(req.params.id);
 
-    res.render('users/edit', { user });
+        res.render('users/edit', { user });
   },
   update: (req, res) => {
-    let updatedUser = req.body;
-    updatedUser.id = Number(req.params.id);
+    let user = req.body;
+    user.id = Number(req.params.id);
 
-    let updatedUsers = users.map((user) => {
-      if (user.id == req.params.id) {
-        return updatedUser;
-      } else {
-        return user;
-      }
-    });
+    // Si viene una imagen nueva la guardo
+    if (req.file) {
+        user.image = req.file.filename;
+    // Si no viene una imagen nueva, busco en base la que ya había
+    } else {
+        oldUser = usersTable.find(user.id);
+        user.image = oldUser.image;
+    }
 
-    let usersJson = JSON.stringify(updatedUsers, null, " ");
-    fs.writeFileSync(jsonPath, usersJson);
+    let userId = usersTable.update(user);
 
-    res.send(user);
+    res.redirect('/users/' + userId);
   },
   destroy: (req, res) => {
-    let updatedUsers = users.filter((user) => user.id != req.params.id);
+    let users = usersTable.all()
 
-    let usersJson = JSON.stringify(updatedUsers, null, " ");
-    fs.writeFileSync(jsonPath, usersJson);
+        usersTable.delete(req.params.id);
 
-    res.send(user);
+        res.redirect('/users');
   },
 
   login: (req, res) => {

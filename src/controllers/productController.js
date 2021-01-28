@@ -1,71 +1,71 @@
 const fs = require("fs");
-const path = require('path');
-const jsonPath = path.join(__dirname, '../database/coffees.json');
-let products = JSON.parse(fs.readFileSync(jsonPath, 'utf-8'));
+const path = require("path");
+const jsonTable = require("../database/jasonTable");
+const productsTable = jsonTable("coffees");
 
 module.exports = {
   catalog: (req, res) => {
+    let products = productsTable.all();
     res.render("products/catalog", { products });
   },
+
   show: (req, res) => {
-    let product = products.find((product) => product.id == req.params.id);
+    let product = productsTable.find(req.params.id);
     if (product) {
       res.render("products/detail", { product });
     } else {
       res.render("products/catalog");
     }
   },
+
   create: (req, res) => {
     res.render("products/create");
   },
+
   store: (req, res) => {
     let product = req.body;
-    products.push(product);
-    
-    fs.writeFileSync(jsonPath, JSON.stringify(products, null, " "));
-    
-    res.redirect('/products/catalog');
+    if (req.file) {
+      product.photo = '/img/' + req.file.filename;
+    } else {
+      res.send("La imagen es obligatoria");
+    }
+
+    let productId = productsTable.create(product);
+
+    res.redirect("/products/" + productId);
   },
-  
-  
+
   edit: (req, res) => {
-    let product = products.find((product) => product.id == req.params.id);
+    let product = productsTable.find(req.params.id);
 
     res.render("products/edit", { product });
   },
+
   update: (req, res) => {
-   let updatedProduct = req.body;
-    updatedProduct.id = Number(req.params.id);
+    let product = req.body;
+    product.id = Number(req.params.id);
 
-    let updatedProducts = products.map(product => {
-        if (product.id == req.params.id) {
-            return updatedProduct;
-        } else {
-            return product;
-        }
-    });
+    if (req.file) {
+      product.photo = req.file.filename;
+    } else {
+      oldproduct = productsTable.find(product.id);
+      product.photo = oldproduct.photo;
+    }
 
-    let productsJson = JSON.stringify(updatedProducts, null, ' ');
-    fs.writeFileSync(jsonPath, productsJson);
-    
-    res.redirect('/products/catalog');
-},
-destroy: (req, res) => {
-  let updatedProducts = products.filter(product => product.id != req.params.id);
+    let productId = productsTable.update(product);
 
-  let productsJson = JSON.stringify(updatedProducts, null, ' ');
-  fs.writeFileSync(jsonPath, productsJson);
+    res.redirect("/products/" + productId);
+  },
 
-  res.redirect('/products/catalog');
-},
+  destroy: (req, res) => {
+    let products = productsTable.all(); // Es necesaria esta variable?
 
+    productsTable.delete(req.params.id);
 
-
-
-
-  
+    res.redirect("/products/catalog");
+  },
 
   shoppingCart: (req, res) => {
     res.render("products/shoppingCart");
-  }
+  },
 };

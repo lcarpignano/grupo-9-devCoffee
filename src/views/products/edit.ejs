@@ -18,8 +18,9 @@
 
       <section class="container">
         <form
-          action="/users/<%= product.id %>?_method=PUT"
+          action="/products/<%= product.id %>?_method=PUT"
           method="POST"
+          enctype="multipart/form-data"
           class="register-form-container"
         >
           <div class="register-inputs-text">
@@ -66,7 +67,7 @@
                 id="actual-btn"
                 accept=".jpg .png"
                 multiple
-                required
+                
               />
               <label for="photo">Foto del café:</label>
               <label for="actual-btn" class="file-upload input-text"
@@ -76,9 +77,12 @@
           </div>
 
           <div class="form-row-buttons">
-            <button type="submit" class="input-text">Enviar</button>
+            <button type="submit" class="input-text">Editar</button>
+           
           </div>
         </form>
+        <form action="/products/<%= product.id %>?_method=DELETE"
+          method="POST" ><button type="submit" class="input-text">Borrar</button></form> 
       </section>
     </main>
 

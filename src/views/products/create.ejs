@@ -20,6 +20,7 @@
         <form
           action="/products/create"
           method="POST"
+          enctype="multipart/form-data"
           class="register-form-container"
         >
           <div class="register-inputs-text">
@@ -62,9 +63,9 @@
                 type="file"
                 name="photo"
                 id="actual-btn"
-                accept=".jpg .png"
+                accept=".jpg, .png, .jpeg"
                 multiple
-                required
+                
               />
               <label for="photo">Foto del café:</label>
               <label for="actual-btn" class="file-upload input-text"

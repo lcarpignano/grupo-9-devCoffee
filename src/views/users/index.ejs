@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+
+  <body>
+    <%- include('../partials/header.ejs') %>
+
+    <main>
+      <section>
+        <div class="intro-products">
+          <h2>
+            Es hora de tomar un break
+            <i class="far fa-smile-wink"></i>
+          </h2>
+          <h3>y listar nuestros usuarios.</h3>
+        </div>
+      </section>
+
+      <section class="container">
+        <% users.forEach(user => { %>
+        <article class="card register-article-container">
+          <div class="card-left">
+            <figure>
+              <img
+                src="img/users/<%= user.photo ? user.photo : 'default.png' %>"
+                alt=""
+              />
+            </figure>
+            <h3>#<%= user.id %></h3>
+          </div>
+          <div class="card-content">
+            <h3><%= user.first_name %> <%= user.last_name %></h3>
+            <p>Fecha de Nacimiento: <%= user.birth_date %></p>
+            <p>
+              Email:
+              <a href="mailto:<%= user.email %>" target="_blank"
+                ><%= user.email %></a
+              >
+            </p>
+            <div>
+              <a class="button" href="/users/<%= user.id %>/edit">Ver detalle</a>
+            </div>
+          </div>
+        </article>
+        <% }); %>
+      </section>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

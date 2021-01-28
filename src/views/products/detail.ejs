@@ -35,120 +35,64 @@
               <div class="product-quantity-pd">
                 <h3 class="quantity-label-pd">Cantidad</h3>
                 <div action="" class="quantity-options-pd">
+                  <% weights.forEach(weight => { %>
                   <input
                     type="radio"
                     name="quantity"
-                    value="weight1"
-                    id="weight1"
+                    value="<%= weight.name %>"
+                    id="<%= weight.name %>"
                   />
-                  <label for="weight1">
-                    <i class="fas fa-weight-hanging weight1"></i>
+                  <label for="<%= weight.name %>">
+                    <i class="fas fa-weight-hanging <%= weight.logo %>"></i>
                     <p class="weight">250 gr</p>
                   </label>
-                  <input
-                    type="radio"
-                    name="quantity"
-                    value="weight2"
-                    id="weight2"
-                    checked
-                  />
-                  <label for="weight2">
-                    <i class="fas fa-weight-hanging weight2"></i>
-                    <p class="weight">500 gr</p>
-                  </label>
-                  <input
-                    type="radio"
-                    name="quantity"
-                    value="weight3"
-                    id="weight3"
-                  />
-                  <label for="weight3">
-                    <i class="fas fa-weight-hanging weight3"></i>
-                    <p class="weight">1 Kg</p>
-                  </label>
+                  <% }); %>
+                  
                 </div>
               </div>
               <div class="product-grind-pd">
                 <h3 class="grind-label-pd">Molienda</h3>
                 <div class="grind-options-pd">
+                  <% grinds.forEach(grind => { %>
                   <input
                     type="radio"
                     name="grind"
-                    value="beans"
-                    id="beans"
+                    value="<%= grind.id %>"
+                    id="<%= grind.id %>"
                     checked
                   />
-                  <label for="beans">
-                    <i class="flaticon-coffee-beans"></i>
-                    <p class="beans">En grano</p>
+                  <label for="<%= grind.id %>">
+                    <i class="<%= grind.logo %>"></i>
+                    <p><%= grind.name %></p>
                   </label>
-                  <input
-                    type="radio"
-                    name="grind"
-                    value="portafilter"
-                    id="portafilter"
-                  />
-                  <label for="portafilter">
-                    <i class="flaticon-portafilter"></i>
-                    <p class="weight">Express</p>
-                  </label>
-                  <input
-                    type="radio"
-                    name="grind"
-                    value="moka-pot"
-                    id="moka-pot"
-                  />
-                  <label for="moka-pot">
-                    <i class="flaticon-moka-pot"></i>
-                    <p class="weight">Italiana</p>
-                  </label>
-                  <input
-                    type="radio"
-                    name="grind"
-                    value="coffee-maker"
-                    id="coffee-maker"
-                  />
-                  <label for="coffee-maker">
-                    <i class="flaticon-coffee-maker"></i>
-                    <p class="weight">Cafetera</p>
-                  </label>
-                  <input
-                    type="radio"
-                    name="grind"
-                    value="french-press"
-                    id="french-press"
-                  />
-                  <label for="french-press">
-                    <i class="flaticon-french-press"></i>
-                    <p class="weight">Prensa<br />Francesa</p>
-                  </label>
-                  <input type="radio" name="grind" value="filter" id="filter" />
-                  <label for="filter">
-                    <i class="flaticon-filter"></i>
-                    <p class="weight">Filtro</p>
-                  </label>
+                  <% }); %>
+
+
+
                 </div>
               </div>
-              <div class="suscription-banner-pd">
-                <div class="upper-section">
-                  <i class="fas fa-truck"></i>
-                  <div>
-                    <h3>Suscripción</h3>
-                    <p>
-                      Ahorrá un 30% en el primer kilo y recibí el mejor Café
-                      todos los meses en la puerta de tu casa
-                    </p>
-                  </div>
-                </div>
-                <a href="#" class="suscription-button-pd"> SUSCRIBIRME </a>
-              </div>
+              
               <div class="add-to-cart-buttom-conteiner-pd">
                  <a href="/product/shoppingCart"> <button type="submit" class="add-to-cart-buttom-pd">
                   AGREGAR AL CARRITO <i class="fas fa-cart-plus"></i>
                 </button></a>
               </div>
             </form>
+
           </section>
+        </div>
+        <div class="suscription-banner-pd">
+          <div class="upper-section">
+            <i class="fas fa-truck"></i>
+            <div>
+              <h3>Suscripción</h3>
+              <p>
+                Ahorrá un 30% en el primer kilo y recibí el mejor Café
+                todos los meses en la puerta de tu casa
+              </p>
+            </div>
+          </div>
+          <a href="#" class="suscription-button-pd"> SUSCRIBIRME </a>
         </div>
         <img src="/img/reason3-crop-.jpeg" alt="" class="main-img1" />
         <section class="conteiner-other-options">

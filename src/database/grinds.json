@@ -1,0 +1,32 @@
+[
+  {
+    "id": "beans",
+    "name": "En Grano",
+    "logo": "flaticon-coffee-beans"
+  },
+  {
+    "id": "portafilter",
+    "name": "Filtro",
+    "logo": "flaticon-portafilter"
+  },
+  {
+    "id": "moka-pot",
+    "name": "Italiana",
+    "logo": "flaticon-moka-pot"
+  },
+  {
+    "id": "coffee-maker",
+    "name": "Cafetera",
+    "logo": "flaticon-coffee-maker"
+  },
+  {
+    "id": "french-press",
+    "name": "Francesa",
+    "logo": "flaticon-french-press"
+  },
+  {
+    "id": "filter",
+    "name": "Filtro",
+    "logo": "flaticon-filter"
+  }
+]

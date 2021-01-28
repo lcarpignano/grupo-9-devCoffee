@@ -2,6 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const jsonTable = require("../database/jasonTable");
 const productsTable = jsonTable("coffees");
+const weightsTable = jsonTable("weights");
+const grindsTable = jsonTable("grinds");
 
 module.exports = {
   catalog: (req, res) => {
@@ -10,9 +12,11 @@ module.exports = {
   },
 
   show: (req, res) => {
+    let weights = weightsTable.all();
+    let grinds = grindsTable.all();
     let product = productsTable.find(req.params.id);
     if (product) {
-      res.render("products/detail", { product });
+      res.render("products/detail", { product, weights, grinds });
     } else {
       res.render("products/catalog");
     }

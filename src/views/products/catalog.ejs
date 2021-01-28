@@ -55,7 +55,7 @@
               <h2 class="product-title"><%= coffee.name %></h2>
               <p><%= coffee.description %></p>
               <h3>$<%= Number(coffee.price).toFixed(2) %></h3>
-              <a href="/products/detail" class="btn-product">
+              <a href="/products/<%= coffee.id %>" class="btn-product">
                 agregar al carrito </a>
               
             </div>

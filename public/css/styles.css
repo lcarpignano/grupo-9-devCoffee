@@ -184,6 +184,19 @@ header {
 
 .header-nav-right-icons i {
   padding-left: 1rem;
+  color: #463F3A;
+}
+
+.header-nav-right-icons i:hover {
+  color: #bcb8b1;
+}
+
+.header-nav-right-icons i:visited {
+  color: #463F3A;
+}
+
+.header-nav-right-icons i:active {
+  color: #463F3A;
 }
 
 .header-nav-right-icons .fa-instagram {

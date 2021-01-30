@@ -1,0 +1,26 @@
+[
+    {
+        "id_coffee":1,
+        "name": "HTML + CSS",
+        "logo": "fab fa-html5",
+        "photo": "/img/producthtmltwhite.png",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
+        "price": 10
+    },
+    {
+        "id_coffee":3,
+        "name": "Node.js",
+        "logo": "fab fa-node-js",
+        "photo": "/img/productnodewhite.png",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
+        "price": 10
+    },
+    {
+        "id_coffee":  4,
+        "name": "Python",
+        "logo": "fab fa-python",
+        "photo": "/img/productpythonwhite.png",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
+        "price": 10.5
+    }    
+]

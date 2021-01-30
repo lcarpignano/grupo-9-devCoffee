@@ -46,21 +46,5 @@
   "photo": "/img/productphpwhite.png",
   "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
   "price": 9
- },
- {
-  "name": "C++",
-  "logo": " ",
-  "description": "Cafe de Nicaragua y Arevalo",
-  "price": "23",
-  "photo": "/img/product-1611792104560.jpg",
-  "id": 7
- },
- {
-  "name": "Ruby",
-  "logo": " ",
-  "description": "Algo riquis Mauro x 2 ",
-  "price": "13",
-  "id": 8,
-  "photo": "/img/product-1611792299305.jpg"
  }
 ]

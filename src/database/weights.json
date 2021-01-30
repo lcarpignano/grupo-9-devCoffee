@@ -1,14 +1,17 @@
 [
   {
     "name": "weight1",
-    "logo": "weight1"
+    "logo": "weight1",
+    "grams": 250
   },
   {
     "name": "weight2",
-    "logo": "weight3"
+    "logo": "weight2",
+    "grams": 500
   },
   {
     "name": "weight3",
-    "logo": "weight3"
+    "logo": "weight3",
+    "grams": 1000
   }
 ]

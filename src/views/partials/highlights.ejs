@@ -1,0 +1,19 @@
+<section class="container">
+  <div class="product-products">
+    <% highlights.forEach(highlight => { %>
+    <article class="product-box">
+      <div class="product-box-image">
+        <img src="<%= highlight.photo %>" />
+      </div>
+      <div class="product-box-info">
+        <h2><i class="<%= highlight.logo %>"></i> <%= highlight.name %></h2>
+        <p><%= highlight.description %></p>
+        <h3>$ <%= Number(highlight.price).toFixed(2) %></h3> 
+        <a href="/products/<%= highlight.id_coffee %>" class="btn-product"
+          >Ver más
+        </a>
+      </div>
+    </article>
+    <% }); %>
+  </div>
+</section>

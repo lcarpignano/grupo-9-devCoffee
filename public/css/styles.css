@@ -43,7 +43,7 @@ h4 {
 }
 
 p {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .container {
@@ -255,6 +255,11 @@ header {
   padding: 2rem 0rem;
 }
 
+.product-box-image{
+  max-width: 80%;
+  margin: auto;
+}
+
 .product-box-image img {
   max-width: 100%;
   border-radius: 1rem;
@@ -350,9 +355,7 @@ header {
 
 /* Main - Product detail */
 
-.conteiner-main-pd {
-  padding-top: 3rem;
-}
+
 
 .product-conteiner-pd {
   width: 90%;
@@ -360,23 +363,17 @@ header {
 }
 
 div.breadcrumb-list-pd {
-  margin: 0 auto;
-  width: 90%;
-  max-width: 140rem;
+  margin: 2rem;
 }
 
 .product-image-pd img {
   width: 90%;
-  margin: 5rem auto 0;
-  display: block;
+  margin: 0rem auto 3rem;
 }
 
 .product-description-pd {
-  background-color: #fff;
-  margin: 0 auto 2rem;
-  padding: 0 5vw;
-  padding-bottom: 1rem;
-}
+    padding: 0rem 2rem;
+  }
 
 .product-title-pd {
   margin: 1rem 0 0 0;
@@ -384,23 +381,22 @@ div.breadcrumb-list-pd {
 
 .product-title-pd i,
 .product-title-pd h2 {
-  text-align: center;
-  display: block;
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin: 0;
 }
 
-.product-details-pd {
-  margin: 3rem 3rem 3rem 0;
-}
-
 .form-container-pd {
+  
   background-color: #f4f3ee;
 }
 
 .form-pd {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 90%;
-  margin: auto;
+  height: 100%;
+  margin: 0rem auto;
   padding: 1rem 0;
 }
 
@@ -408,14 +404,18 @@ div.breadcrumb-list-pd {
   display: none;
 }
 
-.quantity-options-pd {
+.quantity-options-pd,
+.grind-options-pd {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 }
 
-.quantity-options-pd label {
+.quantity-options-pd label,
+.grind-options-pd label {
   width: calc(33.333333% - 1rem);
-  padding: 3rem 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -424,62 +424,42 @@ div.breadcrumb-list-pd {
   cursor: pointer;
 }
 
-.quantity-options-pd input:checked + label {
-  box-shadow: 0px 0px 10px #463f3a;
-}
-
-.weight1 {
-  font-size: 2.5rem;
-  color: #8a817c;
-}
-
-.weight2 {
-  font-size: 3.5rem;
-  color: #8a817c;
-}
-
-.weight3 {
-  font-size: 5rem;
-  color: #8a817c;
-}
-
-.quantity-options-pd p {
-  font-size: 1.6rem;
-  margin-bottom: 0;
-}
-
-.grind-options-pd {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.grind-options-pd label {
-  width: calc(33.333333% - 1rem);
-  padding: 2rem 0.5rem;
-  margin-bottom: 0.5rem;
-  text-align: center;
-  background-color: #f4f3ee;
-  cursor: pointer;
-}
-
+.quantity-options-pd input:checked + label,
 .grind-options-pd input:checked + label {
   box-shadow: 0px 0px 10px #463f3a;
 }
 
 .grind-options-pd i:before {
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 
-.grind-options-pd p {
-  margin-bottom: 0;
-  font-size: 1.4rem;
+.weight1 {
+  font-size: 2rem;
+  color: #8a817c;
 }
+
+.weight2 {
+  font-size: 3rem;
+  color: #8a817c;
+}
+
+.weight3 {
+  font-size: 4.5rem;
+  color: #8a817c;
+}
+
+.quantity-options-pd p,
+.grind-options-pd p {
+  font-size: 1.2rem;
+  margin: 1rem 0rem 0rem;
+}
+
+
 
 .suscription-banner-pd {
   background-color: #e0afa0;
   padding: 1rem;
-  margin: 1rem 0;
+  margin: 5rem 0rem 0rem;
 }
 
 .upper-section {
@@ -501,8 +481,8 @@ div.breadcrumb-list-pd {
 .suscription-button-pd {
   border: none;
   border-radius: 50px;
-  padding: 1rem 8rem;
-  width: 90%;
+  padding: 1rem;
+  width: 20rem;
   font-size: 1.2rem;
   font-weight: 600;
   color: #463f3a;
@@ -518,14 +498,14 @@ div.breadcrumb-list-pd {
   font-weight: 600;
   color: #f4f3ee;
   background: #463f3a;
-  padding: 1rem 8rem;
+  padding: 1rem;
   border-radius: 5rem;
   border: none;
   text-decoration: none;
   transition: 0.5s;
   width: 100%;
   cursor: pointer;
-  margin: 1rem auto 4rem;
+  margin: 2rem auto;
 }
 
 .main-img1 {
@@ -534,10 +514,6 @@ div.breadcrumb-list-pd {
   opacity: 0.7;
 }
 
-.conteiner-other-options {
-  width: 90%;
-  margin: 5rem auto 0;
-}
 
 /* Home - quiz */
 
@@ -950,11 +926,10 @@ footer {
 
 .product-filter {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   width: 100%;
   padding: 1.5rem 3rem;
-  height: 100%;
 }
 
 .product-filter h2 {
@@ -962,6 +937,7 @@ footer {
   font-weight: 100;
   color: #463f3a;
   font-size: 1.2rem;
+  padding: 1rem 1rem 0rem;
 }
 
 .sort {
@@ -995,18 +971,15 @@ footer {
 }
 
 /* ---------------------------------------- */
+/* ---------------------------------------- */
 /* ----------- media querys ---------- */
+/* ---------------------------------------- */
 /* ---------------------------------------- */
 
 @media (min-width: 460px) {
   /* Tablets */
 
-  .product-products {
-    display: flex;
-    flex-flow: wrap;
-    margin: 0 auto;
-    padding: 1rem 0.5rem;
-  }
+ 
 
   .product-box {
     flex: 1 0 48%;
@@ -1020,7 +993,7 @@ footer {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   /* Laptop */
 
   /* Header */
@@ -1054,9 +1027,8 @@ footer {
   .product-products {
     display: flex;
     flex-flow: wrap;
-    margin: 0 auto;
-    margin-bottom: 2rem;
-    padding: 1rem 3rem;
+    margin: 2rem auto 5rem;
+    
   }
 
   .product-box {
@@ -1067,12 +1039,12 @@ footer {
 
   /* ---Product Detail--- */
 
+  div.breadcrumb-list-pd {
+    margin: 2rem -10rem 0rem;
+}
+
   .desktop-product-container-pd {
-    display: flex;
-    align-items: center;
-    max-width: 120rem;
-    margin: auto;
-    width: 100%;
+    display: flex;    
   }
 
   .product-conteiner-pd {
@@ -1104,14 +1076,34 @@ footer {
   }
 
   .form-container-pd {
-    margin: 3rem auto;
-    width: 40%;
+    margin: 3rem auto 0rem;
+    width: 30%;
+  }
+
+  .product-image-pd {
+    margin: 0rem auto;
+    width: 70%;
+    max-width: 80rem;
   }
 
   .product-image-pd img {
-    margin: 0;
+    margin: 0rem auto;
     max-width: 80rem;
   }
+
+  .upper-section {
+    justify-content: center;
+  }
+
+  .upper-section i {
+    width: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .upper-section div h3,
+  .upper-section div p {
+    margin: 1rem 0rem 1rem 4rem;
+  } 
 
   /* How */
 

@@ -654,6 +654,42 @@ footer {
   align-items: center;
 }
 
+
+/* ---------------------------------------- */
+/* ---------------------------------------- */
+/* ------------- Users pages -------------- */
+/* ---------------------------------------- */
+/* ---------------------------------------- */
+
+
+/* Index */
+
+.user-id {
+  background-color: #f4f3ee;
+  border-radius: 1.2rem;  
+}
+
+.user-detail {
+  background-color: #f4f3ee;
+  border-radius: 1.2rem;
+  width: 80%;
+  margin: auto;
+}
+
+.user-avatar {
+  width: 25%;
+  margin: auto;
+  padding: 1rem 0rem;
+} 
+
+.user-avatar img{
+  background-color: white;
+  
+  border-radius: 100%;
+}
+
+
+
 /* Register.html */
 
 .register-form-container {
@@ -678,7 +714,8 @@ footer {
 
 .form-row input,
 .form-row label,
-.form-row button {
+.form-row button,
+.form-row select {
   /* width: 100%; */
   height: 3rem;
   font-size: 1.4rem;
@@ -686,7 +723,7 @@ footer {
 }
 
 .form-row-buttons {
-  margin: -3rem auto 0rem;
+  margin: auto;
   display: flex;
   justify-content: center;
   padding: 1rem 0rem;
@@ -1151,6 +1188,17 @@ footer {
   .register-inputs-text {
     display: flex;
     flex-wrap: wrap;
+  }
+
+  .login-checkbox {
+    display: flex;
+    text-align: start;
+    font-size: 1.2rem;
+    padding: 0rem 1rem;
+  }
+
+  .login-checkbox label {
+    margin-left: 0.5rem;
   }
 
   /* Shopping cart */

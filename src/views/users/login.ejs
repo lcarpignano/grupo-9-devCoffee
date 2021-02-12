@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-  
-  <%- include('../partials/head.ejs') %> 
+  <%- include('../partials/head.ejs') %>
 
   <body>
-    <%- include('../partials/header.ejs') %> 
+    <%- include('../partials/header.ejs') %>
 
     <main>
       <section>
@@ -14,25 +13,26 @@
             <i class="far fa-smile-wink"></i>
           </h2>
           <h3>e ingresar a tu cuenta...</h3>
-          
         </div>
       </section>
 
       <section class="container">
-        <form action="/register" class="register-form-container">
+        <form
+          action="/users/login"
+          method="POST"
+          class="register-form-container"
+        >
           <div class="register-inputs-text">
-            
             <div class="form-row">
-              <label for="user-name" class="form-row-label-desktop"
+              <label for="mail" class="form-row-label-desktop"
                 >Nombre de usuari@:</label
               >
               <input
-                type="text"
-                name="user-name"
-                id="user-name"
-                placeholder="Nombre de usuari@"
+                type="email"
+                name="mail"
+                id="mail"
+                placeholder="Ingresa tu Email"
                 class="input-text"
-                required
               />
             </div>
             <div class="form-row">
@@ -40,27 +40,34 @@
                 >Contraseña:</label
               >
               <input
-                type="text"
+                type="password"
                 name="password"
                 id="password"
-                placeholder="Contraseña"
-                minlength="8"
+                placeholder="Ingresa tu Contraseña"
                 class="input-text"
-                required
               />
             </div>
-           
           </div>
 
+          <div class="login-checkbox">
+            <input
+            type="checkbox"
+            name="remember-me"
+            id="remember-me"
+            class=""
+            />
+            <label for="remember-me" class="">
+            Recuerdame
+          </label>
+        </div>
+
           <div class="form-row-buttons">
-            
             <button type="submit" class="input-text">Enviar</button>
           </div>
         </form>
       </section>
     </main>
 
-    <%- include('../partials/footer.ejs') %> 
-
+    <%- include('../partials/footer.ejs') %>
   </body>
 </html>

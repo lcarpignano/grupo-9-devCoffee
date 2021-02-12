@@ -1,46 +1,54 @@
 [
-  {
-    "id": 1,
-    "nick_name": "nicknamerandom",
-    "first_name": "User1",
-    "last_name": "Last1",
-    "email": "user1@users.com",
-    "password": "12341234",
-    "birth_date": "12/12/1982",
-    "adress": "Evergreen 1234",
-    "photo": " "
-  },
-  {
-    "id": 2,
-    "nick_name": "nicknamerandom",
-    "first_name": "User2",
-    "last_name": "Last2",
-    "email": "user2@users.com",
-    "password": "12341234",
-    "birth_date": "12/12/1982",
-    "adress": "Evergreen 1234",
-    "photo": " "
-  },
-  {
-    "id": 3,
-    "nick_name": "nicknamerandom",
-    "first_name": "User3",
-    "last_name": "Last3",
-    "email": "user3@users.com",
-    "password": "12341234",
-    "birth_date": "12/12/1982",
-    "adress": "Evergreen 1234",
-    "photo": " "
-  },
-  {
-    "id": 4,
-    "nick_name": "nicknamerandom",
-    "first_name": "User4",
-    "last_name": "Last4",
-    "email": "user4@users.com",
-    "password": "12341234",
-    "birth_date": "12/12/1982",
-    "adress": "Evergreen 1234",
-    "photo": " "
-  }
+ {
+  "id": 1,
+  "first_name": "User1",
+  "last_name": "Algo1 ",
+  "user_name": "algunusuario",
+  "mail": "user1@users.com",
+  "password": "1234west",
+  "birth": "12/12/1982",
+  "adress": "Evergreen 1234",
+  "zip": " ",
+  "country": " ",
+  "city": " "
+ },
+ {
+  "id": 2,
+  "first_name": "User2",
+  "last_name": "Algo2 ",
+  "user_name": "algunusuario",
+  "mail": "user2@users.com",
+  "password": "1234west",
+  "birth": "12/12/1982",
+  "adress": "Evergreen 1234",
+  "zip": " ",
+  "country": " ",
+  "city": " "
+ },
+ {
+  "id": 3,
+  "first_name": "User3",
+  "last_name": "Algo3 ",
+  "user_name": "algunusuario",
+  "mail": "user3@users.com",
+  "password": "1234west",
+  "birth": "12/12/1982",
+  "adress": "Evergreen 1234",
+  "zip": " ",
+  "country": " ",
+  "city": " "
+ },
+ {
+  "id": 4,
+  "first_name": "User4",
+  "last_name": "Algo4 ",
+  "user_name": "algunusuario",
+  "mail": "user4@users.com",
+  "password": "1234west",
+  "birth": "12/12/1982",
+  "adress": "Evergreen 1234",
+  "zip": " ",
+  "country": " ",
+  "city": " "
+ }
 ]

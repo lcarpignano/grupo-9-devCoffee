@@ -16,25 +16,25 @@
         </div>
       </section>
 
-      <section class="container">
+      <section class="product-products container">
         <% users.forEach(user => { %>
-        <article class="card register-article-container">
-          <div class="card-left">
-            <figure>
+        <article class="product-box">
+          <div class="product-box-image user-id">
+            <figure class="user-avatar">
               <img
-                src="img/users/<%= user.photo ? user.photo : 'default.png' %>"
-                alt=""
+              src="../../img/users/<%= user.photo ? user.photo : 'default.png' %>"
+              alt="User Avatar"
               />
             </figure>
-            <h3>#<%= user.id %></h3>
           </div>
-          <div class="card-content">
+          <div class="product-box-info user-detail">
+            <h4>#id <%= user.id %></h4>
             <h3><%= user.first_name %> <%= user.last_name %></h3>
-            <p>Fecha de Nacimiento: <%= user.birth_date %></p>
+            <p>Fecha de Nacimiento: <%= user.birth %></p>
             <p>
               Email:
-              <a href="mailto:<%= user.email %>" target="_blank"
-                ><%= user.email %></a
+              <a href="mailto:<%= user.mail %>" target="_blank"
+                ><%= user.mail %></a
               >
             </p>
             <div>

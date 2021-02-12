@@ -2,39 +2,39 @@ const fs = require('fs');
 const path = require('path');
 const jsonTable = require('../database/jasonTable');
 const usersTable = jsonTable('users');
+const { validationResult } = require('express-validator');
+const session = require ('express-session');
+const bcrypt = require('bcryptjs');
 
 module.exports = {
   index: (req, res) => {
-    let users = usersTable.all()
-    
-    res.render('users/index', { users });
-},
+    let users = usersTable.all();
+    res.render("users/index", { users });
+  },
   register: (req, res) => {
     res.render("users/register");
   },
   store: (req, res) => {
-    let user = req.body;
-
-        if (req.file) {
-            user.image = req.file.filename;
-        } else {
-            res.send('La imagen es obligatoria');
-        }
-        
-        let userId = usersTable.create(user);
-        
-        res.redirect('/users/' + userId);
+    let errors = validationResult(req);
+    
+    if(errors.isEmpty()) {
+      let user = req.body;
+      if (req.file) {
+        user.image = req.file.filename;
+      } else {
+        res.send('La imagen es obligatoria');
+      }
+      user.password = bcrypt.hashSync(user.password, 10)
+      let userId = usersTable.create(user);
+      
+      res.redirect('/');
+    
+    }else {
+      return res.render('users/register', { errors: errors.mapped(), oldData: req.body });
+    }
     
   },
-  show: (req, res) => {
-    let user = usersTable.find(req.params.id);
-
-        if ( user ) {
-            res.render('users/detail', { user });
-        } else {
-            res.send('No encontré el usuario');
-        }
-  },
+  
   edit: (req, res) => {
     let user = usersTable.find(req.params.id);
 
@@ -62,10 +62,31 @@ module.exports = {
 
         usersTable.delete(req.params.id);
 
-        res.redirect('/users');
+        res.redirect('/users/index');
   },
 
   login: (req, res) => {
     res.render("users/login");
+  },
+
+  loginProcess: (req, res) => {
+    
+    // Validacion
+
+    const user = usersTable.findByField('mail', req.body.mail)
+    console.log(user);
+
+    if (!user){
+      return res.send('El usuario no existe')
+    }
+
+    if(!bcrypt.compareSync(req.body.password, user.password)){
+      return res.send('El password no existe')
+    }
+
+    req.session.userLogged = true;
+
+    res.redirect('/');
+
   },
 };

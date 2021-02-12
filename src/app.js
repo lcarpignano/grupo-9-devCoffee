@@ -3,6 +3,14 @@
 const express = require ('express');
 const app = express();
 const methodOverride = require('method-override');
+const session = require ('express-session');
+app.use(session({ 
+    secret: 'Break Coffee',
+    resave: false,
+    saveUninitialized: true,
+}));
+const cookieParser = require ('cookie-parser')
+app.use(cookieParser());
 
 // Setting
 //--------

@@ -1,11 +1,12 @@
 const fs = require('fs');
 const path = require('path');
 
+
 let jsonTable = function(tableName) {
     return {
         filePath: path.join(__dirname, '../database/' + tableName + '.json'),
         readFile() {
-            let fileContents = fs.readFileSync(this.filePath, 'utf8');
+            let fileContents = fs.readFileSync(this.filePath, 'utf-8');
         
             if(fileContents) {
                 return JSON.parse(fileContents);
@@ -44,13 +45,17 @@ let jsonTable = function(tableName) {
         },
         create(row) {
             let rows = this.readFile();
-            row.id = this.nextId();
-            rows.push(row);
-
+            let newRow = {
+                id: this.nextId(),
+                ...row,
+                
+            }
+            rows.push(newRow);
             this.writeFile(rows);
-
-            return row.id;
+            return newRow.id;
         },
+
+
         update(row) {
             let rows = this.readFile();
             let updatedRows = rows.map(oneRow => {

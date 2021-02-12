@@ -1,28 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/userController')
+const userController = require('../controllers/userController');
+const path = require('path');
+const usersValidations = require('../validations/usersValidations')
+const uploadFile = require('../middleware/multerMiddleware')
 
-const multer  = require('multer');
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, '/tmp/my-uploads')
-  },
-  filename: function (req, file, cb) {
-       // Mejor usar algo como esto en lugar de Date.now()
-        // https://www.npmjs.com/package/uuidv4
-    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-  }
-})
-
-const upload = multer({ storage: storage })
-
-router.get('/', userController.index);
+router.get('/index', userController.index)
 router.get('/register', userController.register)
-router.post('/register', upload.single('image'), userController.store)
-router.get('/:id/edit', userController.edit)
-router.put('/:id', upload.single('image'), userController.update)
-router.delete('/:id', userController.destroy);
+router.post('/register', uploadFile.single('photo'), usersValidations.store, userController.store)
 router.get('/login', userController.login)
+router.post('/login', userController.loginProcess)
+router.get('/:id/edit', userController.edit)
+router.put('/:id', uploadFile.single('photo'), usersValidations.update, userController.update)
+router.delete('/:id', userController.destroy);
 
 module.exports = router;

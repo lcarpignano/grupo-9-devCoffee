@@ -4,6 +4,10 @@ const express = require ('express');
 const app = express();
 const methodOverride = require('method-override');
 const session = require ('express-session');
+const userLoggedMiddleware = require('../src/middleware/userLoggedMiddleware')
+
+
+
 app.use(session({ 
     secret: 'Break Coffee',
     resave: false,
@@ -11,6 +15,9 @@ app.use(session({
 }));
 const cookieParser = require ('cookie-parser')
 app.use(cookieParser());
+
+app.use(userLoggedMiddleware);
+
 
 // Setting
 //--------

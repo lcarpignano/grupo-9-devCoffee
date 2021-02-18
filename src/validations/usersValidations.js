@@ -1,5 +1,5 @@
 const path = require('path');
-const { check} = require('express-validator');
+const { check } = require('express-validator');
 
 module.exports = {
     store: [

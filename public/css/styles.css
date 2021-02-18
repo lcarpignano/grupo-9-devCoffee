@@ -2,16 +2,19 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  padding-top: 7rem;
-}
-
 html {
   font-size: 62.5%;
   font-family: "Poppins", sans-serif;
   color: #463f3a;
+  margin: 0rem;
+  padding: 0rem;
 }
+
+body {
+  margin: 0rem;
+  padding-top: 7rem;
+}
+
 
 /* Global */
 
@@ -1143,7 +1146,7 @@ footer {
   }
 
   .product-box {
-    flex: 1 0 31%;
+    max-width: 31%;
     margin: 0.5rem;
     transition: all 450ms;
   }

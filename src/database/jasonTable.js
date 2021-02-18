@@ -1,82 +1,87 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
+let jsonTable = function (tableName) {
+  return {
+    filePath: path.join(__dirname, "../database/" + tableName + ".json"),
+    readFile() {
+      let fileContents = fs.readFileSync(this.filePath, "utf-8");
 
-let jsonTable = function(tableName) {
-    return {
-        filePath: path.join(__dirname, '../database/' + tableName + '.json'),
-        readFile() {
-            let fileContents = fs.readFileSync(this.filePath, 'utf-8');
-        
-            if(fileContents) {
-                return JSON.parse(fileContents);
-            }
-        
-            return [];
-        },
-        writeFile(contents) {
-            let fileContents = JSON.stringify(contents, null, " ");
-            fs.writeFileSync(this.filePath, fileContents);
-        },
-        nextId() {
-            let rows = this.readFile();
-            let lastRow = rows.pop();
+      if (fileContents) {
+        return JSON.parse(fileContents);
+      }
 
-            if (lastRow) {
-                return ++lastRow.id;
-            }
+      return [];
+    },
 
-            return 1;
-        },
-        all() {
-            return this.readFile();
-        },
-        find(id) {
-            let rows = this.readFile();
-            return rows.find(row => row.id == id);
-        },
-        findByField(field, value) {
-            let rows = this.readFile();
-            return rows.find(row => row[field] == value);
-        },
-        findAllByField(field, value) {
-            let rows = this.readFile();
-            return rows.filter(row => row[field] == value);
-        },
-        create(row) {
-            let rows = this.readFile();
-            let newRow = {
-                id: this.nextId(),
-                ...row,
-                
-            }
-            rows.push(newRow);
-            this.writeFile(rows);
-            return newRow.id;
-        },
+    writeFile(contents) {
+      let fileContents = JSON.stringify(contents, null, " ");
+      fs.writeFileSync(this.filePath, fileContents);
+    },
 
+    nextId() {
+      let rows = this.readFile();
+      let lastRow = rows.pop();
 
-        update(row) {
-            let rows = this.readFile();
-            let updatedRows = rows.map(oneRow => {
-                if (oneRow.id == row.id) {
-                    return row;
-                }
+      if (lastRow) {
+        return ++lastRow.id;
+      }
 
-                return oneRow;
-            }); 
+      return 1;
+    },
 
-            this.writeFile(updatedRows);
+    all() {
+      return this.readFile();
+    },
 
-            return row.id;
-        },
-        delete(id) {
-            let rows = this.readFile();
-            let updatedRows = rows.filter(oneRow => oneRow.id != id); 
+    find(id) {
+      let rows = this.readFile();
+      return rows.find((row) => row.id == id);
+    },
 
-            this.writeFile(updatedRows);
+    findByField(field, value) {
+      let rows = this.readFile();
+      return rows.find((row) => row[field] == value);
+    },
+
+    findAllByField(field, value) {
+      let rows = this.readFile();
+      return rows.filter((row) => row[field] == value);
+    },
+
+    create(row) {
+      let rows = this.readFile();
+      let newRow = {
+        id: this.nextId(),
+        ...row,
+      };
+      rows.push(newRow);
+      this.writeFile(rows);
+      return newRow.id;
+    },
+
+    update(row) {
+      let rows = this.readFile();
+      let updatedRows = rows.map((oneRow) => {
+        if (oneRow.id == row.id) {
+          return row;
         }
-    }
-}
+
+        return oneRow;
+      });
+
+      this.writeFile(updatedRows);
+
+      return row.id;
+    },
+    
+    delete(id) {
+      let rows = this.readFile();
+      let updatedRows = rows.filter((oneRow) => oneRow.id != id);
+
+      this.writeFile(updatedRows);
+    },
+  };
+};
 
 module.exports = jsonTable;

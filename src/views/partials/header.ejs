@@ -3,18 +3,24 @@
     <div class="header-nav-left">
       <i class="fas fa-bars icon"></i>
 
+      <% if (locals.isLogged === true) { %>
       <ul>
         <li>
           <a href=""
             ><img src="../../img/users/default.png" alt="User Avatar" />
+            <%= locals.userLogged.first_name %> 
           </a>
           <ul class="dropdown">
             <li><a href="/">Mi cuenta</a></li>
             <li><a href="/">Mis compras</a></li>
-            <li><a href="/">Log Out</a></li>
+            <li>
+              <form action="/users/logout" method="get"></form>
+              <a href="/">Log Out</a>
+            </li>
           </ul>
         </li>
       </ul>
+      <% } %>
 
       <a href="/" class="logo"
         ><i class="icon fas fa-file-code"></i> Coffee Break</a
@@ -24,8 +30,10 @@
     <div class="header-nav-right">
       <div class="header-nav-right-dkt">
         <div class="header-nav-bar">
+          <% if (locals.isLogged === false) { %>
           <a href="/users/login">Ingresa</a>
           <a href="/users/register">Crea tu cuenta</a>
+          <% } %>
           <a href="/products/catalog">Nuestros Cafés</a>
         </div>
         <div class="header-nav-search-bar">

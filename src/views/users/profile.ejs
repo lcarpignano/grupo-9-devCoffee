@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+
+  <body>
+    <%- include('../partials/header.ejs') %>
+
+    <main>
+      <section>
+        <div class="intro-products">
+          <h2>
+            Es hora de tomar un break
+            <i class="far fa-smile-wink"></i>
+          </h2>
+          <h3>y listar nuestros usuarios.</h3>
+        </div>
+      </section>
+
+      <section class="product-products container">
+        
+        <article class="product-box">
+          <div class="product-box-image user-id">
+            <figure class="user-avatar">
+              <img
+              src="../../img/users/<%= user.photo ? user.photo : 'default.png' %>"
+              alt="User Avatar"
+              />
+            </figure>
+          </div>
+          <div class="product-box-info user-detail">
+            <h4>#id <%= user.id %></h4>
+            <h3><%= user.first_name %> <%= user.last_name %></h3>
+            <p>Fecha de Nacimiento: <%= user.birth %></p>
+            <p>
+              Email:
+              <a href="mailto:<%= user.mail %>" target="_blank"
+                ><%= user.mail %></a
+              >
+            </p>
+            <div>
+              <a class="button" href="/users/<%= user.id %>/edit">Ver detalle</a>
+            </div>
+          </div>
+        </article>
+        
+      </section>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

@@ -1,10 +1,10 @@
-const fs = require('fs');
-const path = require('path');
-const jsonTable = require('../database/jasonTable');
-const usersTable = jsonTable('users');
-const { validationResult } = require('express-validator');
-const session = require ('express-session');
-const bcrypt = require('bcryptjs');
+const fs = require("fs");
+const path = require("path");
+const jsonTable = require("../database/jasonTable");
+const usersTable = jsonTable("users");
+const { validationResult } = require("express-validator");
+const session = require("express-session");
+const bcrypt = require("bcryptjs");
 
 module.exports = {
   index: (req, res) => {
@@ -14,31 +14,34 @@ module.exports = {
   register: (req, res) => {
     res.render("users/register");
   },
-  store: (req, res) => {
+  userRegister: (req, res) => {
     let errors = validationResult(req);
-    
-    if(errors.isEmpty()) {
+
+    if (errors.isEmpty()) {
       let user = req.body;
       if (req.file) {
-        user.image = req.file.filename;
+        user.photo = req.file.filename;
       } else {
-        res.send('La imagen es obligatoria');
+        res.render("users/register", {
+          errors: errors.mapped(),
+          oldData: req.body,
+        });
       }
-      user.password = bcrypt.hashSync(user.password, 10)
-      let userId = usersTable.create(user);
-      
-      res.redirect('/');
-    
-    }else {
-      return res.render('users/register', { errors: errors.mapped(), oldData: req.body });
+      user.password = bcrypt.hashSync(user.password, 10);
+
+      res.redirect("/users/login");
+    } else {
+      return res.render("users/register", {
+        errors: errors.mapped(),
+        oldData: req.body,
+      });
     }
-    
   },
-  
+
   edit: (req, res) => {
     let user = usersTable.find(req.params.id);
 
-        res.render('users/edit', { user });
+    res.render("users/edit", { user });
   },
   update: (req, res) => {
     let user = req.body;
@@ -46,23 +49,23 @@ module.exports = {
 
     // Si viene una imagen nueva la guardo
     if (req.file) {
-        user.image = req.file.filename;
-    // Si no viene una imagen nueva, busco en base la que ya había
+      user.photo = req.file.filename;
+      // Si no viene una imagen nueva, busco en base la que ya había
     } else {
-        oldUser = usersTable.find(user.id);
-        user.image = oldUser.image;
+      oldUser = usersTable.find(user.id);
+      user.photo = oldUser.photo;
     }
 
     let userId = usersTable.update(user);
 
-    res.redirect('/users/' + userId);
+    res.redirect("/users/" + userId);
   },
   destroy: (req, res) => {
-    let users = usersTable.all()
+    let users = usersTable.all();
 
-        usersTable.delete(req.params.id);
+    usersTable.delete(req.params.id);
 
-        res.redirect('/users/index');
+    res.redirect("/users/index");
   },
 
   login: (req, res) => {
@@ -70,23 +73,50 @@ module.exports = {
   },
 
   loginProcess: (req, res) => {
-    
     // Validacion
 
-    const user = usersTable.findByField('mail', req.body.mail)
-    console.log(user);
+    let user = usersTable.findByField("mail", req.body.mail);
+    //console.log(user);
 
-    if (!user){
-      return res.send('El usuario no existe')
+    if (!user) {
+      return res.render("users/login", {
+        errors: {
+          mail: {
+            msg: "Las credenciales son inválidas",
+          },
+        },
+      });
     }
 
-    if(!bcrypt.compareSync(req.body.password, user.password)){
-      return res.send('El password no existe')
+    if (!bcrypt.compareSync(req.body.password, user.password)) {
+      return res.render("users/login", {
+        errors: {
+          mail: {
+            msg: "Las credenciales son inválidas",
+          },
+        },
+      });
     }
 
-    req.session.userLogged = true;
+    delete user.password;
+    req.session.userLogged = user;
 
-    res.redirect('/');
+    if(req.body.remember) {
+      res.cookie('userEmail', req.body.mail, { maxAge: (1000 * 60) * 10 })
+    }
 
+    res.redirect('profile');
   },
+
+  profile: (req, res) => {
+    return res.render('users/profile', {
+			user: req.session.userLogged
+		});
+  },
+  
+  logout: (req, res) => {
+		res.clearCookie('userEmail');
+		req.session.destroy();
+		return res.redirect('/');
+	}
 };

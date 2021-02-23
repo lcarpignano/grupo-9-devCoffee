@@ -102,7 +102,7 @@ module.exports = {
     req.session.userLogged = user;
 
     if(req.body.remember) {
-      res.cookie('userEmail', req.body.mail, { maxAge: (1000 * 60) * 10 })
+      res.cookie('userEmail', req.body.mail, { maxAge: (1000 * 60) })
     }
 
     res.redirect('profile');
@@ -115,8 +115,9 @@ module.exports = {
   },
   
   logout: (req, res) => {
-		res.clearCookie('userEmail');
+    console.log('pase por el logout')
+    res.clearCookie('userEmail');
 		req.session.destroy();
-		return res.redirect('/');
+		res.redirect('/');
 	}
 };

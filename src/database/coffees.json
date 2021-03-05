@@ -1,50 +1,68 @@
 [
- {
-  "id": 1,
-  "name": "HTML + CSS",
-  "logo": "fab fa-html5",
-  "photo": "/img/producthtmltwhite.png",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
-  "price": 10
- },
- {
-  "name": "Javascript",
-  "logo": "fab fa-js-square",
-  "description": "Mauro x 2!, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
-  "price": "12",
-  "id": 2,
-  "photo": "/img/productjavascriptwhite.png"
- },
- {
-  "id": 3,
-  "name": "Node.js",
-  "logo": "fab fa-node-js",
-  "photo": "/img/productnodewhite.png",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
-  "price": 10
- },
- {
-  "id": 4,
-  "name": "Python",
-  "logo": "fab fa-python",
-  "photo": "/img/productpythonwhite.png",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
-  "price": 10.5
- },
- {
-  "id": 5,
-  "name": "Java",
-  "logo": "fab fa-java",
-  "photo": "/img/productjavawhite.png",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
-  "price": 11
- },
- {
-  "id": 6,
-  "name": "PHP",
-  "logo": "fab fa-php",
-  "photo": "/img/productphpwhite.png",
-  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
-  "price": 9
- }
+  {
+    "id": 1,
+    "name": "HTML + CSS",
+    "logo": "fab fa-html5",
+    "photo": "/img/producthtmltwhite.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
+    "price": 10,
+    "origin": "Brasil",
+    "sale": false, 
+    "featured": true
+  },
+  {
+    "id": 2,
+    "name": "Javascript",
+    "logo": "fab fa-js-square",
+    "description": "Mauro x 2!, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
+    "price": 12,
+    "photo": "/img/productjavascriptwhite.png",
+    "origin": "Brasil",
+    "sale": false, 
+    "featured": true
+  },
+  {
+    "id": 3,
+    "name": "Node.js",
+    "logo": "fab fa-node-js",
+    "photo": "/img/productnodewhite.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
+    "price": 10,
+    "origin": "Brasil",
+    "sale": false, 
+    "featured": true
+  },
+  {
+    "id": 4,
+    "name": "Python",
+    "logo": "fab fa-python",
+    "photo": "/img/productpythonwhite.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
+    "price": 10.5,
+    "origin": "Brasil",
+    "sale": false, 
+    "featured": false
+  },
+  {
+    "id": 5,
+    "name": "Java",
+    "logo": "fab fa-java",
+    "photo": "/img/productjavawhite.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
+    "price": 11,
+    "origin": "Brasil",
+    "sale": false, 
+    "featured": false
+  },
+  {
+    "id": 6,
+    "name": "PHP",
+    "logo": "fab fa-php",
+    "photo": "/img/productphpwhite.png",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.",
+    "price": 9,
+    "origin": "Brasil",
+    "sale": false, 
+    "featured": false
+  }
 ]

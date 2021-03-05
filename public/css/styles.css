@@ -1280,14 +1280,24 @@ footer {
     flex-wrap: wrap;
   }
 
-  .login-checkbox {
+  .checkbox {
     display: flex;
     text-align: start;
-    font-size: 1.2rem;
+    
     padding: 0rem 1rem;
   }
 
-  .login-checkbox label {
+  .login{
+    font-size: 1.2rem;
+  }
+
+  .sale{
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+  }
+
+
+  .checkbox label {
     margin-left: 0.5rem;
   }
 

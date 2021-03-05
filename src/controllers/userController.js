@@ -115,7 +115,6 @@ module.exports = {
   },
   
   logout: (req, res) => {
-    console.log('pase por el logout')
     res.clearCookie('userEmail');
 		req.session.destroy();
 		res.redirect('/');

@@ -8,11 +8,15 @@
         <li>
           <a href=""
             ><img src="../../img/users/default.png" alt="User Avatar" />
-            <%= locals.userLogged.first_name %>
+            <!-- <%= locals.userLogged.first_name %> -->
           </a>
           <ul class="dropdown">
             <li><a href="/">Mi cuenta</a></li>
             <li><a href="/">Mis compras</a></li>
+            <% if (locals.isAdmin === true) { %>
+              <li><a href="/">Editar</a></li>
+
+            <% } %>
             <li><a href="/users/logout">Log Out</a></li>
           </ul>
         </li>

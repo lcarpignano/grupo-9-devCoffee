@@ -18,7 +18,7 @@
 
       <section class="container">
         <form
-        id="edit-form"
+          id="edit-form"
           action="/products/<%= product.id %>?_method=PUT"
           method="POST"
           enctype="multipart/form-data"
@@ -49,12 +49,36 @@
             </div>
 
             <div class="form-row">
+              <label for="origin">Oreigen del café:</label>
+              <input
+                type="text"
+                name="origin"
+                id="origin"
+                value="<%= product.origin %>"
+                class="input-text"
+                required
+              />
+            </div>
+
+            <div class="form-row">
               <label for="price">Precio del Café: </label>
               <input
                 type="number"
                 name="price"
                 id="price"
                 value="<%= product.price %>"
+                class="input-text"
+                required
+              />
+            </div>
+
+            <div class="form-row">
+              <label for="logo">Logo del Café: </label>
+              <input
+                type="text"
+                name="logo"
+                id="logo"
+                value="<%= product.logo %>"
                 class="input-text"
                 required
               />
@@ -68,21 +92,41 @@
                 id="actual-btn"
                 accept=".jpg .png"
                 multiple
-                
               />
               <label for="photo">Foto del café:</label>
               <label for="actual-btn" class="file-upload input-text"
                 >Elige la foto</label
               >
             </div>
+
+            
+
+            <div class="checkbox sale">
+              <div class="checkbox sale">
+                <input type="checkbox" name="sale" id="sale" class="" />
+                <label for="sale" class=""> Oferta </label>
+              </div>
+              <div class="checkbox sale">
+                <input type="checkbox" name="featured" id="featured" class="" />
+                <label for="featured" class=""> Destacado </label>
+              </div>
+            </div>
           </div>
         </form>
-        <form id="erase-form" action="/products/<%= product.id %>?_method=DELETE"method="POST"></form>
-               
-          <div class="form-row-buttons">
-            <button form="edit-form" type="submit" class="input-text">Editar</button>
-            <button form="erase-form" type="submit" class="input-text">Borrar</button>
-          </div>
+        <form
+          id="erase-form"
+          action="/products/<%= product.id %>?_method=DELETE"
+          method="POST"
+        ></form>
+
+        <div class="form-row-buttons">
+          <button form="edit-form" type="submit" class="input-text">
+            Editar
+          </button>
+          <button form="erase-form" type="submit" class="input-text">
+            Borrar
+          </button>
+        </div>
       </section>
     </main>
 

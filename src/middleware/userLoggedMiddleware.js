@@ -13,6 +13,9 @@ module.exports = (req, res, next) => {
     if(req.session.userLogged){
         res.locals.isLogged = true;
         res.locals.userLogged = req.session.userLogged;
+        if(res.locals.userLogged.mail === "lushi@dh.com"){
+            res.locals.isAdmin = true;
+        }
     }
     
     next();

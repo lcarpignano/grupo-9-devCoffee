@@ -5,11 +5,11 @@ const usersTable = jsonTable("users");
 const { validationResult } = require("express-validator");
 const session = require("express-session");
 const bcrypt = require("bcryptjs");
+const db = require("../../database/models");
 
 module.exports = {
   index: (req, res) => {
-    let users = usersTable.all();
-    res.render("users/index", { users });
+    db.Users.findAll().then((users) => res.render("users/index", { users }));
   },
   register: (req, res) => {
     res.render("users/register");
@@ -39,9 +39,8 @@ module.exports = {
   },
 
   edit: (req, res) => {
-    let user = usersTable.find(req.params.id);
-
-    res.render("users/edit", { user });
+    db.Users.findByPk(req.params.id)
+    .then( user => res.render("users/edit", { user }));
   },
   update: (req, res) => {
     let user = req.body;
@@ -101,22 +100,22 @@ module.exports = {
     delete user.password;
     req.session.userLogged = user;
 
-    if(req.body.remember) {
-      res.cookie('userEmail', req.body.mail, { maxAge: (1000 * 60) })
+    if (req.body.remember) {
+      res.cookie("userEmail", req.body.mail, { maxAge: 1000 * 60 });
     }
 
-    res.redirect('profile');
+    res.redirect("profile");
   },
 
   profile: (req, res) => {
-    return res.render('users/profile', {
-			user: req.session.userLogged
-		});
+    return res.render("users/profile", {
+      user: req.session.userLogged,
+    });
   },
-  
+
   logout: (req, res) => {
-    res.clearCookie('userEmail');
-		req.session.destroy();
-		res.redirect('/');
-	}
+    res.clearCookie("userEmail");
+    req.session.destroy();
+    res.redirect("/");
+  },
 };

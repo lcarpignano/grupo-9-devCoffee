@@ -3,52 +3,56 @@
   "id": 1,
   "first_name": "Luciano",
   "last_name": "Carpignano",
-  "user_name": "lushi",
+  "username": "lushi",
   "mail": "lushi@dh.com",
   "password": "$2y$10$ihJyRv3/HG1Bvk6ICmx07eqSOoLEAjEb71QIr3xsBRPyejEZLezia",
   "birth": "12/12/1982",
-  "adress": "1234west",
+  "address": "1234west",
   "zip": " ",
   "country": " ",
-  "city": " "
+  "city": " ",
+  "photo": " "
  },
  {
   "id": 2,
   "first_name": "User1",
   "last_name": "Algo ",
-  "user_name": "algunusuario",
+  "username": "algunusuario",
   "mail": "user1@users.com",
   "password": "$2y$10$ihJyRv3/HG1Bvk6ICmx07eqSOoLEAjEb71QIr3xsBRPyejEZLezia",
   "birth": "12/12/1982",
-  "adress": "Evergreen 1234",
+  "address": "Evergreen 1234",
   "zip": " ",
   "country": " ",
-  "city": " "
+  "city": " ",
+  "photo": " "
  },
  {
   "id": 3,
   "first_name": "User3",
   "last_name": "Algo3 ",
-  "user_name": "algunusuario",
+  "username": "algunusuario",
   "mail": "user3@users.com",
-  "password": "1234west",
+  "password": "$2y$10$ihJyRv3/HG1Bvk6ICmx07eqSOoLEAjEb71QIr3xsBRPyejEZLezia",
   "birth": "12/12/1982",
-  "adress": "Evergreen 1234",
+  "address": "Evergreen 1234",
   "zip": " ",
   "country": " ",
-  "city": " "
+  "city": " ",
+  "photo": " "
  },
  {
   "id": 4,
   "first_name": "User4",
   "last_name": "Algo4 ",
-  "user_name": "algunusuario",
+  "username": "algunusuario",
   "mail": "user4@users.com",
   "password": "1234west",
   "birth": "12/12/1982",
-  "adress": "Evergreen 1234",
+  "address": "Evergreen 1234",
   "zip": " ",
   "country": " ",
-  "city": " "
+  "city": " ",
+  "photo": " "
  }
 ]

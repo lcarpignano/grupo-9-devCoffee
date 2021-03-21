@@ -5,62 +5,115 @@ const productsTable = jsonTable("coffees");
 const weightsTable = jsonTable("weights");
 const grindsTable = jsonTable("grinds");
 const highlightsTable = jsonTable("highlights");
+const db = require("../../database/models");
 
 module.exports = {
   catalog: (req, res) => {
-    let products = productsTable.all();
-    res.render("products/catalog", { products });
+    db.Products.findAll().then((products) =>
+      res.render("products/catalog", { products })
+    );
   },
 
   show: (req, res) => {
     let weights = weightsTable.all();
     let grinds = grindsTable.all();
-    let highlights = highlightsTable.all();
+    Promise.all([
+      db.Products.findByPk(req.params.id),
+      db.Products.findAll(),
+      db.Products.findAll({
+        where: {
+          featured: true,
+        },
+      }),
+    ]).then((promiseRes) => {
+      const product = promiseRes[0];
+      const products = promiseRes[1];
+      const featured = promiseRes[2];
+      console.log(product);
+      console.log(featured);
+
+      if (product) {
+        res.render("products/detail", {
+          product,
+          featured,
+          weights,
+          grinds,
+        });
+      } else {
+        res.render("products/catalog", { products });
+      }
+    });
+
+    /* .then((product) =>
+        res.render("products/detail", {
+          product  , weights, grinds, featured */
+  },
+
+  /* let highlights = highlightsTable.all();
     let product = productsTable.find(req.params.id);
     if (product) {
-      res.render("products/detail", { product, weights, grinds, highlights });
+      res.render("products/detail", { product, weights, grinds, featured });
     } else {
       res.render("products/catalog");
-    }
-  },
+    } */
 
   create: (req, res) => {
     res.render("products/create");
   },
 
   store: (req, res) => {
-    let product = req.body;
-    if (req.file) {
-      product.photo = '/img/' + req.file.filename;
-    } else {
-      res.send("La imagen es obligatoria");
-    }
+    const { name, logo, description, price } = req.body;
+    const photo = req.file.filename;
 
-    let productId = productsTable.create(product);
-
-    res.redirect("/products/" + productId);
+    db.Products.create({
+      name,
+      logo,
+      description,
+      price: Number(price),
+      photo,
+    })
+      .then((newProduct) => {
+        res.redirect("/products/catalog");
+      })
+      .catch((error) => {
+        console.log("crear pagina de error de carga");
+      });
   },
 
   edit: (req, res) => {
-    let product = productsTable.find(req.params.id);
-
-    res.render("products/edit", { product });
+    db.Products.findByPk(req.params.id).then((product) => {
+      res.render("products/edit", { product });
+    });
   },
 
   update: (req, res) => {
     let product = req.body;
-    product.id = Number(req.params.id);
-
-    if (req.file) {
+    if(req.file.filename){
       product.photo = req.file.filename;
-    } else {
-      oldproduct = productsTable.find(product.id);
-      product.photo = oldproduct.photo;
     }
+    
 
-    let productId = productsTable.update(product);
 
-    res.redirect("/products/" + productId);
+
+    const { name, logo, description, price } = req.body;
+    let photo = req.file.filename;
+    const id = Number(req.params.id);
+
+    if (!photo) {
+      db.Products.findByPk(id).then((product) => {
+        photo = product.photo;
+      });
+    }
+    db.Products.findByPk(id).then((product) => {
+      product.update({
+        name,
+        logo,
+        description,
+        price,
+        
+      });
+      res.redirect("/products/" + id);
+    });
   },
 
   destroy: (req, res) => {

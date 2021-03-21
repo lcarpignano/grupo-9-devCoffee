@@ -6,7 +6,7 @@ module.exports = {
         check('first_name').notEmpty().withMessage('Debes completar tu nombre'),
         check('last_name').notEmpty().withMessage('Debes completar tu apellido'), 
         check('user_name')
-            .notEmpty().withMessage('Debes completar un email valido').bail()
+            .notEmpty().withMessage('Debes elegir un nombre de usuario').bail()
             .isLength({ min: 5 }).withMessage('El nombre debe tener al menos 5 caracteres')
             .isLength({ max: 15 }).withMessage('El nombre debe tener menos de 15 caracteres'),
         check('mail').notEmpty().isEmail().withMessage('Debes completar un email valido'),

@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-  const alias = "Users";
+  const alias = "Products";
   const columns = {
     id: {
       primaryKey: true,
@@ -7,51 +7,43 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.INTEGER,
       allowNull: false,
     } ,
-    first_name: {
+    name: {
       type: dataTypes.STRING,
       allowNull: false
     },
-    last_name: {
-      type: dataTypes.STRING,
-      allowNull: false
-    },
-    username: {
-      type: dataTypes.STRING,
-      allowNull: false
-    },
-    mail: {
-      type: dataTypes.STRING,
-      allowNull: false
-    },
-    password: {
-      type: dataTypes.STRING,
-      allowNull: false
-    },
-    birth: {
-      type: dataTypes.DATE,
-      allowNull: false
-    },
-    address: {
-      type: dataTypes.STRING,
-      allowNull: false
-    },
-    country: {
-      type: dataTypes.STRING,
-      allowNull: false
-    },
-    city: {
+    logo: {
       type: dataTypes.STRING,
       allowNull: false
     },
     photo: {
       type: dataTypes.STRING,
       allowNull: false
+    },
+    description: {
+      type: dataTypes.STRING,
+      allowNull: false
+    },
+    price: {
+      type: dataTypes.DECIMAL,
+      allowNull: false
+    },
+    origin: {
+      type: dataTypes.STRING,
+      allowNull: false
+    },
+    sale: {
+      type: dataTypes.BOOLEAN,
+      allowNull: false
+    },
+    featured: {
+      type: dataTypes.BOOLEAN,
+      allowNull: false
     }
   };
   const config = {
-    tableName: "users",
+    tableName: "Products",
     timestamps: false
   };
-  const User = sequelize.define(alias, columns, config);
-  return User;
+  const Product = sequelize.define(alias, columns, config);
+  return Product;
 };

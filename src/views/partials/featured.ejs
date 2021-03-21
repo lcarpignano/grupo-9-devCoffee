@@ -1,0 +1,21 @@
+
+
+<section class="container">
+  <div class="product-products">
+    <% featured.forEach(featured => { %>
+    <article class="product-box">
+      <div class="product-box-image">
+        <img src="<%= featured.photo %>" />
+      </div>
+      <div class="product-box-info">
+        <h2><i class="<%= featured.logo %>"></i> <%= featured.name %></h2>
+        <p><%= featured.description %></p>
+        <h3>$ <%= Number(featured.price).toFixed(2) %></h3> 
+        <a href="/products/<%= featured.id_coffee %>" class="btn-product"
+          >Ver más
+        </a>
+      </div>
+    </article>
+    <% }); %>
+  </div>
+</section>

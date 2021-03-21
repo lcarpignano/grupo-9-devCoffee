@@ -1,13 +1,16 @@
 const fs = require("fs");
 const path = require("path");
-const jsonTable = require("../database/jasonTable");
-const highlightsTable = jsonTable("highlights");
+const db = require('../../database/models')
 
 
 module.exports = {
   index: (req, res) => {
-    let highlights = highlightsTable.all();
-    res.render("index", { highlights });
+    db.Products.findAll({
+      where: { featured: true }
+    })
+    .then( (featured) => {
+      res.render("index", { featured })  
+    })
   }
   
 };

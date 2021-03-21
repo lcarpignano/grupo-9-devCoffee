@@ -25,22 +25,39 @@
         >
           <div class="register-inputs-text">
             <div class="form-row">
-              <label for="name">Nombre y Apellido: </label>
+              <label for="first_name">Nombre y Apellido: </label>
+
               <input
                 type="text"
-                name="name"
-                id="name"
-                value="<%= user.first_name %> <%= user.last_name %>"
+                name="first_name"
+                id="first_name"
+                placeholder="Ingresa tu nombre y apellido"
                 class="input-text"
-                required
               />
+              <% if (locals.errors && errors.first_name) { %>
+              <p class="warning"><%= errors.first_name.msg %></p>
+              <% } %>
+            </div>
+
+            <div class="form-row">
+              <label for="last_name">Nombre y Apellido: </label>
+              <input
+                type="text"
+                name="last_name"
+                id="last_name"
+                placeholder="Ingresa tu nombre y apellido"
+                class="input-text"
+              />
+              <% if (locals.errors && errors.last_name) { %>
+                <p class="warning"><%= errors.last_name.msg %></p>
+                <% } %>
             </div>
             <div class="form-row">
-              <label for="user-name">Nombre de usuari@:</label>
+              <label for="username">Nombre de usuari@:</label>
               <input
                 type="text"
-                name="user-name"
-                id="user-name"
+                name="username"
+                id="username"
                 value="<%= user.nick_name %>"
                 class="input-text"
                 required
@@ -80,14 +97,29 @@
             </div>
 
             <div class="form-row">
-              <label for="adress">Domicilio:</label>
+              <label for="address">Domicilio:</label>
               <input
                 type="text"
-                name="adress"
-                id="adress"
+                name="address"
+                id="address"
                 value="<%= user.birth_date %>"
                 class="input-text"
               />
+            </div>
+
+            <div class="form-row">
+              <input
+                class="input-text hidden"
+                type="file"
+                name="photo"
+                id="actual-btn"
+                accept=".jpg, .png, .jpeg"
+                                
+              />
+              <label for="photo">Foto de Usuario:</label>
+              <label for="actual-btn" class="file-upload input-text"
+                >Elige la foto</label
+              >
             </div>
           </div>
 

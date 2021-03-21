@@ -1,7 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-const jsonTable = require("../database/jasonTable");
-const usersTable = jsonTable("users");
 const { validationResult } = require("express-validator");
 const session = require("express-session");
 const bcrypt = require("bcryptjs");
@@ -15,21 +13,30 @@ module.exports = {
     res.render("users/register");
   },
   userRegister: (req, res) => {
-    let errors = validationResult(req);
+    const errors = validationResult(req);
+    const { first_name, last_name, username, mail, birth, address } = req.body;
+    const password = bcrypt.hashSync(req.body.password, 10);
+    const photo = req.file.filename;
 
     if (errors.isEmpty()) {
-      let user = req.body;
-      if (req.file) {
-        user.photo = req.file.filename;
-      } else {
-        res.render("users/register", {
-          errors: errors.mapped(),
-          oldData: req.body,
-        });
-      }
-      user.password = bcrypt.hashSync(user.password, 10);
-
-      res.redirect("/users/login");
+      db.Users.create({
+        first_name,
+        last_name,
+        username,
+        mail,
+        password,
+        birth,
+        address,
+        photo,
+      })
+        .then((newUser) => {
+          console.log("se creó el producto", newUser);
+          db.Users.findOne({ where: { mail: req.body.mail } }).then((user) => {
+            req.session.userLogged = user;
+            res.redirect("/users/profile", { user });
+          });
+        })
+        .catch((error) => console.log("Falló la creación del producto", error));
     } else {
       return res.render("users/register", {
         errors: errors.mapped(),
@@ -39,32 +46,61 @@ module.exports = {
   },
 
   edit: (req, res) => {
-    db.Users.findByPk(req.params.id)
-    .then( user => res.render("users/edit", { user }));
+    db.Users.findByPk(req.params.id).then((user) =>
+      res.render("users/edit", { user })
+    );
   },
   update: (req, res) => {
     let user = req.body;
     user.id = Number(req.params.id);
 
-    // Si viene una imagen nueva la guardo
+    db.Users.findByPk(user.id).then((user) => {
+      const originalPhoto = user.photo;
+
+      db.Users.update(
+        {
+          first_name,
+          last_name,
+          username,
+          mail,
+          password,
+          birth,
+          address,
+          photo: req.file ? req.file.filename : originalPhoto,
+        },
+        {
+          where: {
+            id: user.id,
+          },
+        }
+      )
+        .then(() => {
+          res.redirect("/users/" + user.id);
+        })
+        .catch((err) => console.log(err));
+    });
+
+    /*  // Si viene una imagen nueva la guardo
     if (req.file) {
       user.photo = req.file.filename;
       // Si no viene una imagen nueva, busco en base la que ya había
-    } else {
+    } /*  else {
       oldUser = usersTable.find(user.id);
       user.photo = oldUser.photo;
-    }
+    } 
 
     let userId = usersTable.update(user);
 
-    res.redirect("/users/" + userId);
+    res.redirect("/users/" + userId); */
   },
+
   destroy: (req, res) => {
-    let users = usersTable.all();
+    db.Users.destroy({ where: { id: req.params.id } }).then(() => {
+      res.redirect("/users/index");
+    });
+    /* let users = usersTable.all();
 
-    usersTable.delete(req.params.id);
-
-    res.redirect("/users/index");
+    usersTable.delete(req.params.id); */
   },
 
   login: (req, res) => {
@@ -72,39 +108,36 @@ module.exports = {
   },
 
   loginProcess: (req, res) => {
-    // Validacion
-
-    let user = usersTable.findByField("mail", req.body.mail);
-    //console.log(user);
-
-    if (!user) {
-      return res.render("users/login", {
-        errors: {
-          mail: {
-            msg: "Las credenciales son inválidas",
+    db.Users.findOne({ where: { mail: req.body.mail } }).then((user) => {
+      if (!user) {
+        return res.render("users/login", {
+          errors: {
+            mail: {
+              msg: "Las credenciales son inválidas",
+            },
           },
-        },
-      });
-    }
+        });
+      }
 
-    if (!bcrypt.compareSync(req.body.password, user.password)) {
-      return res.render("users/login", {
-        errors: {
-          mail: {
-            msg: "Las credenciales son inválidas",
+      if (!bcrypt.compare(req.body.password, user.password)) {
+        return res.render("users/login", {
+          errors: {
+            mail: {
+              msg: "Las credenciales son inválidas",
+            },
           },
-        },
-      });
-    }
+        });
+      }
 
-    delete user.password;
-    req.session.userLogged = user;
+      delete user.password;
+      req.session.userLogged = user;
 
-    if (req.body.remember) {
-      res.cookie("userEmail", req.body.mail, { maxAge: 1000 * 60 });
-    }
+      if (req.body.remember) {
+        res.cookie("userEmail", req.body.mail, { maxAge: 1000 * 60 });
+      }
 
-    res.redirect("profile");
+      res.redirect("profile");
+    });
   },
 
   profile: (req, res) => {

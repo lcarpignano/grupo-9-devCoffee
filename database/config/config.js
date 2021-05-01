@@ -1,11 +1,11 @@
 module.exports = {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "root",
     "database": "coffee_db",
     "host": "localhost",
     "dialect": "mysql",
-    "port": 3306
+    "port": 3333
   },
   "test": {
     "username": "root",

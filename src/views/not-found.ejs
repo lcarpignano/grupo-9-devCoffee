@@ -3,23 +3,7 @@
   <%- include('./partials/head.ejs') %>
 
   <body>
-    <header>
-      <div class="header-nav">
-        <i class="fas fa-bars icon"></i>
-
-        <a href="/" class="logo"
-          ><i class="icon fas fa-file-code"></i> Coffee Break</a
-        >
-
-        <div class="header-nav-right">
-          <div class="header-nav-right-dkt">
-            <div class="header-nav-bar"></div>
-            <div class="header-nav-search-bar"></div>
-          </div>
-          <div class="header-nav-right-icons"></div>
-        </div>
-      </div>
-    </header>
+    <%- include('./partials/header.ejs') %> 
 
     <main class="container">
       <h2>Pagina no encontrada - Error 404</h2>
@@ -31,13 +15,7 @@
       </ul>
     </main>
 
-    <footer>
-      <div class="footer-block">
-        <p>
-          Coffee Break<i class="far fa-registered"></i> 2021. Todos los derechos
-          reservados.
-        </p>
-      </div>
-    </footer>
+    <%- include('./partials/footer.ejs') %> 
+
   </body>
 </html>

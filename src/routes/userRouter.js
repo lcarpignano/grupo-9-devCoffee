@@ -11,11 +11,11 @@ const adminMiddleware = require('../middleware/adminMiddleware')
 router.get('/index', adminMiddleware, userController.index)
 router.get('/profile', guestMiddleware, userController.profile)
 router.get('/register', authMiddleware, userController.register)
-router.post('/register', uploadFile.single('photo'), /* usersValidations.store, */ userController.userRegister)
+router.post('/register', uploadFile.single('photo'), usersValidations.store, userController.userRegister)
 router.get('/login', authMiddleware, userController.login)
 router.post('/login', userController.loginProcess)
 router.get('/logout', userController.logout)
-router.get('/:id/edit', userController.edit)
+router.get('/:id', userController.edit)
 router.put('/:id', uploadFile.single('photo'), usersValidations.update, userController.update)
 router.delete('/:id', userController.destroy);
 

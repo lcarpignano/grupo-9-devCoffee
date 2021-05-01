@@ -38,6 +38,10 @@ module.exports = (sequelize, dataTypes) => {
     featured: {
       type: dataTypes.BOOLEAN,
       allowNull: false
+    },
+    category_id: {
+      type: dataTypes.DECIMAL,
+      allowNull: false
     }
   };
   const config = {

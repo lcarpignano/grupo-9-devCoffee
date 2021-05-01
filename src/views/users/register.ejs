@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('../partials/head.ejs') %>
-
+  
+  <script src="/js/register.js"></script>
+  
   <body>
     <%- include('../partials/header.ejs') %>
-
+    
     <main>
       <section>
         <div class="intro-products">
@@ -25,27 +27,28 @@
         >
           <div class="register-inputs-text">
             <div class="form-row">
-              <label for="first_name">Nombre y Apellido: </label>
+              <label for="first_name">Nombre: </label>
 
               <input
                 type="text"
                 name="first_name"
                 id="first_name"
-                placeholder="Ingresa tu nombre y apellido"
+                placeholder="Ingresa tu nombre"
                 class="input-text"
               />
+              <div class="warning"></div>
               <% if (locals.errors && errors.first_name) { %>
               <p class="warning"><%= errors.first_name.msg %></p>
               <% } %>
             </div>
 
             <div class="form-row">
-              <label for="last_name">Nombre y Apellido: </label>
+              <label for="last_name">Apellido: </label>
               <input
                 type="text"
                 name="last_name"
                 id="last_name"
-                placeholder="Ingresa tu nombre y apellido"
+                placeholder="Ingresa tu apellido"
                 class="input-text"
               />
               <% if (locals.errors && errors.last_name) { %>
@@ -193,5 +196,7 @@
     </main>
 
     <%- include('../partials/footer.ejs') %>
+
+
   </body>
 </html>

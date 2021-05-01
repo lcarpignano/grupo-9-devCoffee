@@ -37,11 +37,13 @@ app.use(express.json());
 // Routes
 //--------
 const mainRouter = require('./routes/mainRouter');
-const productRouter = require('./routes/productRouter');
+//const productRouter = require('./routes/productRouter');
 const userRouter = require('./routes/userRouter');
+const apiProductsRouter = require('./routes/apiProductsRouter');
+//const apiUsersRouter = require('./routes/apiUsersRouter');
 
 app.use('/', mainRouter);
-app.use('/products', productRouter);
+app.use('/products', apiProductsRouter);
 app.use('/users', userRouter);
 
 

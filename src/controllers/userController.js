@@ -10,13 +10,19 @@ module.exports = {
     db.Users.findAll().then((users) => res.render("users/index", { users }));
   },
   register: (req, res) => {
+
+    // API
+/*     const countries = await fetch('https://restcountries.eu/rest/v2/regionalbloc/eu')
+      .then(response => response.json()); */
+
     res.render("users/register");
   },
   userRegister: (req, res) => {
     const errors = validationResult(req);
-    const { first_name, last_name, username, mail, birth, address } = req.body;
+    const { first_name, last_name, username, mail, country, city, birth, address } = req.body;
     const password = bcrypt.hashSync(req.body.password, 10);
-    const photo = req.file.filename;
+    console.log('POR AQUI');
+    const photo = /* req.file.filename ? req.file.filename :  */'default.png';
 
     if (errors.isEmpty()) {
       db.Users.create({
@@ -24,6 +30,8 @@ module.exports = {
         last_name,
         username,
         mail,
+        country,
+        city,
         password,
         birth,
         address,
@@ -46,8 +54,10 @@ module.exports = {
   },
 
   edit: (req, res) => {
-    db.Users.findByPk(req.params.id).then((user) =>
-      res.render("users/edit", { user })
+    db.Users.findByPk(req.params.id).then((user) => {
+      console.log(user)
+      res.render("users/edit", { user })}
+      
     );
   },
   update: (req, res) => {

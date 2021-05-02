@@ -1,4 +1,3 @@
-import { render } from "ejs";
 import fetch from "node-fetch";
 import React, { Component } from "react";
 
@@ -9,26 +8,29 @@ export default class Products extends Component {
     super(props);
     this.state = {
       totalProducts: null,
-
       lastProduct: null,
       productsCategory: null,
       products: null,
     };
   }
 
-  productsByCategory(arr) {
+  productsByCategory(arrOfProducts) {
     let ids = [];
-    arr.forEach((element) => {
-      if (ids.find(arr.category_id)) {
-        ids[arr.category_id][0]++;
+    arrOfProducts.forEach((element) => {
+      if (ids.find((category) => category.id === element.category_id)) {
+        element.total++;
       } else {
-        ids.push(arr.category_id).push(1);
+        ids.push({
+          id: element.category_id,
+          total: 1,
+        });
       }
     });
+    return ids;
   }
 
   theLastProduct(arr) {
-    arr.filter(
+    return arr.filter(
       (element) => element.id === Math.max(arr.map((product) => product.id))
     );
   }

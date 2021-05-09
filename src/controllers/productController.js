@@ -4,7 +4,6 @@ const jsonTable = require("../database/jasonTable");
 const productsTable = jsonTable("coffees");
 const weightsTable = jsonTable("weights");
 const grindsTable = jsonTable("grinds");
-const highlightsTable = jsonTable("highlights");
 const db = require("../../database/models");
 
 module.exports = {

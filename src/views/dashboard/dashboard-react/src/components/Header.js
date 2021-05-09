@@ -8,7 +8,7 @@ export default function Header() {
           {/* <% if (locals.isLogged === true) { %> */}
           <ul>
             <li>
-              <a href="#">
+              <a href="/">
                 <img src="../../img/users/default.png" alt="User Avatar" />
                 {/* <!-- <%= locals.userLogged.first_name %> --> */}
               </a>
@@ -58,7 +58,7 @@ export default function Header() {
             <a href="/products/shoppingCart">
               <i className="icon fas fa-shopping-cart"></i>
             </a>
-            <a href="#">
+            <a href="/">
               <i className="fab fa-instagram icon"></i>{" "}
             </a>
           </div>

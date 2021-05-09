@@ -49,6 +49,22 @@ p {
   font-size: 1.2rem;
 }
 
+ul{
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.reset-margin-padding {
+  margin: 0;
+  padding: 0;
+}
+
+li p.reset-margin-padding {
+  margin: 0;
+  padding: 0;
+}
+
 .container {
   width: 90%;
   max-width: 100rem;
@@ -1095,6 +1111,18 @@ footer {
 
 .product-title {
   font-size: 2rem;
+}
+
+
+/* ---------------------------------------- */
+/* -------------- Dashboard --------------- */
+/* ---------------------------------------- */
+
+
+
+.product-box-dashboard {
+  height: 205px;
+  justify-content: start;
 }
 
 /* ---------------------------------------- */

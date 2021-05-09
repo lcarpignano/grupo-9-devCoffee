@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('../partials/head.ejs') %>
-  
+
   <script src="/js/register.js"></script>
-  
+
   <body>
     <%- include('../partials/header.ejs') %>
-    
+
     <main>
       <section>
         <div class="intro-products">
@@ -20,7 +20,8 @@
 
       <section class="container">
         <form
-          action="/users/register"
+          id="form-register"
+          action="/users/create"
           method="POST"
           enctype="multipart/form-data"
           class="register-form-container"
@@ -36,7 +37,7 @@
                 placeholder="Ingresa tu nombre"
                 class="input-text"
               />
-              <div class="warning"></div>
+              <p class="warning error-message error-firstname" style="display: none;">Completa con tu nombre</p>
               <% if (locals.errors && errors.first_name) { %>
               <p class="warning"><%= errors.first_name.msg %></p>
               <% } %>
@@ -51,9 +52,10 @@
                 placeholder="Ingresa tu apellido"
                 class="input-text"
               />
+              <p class="warning error-message error-lastname" style="display: none;">Completa con tu apellido</p>
               <% if (locals.errors && errors.last_name) { %>
-                <p class="warning"><%= errors.last_name.msg %></p>
-                <% } %>
+              <p class="warning"><%= errors.last_name.msg %></p>
+              <% } %>
             </div>
 
             <div class="form-row">
@@ -65,14 +67,17 @@
                 placeholder="Nombre de usuari@"
                 class="input-text"
               />
+              <p class="warning error-message error-username" style="display: none;">Completa con tu nombre de usuario</p>
               <% if (locals.errors && errors.username) { %>
-                <p class="warning"><%= errors.username.msg %></p>
-                <% } %>
+              <p class="warning"><%= errors.username.msg %></p>
+              <% } %>
             </div>
 
             <div class="form-row">
               <label for="birth">Fecha de nacimiento:</label>
               <input type="date" name="birth" id="birth" class="input-text" />
+              <p class="warning error-message error-birth" style="display: none;">Completa tu fecha de nacimiento</p>
+
             </div>
 
             <div class="form-row">
@@ -84,9 +89,11 @@
                 placeholder="Ingresa tu Email"
                 class="input-text"
               />
+              <p class="warning error-message error-mail" style="display: none;">Completa tu correo electronico</p>
+
               <% if (locals.errors && errors.mail) { %>
-                <p class="warning"><%= errors.mail.msg %></p>
-                <% } %>
+              <p class="warning"><%= errors.mail.msg %></p>
+              <% } %>
             </div>
 
             <div class="form-row">
@@ -98,9 +105,11 @@
                 placeholder="Re ingresa tu Email"
                 class="input-text"
               />
+              <p class="warning error-message error-check_mail" style="display: none;">Confirma tu correo electronico</p>
+
               <% if (locals.errors && errors.mail) { %>
-                <p class="warning"><%= errors.mail.msg %></p>
-                <% } %>
+              <p class="warning"><%= errors.mail.msg %></p>
+              <% } %>
             </div>
 
             <div class="form-row">
@@ -112,9 +121,11 @@
                 placeholder="Ingresa tu contraseña"
                 class="input-text"
               />
+              <p class="warning error-message error-password" style="display: none;">Completa tu correo contraseña</p>
+
               <% if (locals.errors && errors.password) { %>
-                <p class="warning"><%= errors.password.msg %></p>
-                <% } %>
+              <p class="warning"><%= errors.password.msg %></p>
+              <% } %>
             </div>
             <div class="form-row">
               <label for="check_pass">Confirmar contraseña:</label>
@@ -125,11 +136,12 @@
                 placeholder="Confirma tu contraseña"
                 class="input-text"
               />
+              <p class="warning error-message error-check_pass" style="display: none;">Confirma tu correo contraseña</p>
+
               <% if (locals.errors && errors.check_pass) { %>
-                <p class="warning"><%= errors.check_pass.msg %></p>
-                <% } %>
+              <p class="warning"><%= errors.check_pass.msg %></p>
+              <% } %>
             </div>
-            
 
             <div class="form-row">
               <label for="country">País:</label>
@@ -138,6 +150,8 @@
                   Selecciona tu país...
                 </option>
               </select>
+              <p class="warning error-message error-country" style="display: none;">Confirma tu país</p>
+
             </div>
 
             <div class="form-row">
@@ -146,6 +160,8 @@
                 <option value="city" class="input-text">
                   Selecciona tu ciudad...
                 </option>
+              <p class="warning error-message error-city" style="display: none;">Confirma tu ciudad</p>
+
               </select>
             </div>
 
@@ -158,6 +174,8 @@
                 placeholder="Ingresa tu domicilio"
                 class="input-text"
               />
+              <p class="warning error-message error-address" style="display: none;">Confirma tu domicilio</p>
+
             </div>
 
             <div class="form-row">
@@ -169,6 +187,8 @@
                 placeholder="Ingresa tu código ZIP"
                 class="input-text"
               />
+              <p class="warning error-message error-zip" style="display: none;">Confirma tu código postal</p>
+
             </div>
             <div class="form-row">
               <input
@@ -177,15 +197,12 @@
                 name="photo"
                 id="actual-btn"
                 accept=".jpg, .png, .jpeg"
-                                
               />
               <label for="photo">Foto de Usuario:</label>
               <label for="actual-btn" class="file-upload input-text"
                 >Elige la foto</label
               >
             </div>
-
-
           </div>
 
           <div class="form-row-buttons">
@@ -196,7 +213,5 @@
     </main>
 
     <%- include('../partials/footer.ejs') %>
-
-
   </body>
 </html>

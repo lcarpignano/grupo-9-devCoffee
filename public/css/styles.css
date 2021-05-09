@@ -55,6 +55,10 @@ p {
   margin: auto;
 }
 
+.warning{
+  color: red;
+}
+
 .btn {
   border-radius: 5rem;
   background-color: #e0afa0;

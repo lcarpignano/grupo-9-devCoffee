@@ -1,9 +1,9 @@
 import Header from "./Header";
-import Main from "./Main";
+import Card from "./Card";
 import Footer from "./Footer";
 
 export default function Dashboard() {
-  const cards = [
+  const titles = [
     "Total Productos",
     "Total Usuarios",
     "Total Categorias",
@@ -15,7 +15,22 @@ export default function Dashboard() {
   return (
     <body>
       <Header />
-      <Main name={cards}/>
+
+      <main>
+        <section>
+          <div className="intro-products">
+            <h2>
+              Es hora de tomar un break
+              <i className="far fa-smile-wink"></i>
+            </h2>
+          </div>
+        </section>
+
+        {titles.map((card, index) => (
+          <Card key={card + index} name={card} />
+        ))}
+      </main>
+
       <Footer />
     </body>
   );

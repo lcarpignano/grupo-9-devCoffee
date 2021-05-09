@@ -30,6 +30,34 @@ module.exports = {
           })
       
   },
+
+  
+  getCategories(req, res) {
+    
+      db.Categories.findAll()
+          .then(categories => {
+              res
+                  .status(200)
+                  .json({ 
+                      meta: {
+                          totalCategories: categories.length
+                      },
+                      data: categories,
+                      status: STATUS_SUCCESS
+                  })
+          })
+          .catch(error => {
+              res
+                  .status(500)
+                  .json({
+                      status: STATUS_ERROR,
+                      error,
+                  })
+          })
+      
+  },
+
+
   searchProduct (req, res) {
     db.Products.findAll({
       where: {

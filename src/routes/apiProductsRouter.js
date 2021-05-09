@@ -3,6 +3,7 @@ const router = express.Router();
 const apiProductsController = require('../controllers/apiProductsController')
 
 router.get('/', apiProductsController.getCatalog)
+router.get('/categories', apiProductsController.getCategories)
 router.get('/search', apiProductsController.searchProduct)
 router.get('/:id', apiProductsController.getProduct)
 router.post('/', apiProductsController.createProduct)

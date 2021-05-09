@@ -10,6 +10,7 @@ module.exports = {
     db.Users.findAll().then((users) => res.render("users/index", { users }));
   },
   register: (req, res) => {
+     
 
     // API
 /*     const countries = await fetch('https://restcountries.eu/rest/v2/regionalbloc/eu')
@@ -21,7 +22,8 @@ module.exports = {
     const errors = validationResult(req);
     const { first_name, last_name, username, mail, country, city, birth, address } = req.body;
     const password = bcrypt.hashSync(req.body.password, 10);
-    console.log('POR AQUI');
+    console.log('POR AQUI userRegister');
+    console.log(errors)
     const photo = /* req.file.filename ? req.file.filename :  */'default.png';
 
     if (errors.isEmpty()) {
@@ -38,19 +40,20 @@ module.exports = {
         photo,
       })
         .then((newUser) => {
-          console.log("se creó el producto", newUser);
+          console.log("se creó el usuario", newUser);
           db.Users.findOne({ where: { mail: req.body.mail } }).then((user) => {
             req.session.userLogged = user;
             res.redirect("/users/profile", { user });
           });
         })
-        .catch((error) => console.log("Falló la creación del producto", error));
+        .catch((error) => console.log("Falló la creación del usuario", error));
     } else {
       return res.render("users/register", {
         errors: errors.mapped(),
         oldData: req.body,
       });
     }
+    
   },
 
   edit: (req, res) => {

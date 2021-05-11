@@ -10,8 +10,8 @@ window.addEventListener("load", function () {
   const mail = document.querySelector("#mail");
   const checkMail = document.querySelector("#check_mail");
   const password = document.querySelector("#password");
-  const checkPass = document.querySelector("#pass");
-  const country = document.querySelector("#county");
+  const checkPass = document.querySelector("#check_pass");
+  const country = document.querySelector("#country");
   const city = document.querySelector("#city");
   const address = document.querySelector("#address");
   const zipCode = document.querySelector("#zip");
@@ -25,10 +25,10 @@ window.addEventListener("load", function () {
   const errorCheckMail = document.querySelector(".error-check_mail");
   const errorPassword = document.querySelector(".error-password");
   const errorCheckPass = document.querySelector(".error-check_pass");
-  const errorCountry = document.querySelector(".error-check_mail");
-  const errorCity = document.querySelector(".error-check_mail");
-  const errorAddress = document.querySelector(".error-check_mail");
-  const errorZipCode = document.querySelector(".error-check_mail");
+  const errorCountry = document.querySelector(".error-country");
+  const errorCity = document.querySelector(".error-city");
+  const errorAddress = document.querySelector(".error-address");
+  const errorZipCode = document.querySelector(".error-zip");
 
   console.log("form", form);
   console.log("selectAll", errorMessages);
@@ -43,6 +43,8 @@ window.addEventListener("load", function () {
     let errorsFront = false;
 
     resetFormErrors();
+    event.preventDefault();
+
 
     if (firstName.value.length < 2) {
       errorName.style.display = "block";
@@ -79,12 +81,10 @@ window.addEventListener("load", function () {
         errorsFront = true;
       }
 
-      if (checkPass.value !== password.value) {
+      if (checkPass.value.length < 2) {
         errorCheckPass.style.display = "block";
         errorsFront = true;
       }
-
-
 
       if (country.value.length === 0) {
         errorCountry.style.display = "block";

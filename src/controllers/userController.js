@@ -10,21 +10,28 @@ module.exports = {
     db.Users.findAll().then((users) => res.render("users/index", { users }));
   },
   register: (req, res) => {
-     
-
     // API
-/*     const countries = await fetch('https://restcountries.eu/rest/v2/regionalbloc/eu')
+    /*     const countries = await fetch('https://restcountries.eu/rest/v2/regionalbloc/eu')
       .then(response => response.json()); */
 
     res.render("users/register");
   },
   userRegister: (req, res) => {
     const errors = validationResult(req);
-    const { first_name, last_name, username, mail, country, city, birth, address } = req.body;
-    const password = bcrypt.hashSync(req.body.password, 10);
-    console.log('POR AQUI userRegister');
-    console.log(errors)
-    const photo = /* req.file.filename ? req.file.filename :  */'default.png';
+    const {
+      first_name,
+      last_name,
+      username,
+      mail,
+      country,
+      city,
+      birth,
+      address,
+    } = req.body;
+    const password = bcrypt.hashSync(req.body.password, 12);
+    console.log("POR AQUI userRegister");
+    console.log(errors);
+    const photo = /* req.file.filename ? req.file.filename :  */ "default.png";
 
     if (errors.isEmpty()) {
       db.Users.create({
@@ -53,15 +60,13 @@ module.exports = {
         oldData: req.body,
       });
     }
-    
   },
 
   edit: (req, res) => {
     db.Users.findByPk(req.params.id).then((user) => {
-      console.log(user)
-      res.render("users/edit", { user })}
-      
-    );
+      console.log(user);
+      res.render("users/edit", { user });
+    });
   },
   update: (req, res) => {
     let user = req.body;
@@ -122,7 +127,33 @@ module.exports = {
 
   loginProcess: (req, res) => {
     db.Users.findOne({ where: { mail: req.body.mail } }).then((user) => {
-      if (!user) {
+      console.log("ya estan los datos", user);
+
+      if (user) {
+        if (bcrypt.compare(req.body.password, user.password) === false) {
+         
+          return res.render("users/login", {
+            errors: {
+              mail: {
+                msg: "Las contrasena es incorrecta",
+              },
+            },
+          });
+        }
+      } else {
+        return res.render("users/login", {
+          errors: {
+            mail: {
+              msg: "Las credenciales son inválidas",
+            },
+          },
+        });
+
+      }
+
+      
+
+      /* if (!user) {
         return res.render("users/login", {
           errors: {
             mail: {
@@ -132,15 +163,22 @@ module.exports = {
         });
       }
 
-      if (!bcrypt.compare(req.body.password, user.password)) {
+      if (bcrypt.compare(req.body.password, user.password) === false) {
+        console.log(
+          bcrypt.compare(req.body.password, user.password),
+
+          req.body.password,
+          user.password
+        ); 
+
         return res.render("users/login", {
           errors: {
             mail: {
-              msg: "Las credenciales son inválidas",
+              msg: "Las contrasena es incorrecta",
             },
           },
         });
-      }
+      } */
 
       delete user.password;
       req.session.userLogged = user;

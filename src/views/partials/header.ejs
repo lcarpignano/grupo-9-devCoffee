@@ -12,7 +12,7 @@
           </a>
           <ul class="dropdown">
             <li><a href="/">Mi cuenta</a></li>
-            <li><a href="/">Mis compras</a></li>
+            <li <% if (locals.isAdmin === true) { display=none } %> ><a href="/">Mis compras</a></li>
             <% if (locals.isAdmin === true) { %>
               <li><a href="/">Editar</a></li>
 

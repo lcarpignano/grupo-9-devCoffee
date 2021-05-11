@@ -1,5 +1,6 @@
 module.exports = (req, res, next) => {
-	if (!req.session.userLogged.mail === "lushi@dh.com") {
+	const admins = "flor@dh.com"
+	if (!req.session.userLogged.mail === admins) {
 		return res.redirect('/users/profile');
 	}
 	next();

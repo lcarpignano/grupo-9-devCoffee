@@ -43,9 +43,7 @@ window.addEventListener("load", function () {
     let errorsFront = false;
 
     resetFormErrors();
-    event.preventDefault();
-
-
+    
     if (firstName.value.length < 2) {
       errorName.style.display = "block";
       errorsFront = true;
@@ -86,7 +84,7 @@ window.addEventListener("load", function () {
         errorsFront = true;
       }
 
-      if (country.value.length === 0) {
+/*       if (country.value.length === 0) {
         errorCountry.style.display = "block";
         errorsFront = true;
       }
@@ -94,7 +92,7 @@ window.addEventListener("load", function () {
       if (city.value.length === 0) {
         errorCity.style.display = "block";
         errorsFront = true;
-      }
+      } */
 
       if (address.value.length === 0) {
         errorAddress.style.display = "block";

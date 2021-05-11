@@ -5,34 +5,6 @@ export default function Header() {
         <div className="header-nav-left">
           <i className="fas fa-bars icon"></i>
 
-          {/* <% if (locals.isLogged === true) { %> */}
-          <ul>
-            <li>
-              <a href="/">
-                <img src="../../img/users/default.png" alt="User Avatar" />
-                {/* <!-- <%= locals.userLogged.first_name %> --> */}
-              </a>
-              <ul className="dropdown">
-                <li>
-                  <a href="/">Mi cuenta</a>
-                </li>
-                <li>
-                  <a href="/">Mis compras</a>
-                </li>
-                {/* <% if (locals.isAdmin === true) { %> */}
-                <li>
-                  <a href="/">Editar</a>
-                </li>
-
-                {/* <% } %> */}
-                <li>
-                  <a href="/users/logout">Log Out</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          {/* <% } %> */}
-
           <a href="/" className="logo">
             <i className="icon fas fa-file-code"></i> Coffee Break
           </a>
@@ -41,11 +13,7 @@ export default function Header() {
         <div className="header-nav-right">
           <div className="header-nav-right-dkt">
             <div className="header-nav-bar">
-              {/* <% if (locals.isLogged === false) { %> */}
-              <a href="/users/login">Ingresa</a>
-              <a href="/users/register">Crea tu cuenta</a>
-              {/* <% } %> */}
-              <a href="/products/catalog">Nuestros Cafés</a>
+              <a href="http://localhost:3030/">Salir</a>
             </div>
             <div className="header-nav-search-bar">
               <input type="search" name="search" id="search" />

@@ -7,7 +7,10 @@ const db = require("../../database/models");
 
 module.exports = {
   index: (req, res) => {
-    db.Users.findAll().then((users) => res.render("users/index", { users }));
+    db.Users.findAll().then((users) => {
+      console.log("userlogged", req.session.userLogged);
+      res.render("users/index", { users });
+    });
   },
   register: (req, res) => {
     // API
@@ -48,9 +51,9 @@ module.exports = {
       })
         .then((newUser) => {
           console.log("se creó el usuario", newUser);
-          db.Users.findOne({ where: { mail: req.body.mail } }).then((user) => {
+          db.Users.findOne({ where: { mail: newUser.mail } }).then((user) => {
             req.session.userLogged = user;
-            res.redirect("/users/profile", { user });
+            res.redirect("/users/profile");
           });
         })
         .catch((error) => console.log("Falló la creación del usuario", error));
@@ -116,9 +119,7 @@ module.exports = {
     db.Users.destroy({ where: { id: req.params.id } }).then(() => {
       res.redirect("/users/index");
     });
-    /* let users = usersTable.all();
-
-    usersTable.delete(req.params.id); */
+    
   },
 
   login: (req, res) => {
@@ -126,69 +127,31 @@ module.exports = {
   },
 
   loginProcess: (req, res) => {
-    db.Users.findOne({ where: { mail: req.body.mail } }).then((user) => {
-      console.log("ya estan los datos", user);
+    db.Users.findOne({ where: { mail: req.body.mail } })
+      .then((user) => {
+        if (user) {
+          if (bcrypt.compareSync(req.body.password, user.password)) {
+            delete user.password;
 
-      if (user) {
-        if (bcrypt.compare(req.body.password, user.password) === false) {
-         
-          return res.render("users/login", {
-            errors: {
-              mail: {
-                msg: "Las contrasena es incorrecta",
-              },
-            },
-          });
+            req.session.userLogged = user;
+
+            if (req.body.remember) {
+              res.cookie("userEmail", req.body.mail, { maxAge: 1000 * 60 });
+            }
+            return res.redirect("profile");
+          }
         }
-      } else {
-        return res.render("users/login", {
+        res.render("users/login", {
           errors: {
             mail: {
-              msg: "Las credenciales son inválidas",
+              msg: "Las PASS es incorrecta",
             },
           },
         });
-
-      }
-
-      
-
-      /* if (!user) {
-        return res.render("users/login", {
-          errors: {
-            mail: {
-              msg: "Las credenciales son inválidas",
-            },
-          },
-        });
-      }
-
-      if (bcrypt.compare(req.body.password, user.password) === false) {
-        console.log(
-          bcrypt.compare(req.body.password, user.password),
-
-          req.body.password,
-          user.password
-        ); 
-
-        return res.render("users/login", {
-          errors: {
-            mail: {
-              msg: "Las contrasena es incorrecta",
-            },
-          },
-        });
-      } */
-
-      delete user.password;
-      req.session.userLogged = user;
-
-      if (req.body.remember) {
-        res.cookie("userEmail", req.body.mail, { maxAge: 1000 * 60 });
-      }
-
-      res.redirect("profile");
-    });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 
   profile: (req, res) => {

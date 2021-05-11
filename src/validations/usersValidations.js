@@ -5,7 +5,7 @@ module.exports = {
     store: [
         check('first_name').notEmpty().withMessage('Debes completar tu nombre'),
         check('last_name').notEmpty().withMessage('Debes completar tu apellido'), 
-        check('user_name')
+        check('username')
             .notEmpty().withMessage('Debes elegir un nombre de usuario').bail()
             .isLength({ min: 5 }).withMessage('El nombre debe tener al menos 5 caracteres')
             .isLength({ max: 15 }).withMessage('El nombre debe tener menos de 15 caracteres'),
@@ -32,9 +32,9 @@ module.exports = {
                 }
                 return true;
               }),
-        check('country').notEmpty().withMessage('Tienes que elegir un país'),
-        check('city').notEmpty().withMessage('Tienes que elegir un país'),
-        check('photo').custom((value, { req }) => {
+       // check('country').notEmpty().withMessage('Tienes que elegir un país'),
+       // check('city').notEmpty().withMessage('Tienes que elegir un país'),
+      /*   check('photo').custom((value, { req }) => {
           let file = req.file;
           let acceptedExtensions = ['.jpg', '.png', '.gif'];
       
@@ -45,10 +45,10 @@ module.exports = {
             if (!acceptedExtensions.includes(fileExtension)) {
               throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
             }
-          }
+          } 
       
-          return true;
-        })
+          return true; 
+        }) */
     ],
     update: [
         check('first_name').notEmpty().withMessage('Debes completar tu nombre'),

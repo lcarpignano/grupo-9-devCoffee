@@ -11,10 +11,11 @@
             <!-- <%= locals.userLogged.first_name %> -->
           </a>
           <ul class="dropdown">
-            <li><a href="/">Mi cuenta</a></li>
-            <li <% if (locals.isAdmin === true) { display=none } %> ><a href="/">Mis compras</a></li>
+            <li><a href="/users/profile">Mi cuenta</a></li>
+            <li><a href="/">Mis compras</a></li>
             <% if (locals.isAdmin === true) { %>
-              <li><a href="/">Editar</a></li>
+              <li><a href="/users/index">Editar</a></li>
+              <li><a href="http://localhost:3000/">Dashboard</a></li>
 
             <% } %>
             <li><a href="/users/logout">Log Out</a></li>

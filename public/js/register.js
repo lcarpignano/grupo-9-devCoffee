@@ -41,6 +41,7 @@ window.addEventListener("load", function () {
 
   form.addEventListener("submit", function (event) {
     let errorsFront = false;
+    var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
     resetFormErrors();
     
@@ -64,7 +65,7 @@ window.addEventListener("load", function () {
       errorsFront = true;
     }
 
-    if (mail.value.length < 2) {
+    if (!mail.value.match(mailformat) {
       errorMail.style.display = "block";
       errorsFront = true;
     }

@@ -2,7 +2,7 @@
 <html lang="en">
   <%- include('../partials/head.ejs') %>
 
-<!--   <script src="/js/register.js"></script> -->
+    <!-- <script src="/js/register.js"></script> -->
 
   <body>
     <%- include('../partials/header.ejs') %>
@@ -36,8 +36,16 @@
                 id="first_name"
                 placeholder="Ingresa tu nombre"
                 class="input-text"
+                <% if (locals.oldData && oldData) { %>
+                value="<%= oldData.first_name %>"
+                <% } %>
               />
-              <p class="warning error-message error-firstname" style="display: none;">Completa con tu nombre</p>
+              <p
+                class="warning error-message error-firstname"
+                style="display: none"
+              >
+                Completa con tu nombre
+              </p>
               <% if (locals.errors && errors.first_name) { %>
               <p class="warning"><%= errors.first_name.msg %></p>
               <% } %>
@@ -52,7 +60,12 @@
                 placeholder="Ingresa tu apellido"
                 class="input-text"
               />
-              <p class="warning error-message error-lastname" style="display: none;">Completa con tu apellido</p>
+              <p
+                class="warning error-message error-lastname"
+                style="display: none"
+              >
+                Completa con tu apellido
+              </p>
               <% if (locals.errors && errors.last_name) { %>
               <p class="warning"><%= errors.last_name.msg %></p>
               <% } %>
@@ -67,7 +80,12 @@
                 placeholder="Nombre de usuari@"
                 class="input-text"
               />
-              <p class="warning error-message error-username" style="display: none;">Completa con tu nombre de usuario</p>
+              <p
+                class="warning error-message error-username"
+                style="display: none"
+              >
+                Completa con tu nombre de usuario
+              </p>
               <% if (locals.errors && errors.username) { %>
               <p class="warning"><%= errors.username.msg %></p>
               <% } %>
@@ -76,8 +94,12 @@
             <div class="form-row">
               <label for="birth">Fecha de nacimiento:</label>
               <input type="date" name="birth" id="birth" class="input-text" />
-              <p class="warning error-message error-birth" style="display: none;">Completa tu fecha de nacimiento</p>
-
+              <p
+                class="warning error-message error-birth"
+                style="display: none"
+              >
+                Completa tu fecha de nacimiento
+              </p>
             </div>
 
             <div class="form-row">
@@ -89,7 +111,9 @@
                 placeholder="Ingresa tu Email"
                 class="input-text"
               />
-              <p class="warning error-message error-mail" style="display: none;">Completa tu correo electronico</p>
+              <p class="warning error-message error-mail" style="display: none">
+                Completa tu correo electronico
+              </p>
 
               <% if (locals.errors && errors.mail) { %>
               <p class="warning"><%= errors.mail.msg %></p>
@@ -105,7 +129,12 @@
                 placeholder="Re ingresa tu Email"
                 class="input-text"
               />
-              <p class="warning error-message error-check_mail" style="display: none;">Confirma tu correo electronico</p>
+              <p
+                class="warning error-message error-check_mail"
+                style="display: none"
+              >
+                Confirma tu correo electronico
+              </p>
 
               <% if (locals.errors && errors.mail) { %>
               <p class="warning"><%= errors.mail.msg %></p>
@@ -121,7 +150,12 @@
                 placeholder="Ingresa tu contraseña"
                 class="input-text"
               />
-              <p class="warning error-message error-password" style="display: none;">Completa tu contraseña</p>
+              <p
+                class="warning error-message error-password"
+                style="display: none"
+              >
+                Completa tu contraseña
+              </p>
 
               <% if (locals.errors && errors.password) { %>
               <p class="warning"><%= errors.password.msg %></p>
@@ -136,7 +170,12 @@
                 placeholder="Confirma tu contraseña"
                 class="input-text"
               />
-              <p class="warning error-message error-check_pass" style="display: none;">Confirma tu contraseña</p>
+              <p
+                class="warning error-message error-check_pass"
+                style="display: none"
+              >
+                Confirma tu contraseña
+              </p>
 
               <% if (locals.errors && errors.check_pass) { %>
               <p class="warning"><%= errors.check_pass.msg %></p>
@@ -149,20 +188,37 @@
                 <option value="country" class="input-text">
                   Selecciona tu país...
                 </option>
-              </select>
-              <p class="warning error-message error-country" style="display: none;">Confirma tu país</p>
 
+                <% if (locals.countries && countries) { %>
+                <% countries.forEach(element => { %>
+
+                <option value="country" class="input-text">
+                  <%= element.name %>
+                </option>
+                <% }); %>
+                <% } %>
+              </select>
+              <p
+                class="warning error-message error-country"
+                style="display: none"
+              >
+                Confirma tu país
+              </p>
             </div>
 
             <div class="form-row">
               <label for="city">Ciudad:</label>
-              <select name="city" id="city" class="input-text">
-                <option value="city" class="input-text">
-                  Selecciona tu ciudad...
-                </option>
-              <p class="warning error-message error-city" style="display: none;">Confirma tu ciudad</p>
+              <input
+                type="text"
+                name="city"
+                id="city"
+                placeholder="Ingresa tu ciudad"
+                class="input-text"
+              />
 
-              </select>
+              <p class="warning error-message error-city" style="display: none">
+                Completa tu ciudad
+              </p>
             </div>
 
             <div class="form-row">
@@ -174,8 +230,12 @@
                 placeholder="Ingresa tu domicilio"
                 class="input-text"
               />
-              <p class="warning error-message error-address" style="display: none;">Confirma tu domicilio</p>
-
+              <p
+                class="warning error-message error-address"
+                style="display: none"
+              >
+                Confirma tu domicilio
+              </p>
             </div>
 
             <div class="form-row">
@@ -187,8 +247,9 @@
                 placeholder="Ingresa tu código ZIP"
                 class="input-text"
               />
-              <p class="warning error-message error-zip" style="display: none;">Confirma tu código postal</p>
-
+              <p class="warning error-message error-zip" style="display: none">
+                Confirma tu código postal
+              </p>
             </div>
             <div class="form-row">
               <input

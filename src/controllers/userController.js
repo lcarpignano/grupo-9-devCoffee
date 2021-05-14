@@ -4,20 +4,23 @@ const { validationResult } = require("express-validator");
 const session = require("express-session");
 const bcrypt = require("bcryptjs");
 const db = require("../../database/models");
+const fetch = require("node-fetch");
 
 module.exports = {
   index: (req, res) => {
     db.Users.findAll().then((users) => {
-      console.log("userlogged", req.session.userLogged);
       res.render("users/index", { users });
     });
   },
-  register: (req, res) => {
-    // API
-    /*     const countries = await fetch('https://restcountries.eu/rest/v2/regionalbloc/eu')
-      .then(response => response.json()); */
+  register: async (req, res) => {
+    let countries = await fetch(
+      "https://restcountries.eu/rest/v2/regionalbloc/eu"
+    ).then((response) => response.json());
+    /* let cities = await fetch(
+      "https://countriesnow.space/api/v0.1/countries"
+    ).then((response) => response.json()); */
 
-    res.render("users/register");
+    res.render("users/register", { countries /* cities */ });
   },
   userRegister: (req, res) => {
     const errors = validationResult(req);
@@ -32,11 +35,11 @@ module.exports = {
       address,
     } = req.body;
     const password = bcrypt.hashSync(req.body.password, 12);
-    console.log("POR AQUI userRegister");
-    console.log(errors);
-    const photo = /* req.file.filename ? req.file.filename :  */ "default.png";
 
-    if (errors.isEmpty()) {
+   // console.log('req.file.filename', req.file.filename ? req.file.filename  : "default.png")
+   
+   if (errors.isEmpty()) {
+      const photo = req.file.filename ? req.file.filename  : "default.png";
       db.Users.create({
         first_name,
         last_name,
@@ -50,7 +53,7 @@ module.exports = {
         photo,
       })
         .then((newUser) => {
-          console.log("se creó el usuario", newUser);
+          
           db.Users.findOne({ where: { mail: newUser.mail } }).then((user) => {
             req.session.userLogged = user;
             res.redirect("/users/profile");
@@ -67,15 +70,15 @@ module.exports = {
 
   edit: (req, res) => {
     db.Users.findByPk(req.params.id).then((user) => {
-      console.log(user);
       res.render("users/edit", { user });
     });
   },
   update: (req, res) => {
-    let user = req.body;
-    user.id = Number(req.params.id);
+    
+    const { first_name, last_name, username, mail, password, birth, address } = req.body;
+    const { id } = req.params;
 
-    db.Users.findByPk(user.id).then((user) => {
+    db.Users.findByPk(id).then((user) => {
       const originalPhoto = user.photo;
 
       db.Users.update(
@@ -91,12 +94,12 @@ module.exports = {
         },
         {
           where: {
-            id: user.id,
+            id,
           },
         }
       )
         .then(() => {
-          res.redirect("/users/" + user.id);
+          res.redirect("/users/profile");
         })
         .catch((err) => console.log(err));
     });
@@ -119,7 +122,6 @@ module.exports = {
     db.Users.destroy({ where: { id: req.params.id } }).then(() => {
       res.redirect("/users/index");
     });
-    
   },
 
   login: (req, res) => {

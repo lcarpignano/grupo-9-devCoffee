@@ -12,7 +12,9 @@ app.use(session({
     secret: 'Break Coffee',
     resave: false,
     saveUninitialized: true,
+    maxAge: Date.now() + (1000 * 3600)
 }));
+
 const cookieParser = require ('cookie-parser')
 app.use(cookieParser());
 

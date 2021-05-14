@@ -12,6 +12,11 @@ module.exports = {
       res.render("products/catalog", { products })
     );
   },
+  index: (req, res) => {
+    db.Products.findAll().then((products) =>
+      res.render("products/index", { products })
+    );
+  },
 
   show: (req, res) => {
     let weights = weightsTable.all();

@@ -6,8 +6,9 @@ const uploadFile = require('../middleware/multerMiddleware')
 
 
 router.get('/create', controller.create);
-router.get('/catalog', controller.catalog);
 router.post('/create', uploadFile.single('photo'), controller.store);
+router.get('/catalog', controller.catalog);
+router.get('/index', controller.index);
 router.get('/:id', controller.show);
 router.get('/:id/edit', controller.edit);
 router.put('/:id', uploadFile.single('photo'), controller.update);

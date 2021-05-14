@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <%- include('../partials/head.ejs') %>
+
   <script src="/js/login.js"></script>
+
   <body>
     <%- include('../partials/header.ejs') %>
 
@@ -29,17 +31,17 @@
                 >Correo Electrónico:</label
               >
               <input
-              type="email"
-              name="mail"
-              id="mail"
-              placeholder="Ingresa tu Email"
-              class="input-text"
+                type="email"
+                name="mail"
+                id="mail"
+                placeholder="Ingresa tu Email"
+                class="input-text"
               />
-              <p class="warning error-message error-mail" style="display: none;">Completa con tu Email</p>
+              <p class="warning error-message error-mail" style="display: none">
+                Completa con tu Email
+              </p>
               <% if (locals.errors && errors.mail) { %>
-                <div class="warning">
-                  <%= errors.mail.msg %>
-                </div>
+              <div class="warning"><%= errors.mail.msg %></div>
               <% } %>
             </div>
             <div class="form-row">
@@ -53,20 +55,18 @@
                 placeholder="Ingresa tu Contraseña"
                 class="input-text"
               />
-              <p class="warning error-message error-password" style="display: none;">Completa con tu Contraseña</p>
+              <p
+                class="warning error-message error-password"
+                style="display: none"
+              >
+                Completa con tu Contraseña
+              </p>
             </div>
           </div>
 
           <div class="login checkbox">
-            <input
-            type="checkbox"
-            name="remember"
-            id="remember"
-            class=""
-            />
-            <label for="remember" class="">
-            Recuerdame
-          </label>
+            <input type="checkbox" name="remember" id="remember" class="" />
+            <label for="remember" class=""> Recuerdame </label>
           </div>
 
           <div class="form-row-buttons">

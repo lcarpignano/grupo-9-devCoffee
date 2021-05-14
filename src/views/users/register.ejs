@@ -2,7 +2,7 @@
 <html lang="en">
   <%- include('../partials/head.ejs') %>
 
-    <!-- <script src="/js/register.js"></script> -->
+    <script src="/js/register.js"></script>
 
   <body>
     <%- include('../partials/header.ejs') %>
@@ -59,6 +59,9 @@
                 id="last_name"
                 placeholder="Ingresa tu apellido"
                 class="input-text"
+                <% if (locals.oldData && oldData) { %>
+                  value="<%= oldData.last_name %>"
+                  <% } %>
               />
               <p
                 class="warning error-message error-lastname"
@@ -79,6 +82,9 @@
                 id="username"
                 placeholder="Nombre de usuari@"
                 class="input-text"
+                <% if (locals.oldData && oldData) { %>
+                  value="<%= oldData.username %>"
+                  <% } %>
               />
               <p
                 class="warning error-message error-username"
@@ -93,7 +99,10 @@
 
             <div class="form-row">
               <label for="birth">Fecha de nacimiento:</label>
-              <input type="date" name="birth" id="birth" class="input-text" />
+              <input type="date" name="birth" id="birth" class="input-text"
+              <% if (locals.oldData && oldData) { %>
+                value="<%= oldData.birth %>"
+                <% } %> />
               <p
                 class="warning error-message error-birth"
                 style="display: none"
@@ -110,6 +119,10 @@
                 id="mail"
                 placeholder="Ingresa tu Email"
                 class="input-text"
+                <% if (locals.oldData && oldData) { %>
+                  value="<%= oldData.mail %>"
+                  <% } %>
+                
               />
               <p class="warning error-message error-mail" style="display: none">
                 Completa tu correo electronico
@@ -128,6 +141,9 @@
                 id="check_mail"
                 placeholder="Re ingresa tu Email"
                 class="input-text"
+                <% if (locals.oldData && oldData) { %>
+                  value="<%= oldData.check_mail %>"
+                  <% } %>
               />
               <p
                 class="warning error-message error-check_mail"
@@ -184,7 +200,9 @@
 
             <div class="form-row">
               <label for="country">País:</label>
-              <select name="country" id="country" class="input-text">
+              <select name="country" id="country" class="input-text" <% if (locals.oldData && oldData) { %>
+                value="<%= oldData.country %>"
+                <% } %>>
                 <option value="country" class="input-text">
                   Selecciona tu país...
                 </option>
@@ -214,6 +232,9 @@
                 id="city"
                 placeholder="Ingresa tu ciudad"
                 class="input-text"
+                <% if (locals.oldData && oldData) { %>
+                  value="<%= oldData.city %>"
+                  <% } %>
               />
 
               <p class="warning error-message error-city" style="display: none">
@@ -229,6 +250,9 @@
                 id="address"
                 placeholder="Ingresa tu domicilio"
                 class="input-text"
+                <% if (locals.oldData && oldData) { %>
+                  value="<%= oldData.address %>"
+                  <% } %>
               />
               <p
                 class="warning error-message error-address"
@@ -246,6 +270,9 @@
                 id="zip"
                 placeholder="Ingresa tu código ZIP"
                 class="input-text"
+                <% if (locals.oldData && oldData) { %>
+                  value="<%= oldData.zip %>"
+                  <% } %>
               />
               <p class="warning error-message error-zip" style="display: none">
                 Confirma tu código postal
@@ -258,6 +285,9 @@
                 name="photo"
                 id="actual-btn"
                 accept=".jpg, .png, .jpeg"
+                <% if (locals.oldData && oldData) { %>
+                  value="<%= oldData.photo %>"
+                  <% } %>
               />
               <label for="photo">Foto de Usuario:</label>
               <label for="actual-btn" class="file-upload input-text"

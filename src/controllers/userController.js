@@ -36,7 +36,6 @@ module.exports = {
     } = req.body;
     const password = bcrypt.hashSync(req.body.password, 12);
 
-   // console.log('req.file.filename', req.file.filename ? req.file.filename  : "default.png")
    
    if (errors.isEmpty()) {
       const photo = req.file.filename ? req.file.filename  : "default.png";

@@ -38,12 +38,15 @@ window.addEventListener("load", function () {
       errorMessage.style.display = "none";
     });
   }
+  firstName.addEventListener('focus', () => console.log('FOCUS'))
 
   form.addEventListener("submit", function (event) {
     let errorsFront = false;
-    var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    const mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
     resetFormErrors();
+
+
     
     if (firstName.value.length < 2) {
       errorName.style.display = "block";
@@ -65,7 +68,7 @@ window.addEventListener("load", function () {
       errorsFront = true;
     }
 
-    if (!mail.value.match(mailformat) {
+    if (!mail.value.match(mailformat)) {
       errorMail.style.display = "block";
       errorsFront = true;
     }

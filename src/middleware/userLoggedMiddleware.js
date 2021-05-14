@@ -9,7 +9,7 @@ module.exports = (req, res, next) => {
         userFromCookie = user
       }
       ).catch((error) => {
-        console.log(error);
+        console.log('No hay cookie');
       });
 
 	if (userFromCookie) {

@@ -1,5 +1,3 @@
-// usar focus, blur, y quizas change
-
 window.addEventListener("load", function () {
     const form = document.querySelector("#form-product-create");
 
@@ -25,19 +23,19 @@ window.addEventListener("load", function () {
       resetFormErrors();
       
       if (name.value.length === 0) {
-        errorMail.style.display = "block";
+        errorProductName.style.display = "block";
         errorsFront = true;
       }
       if (description.value.length === 0) {
-          errorPassword.style.display = "block";
+        errorProductDetails.style.display = "block";
           errorsFront = true;
         }
       if (price.value != Number) {
-          errorPassword.style.display = "block";
+        errorProductPrice.style.display = "block";
           errorsFront = true;
         }
 
-      if (errorsFront == true) {
+      if (errorsFront === true) {
         event.preventDefault();
       }
   

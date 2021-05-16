@@ -6,51 +6,55 @@ module.exports = (sequelize, dataTypes) => {
       autoIncrement: true,
       type: dataTypes.INTEGER,
       allowNull: false,
-    } ,
+    },
     first_name: {
       type: dataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     last_name: {
       type: dataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     username: {
       type: dataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     mail: {
       type: dataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     password: {
       type: dataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     birth: {
       type: dataTypes.DATE,
-      allowNull: false
-    },
-    address: {
-      type: dataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     country: {
       type: dataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     city: {
       type: dataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+    },
+    zip: {
+      type: dataTypes.STRING,
+      allowNull: false,
+    },
+    address: {
+      type: dataTypes.STRING,
+      allowNull: false,
     },
     photo: {
       type: dataTypes.STRING,
-      allowNull: false
-    }
+      allowNull: false,
+    },
   };
   const config = {
     tableName: "users",
-    timestamps: false
+    timestamps: false,
   };
   const User = sequelize.define(alias, columns, config);
   return User;

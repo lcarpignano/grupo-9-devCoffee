@@ -4,11 +4,11 @@ window.addEventListener("load", function () {
   const mail = document.querySelector("#mail");
   const password = document.querySelector("#password");
 
+
+  const errorMessages = document.querySelectorAll(".error-message");
+
   const errorMail = document.querySelector(".error-mail");
   const errorPassword = document.querySelector(".error-password");
-
-  console.log("form", form);
-  console.log("selectAll", errorMessages);
 
   function resetFormErrors() {
     errorMessages.forEach((errorMessage) => {
@@ -38,4 +38,5 @@ window.addEventListener("load", function () {
 
     console.log("SUBMIT");
   });
+
 });

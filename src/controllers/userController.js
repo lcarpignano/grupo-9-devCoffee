@@ -20,6 +20,8 @@ module.exports = {
       "https://countriesnow.space/api/v0.1/countries"
     ).then((response) => response.json()); */
 
+    req.session.countries = countries;
+
     res.render("users/register", { countries /* cities */ });
   },
   userRegister: (req, res) => {
@@ -35,10 +37,11 @@ module.exports = {
       address,
     } = req.body;
     const password = bcrypt.hashSync(req.body.password, 12);
+    const photo = req.file ? req.file.filename : "default.png";
 
-   
-   if (errors.isEmpty()) {
-      const photo = req.file.filename ? req.file.filename  : "default.png";
+    console.log("req.file", req.file);
+
+    if (errors.isEmpty()) {
       db.Users.create({
         first_name,
         last_name,
@@ -52,7 +55,6 @@ module.exports = {
         photo,
       })
         .then((newUser) => {
-          
           db.Users.findOne({ where: { mail: newUser.mail } }).then((user) => {
             req.session.userLogged = user;
             res.redirect("/users/profile");
@@ -63,18 +65,20 @@ module.exports = {
       return res.render("users/register", {
         errors: errors.mapped(),
         oldData: req.body,
+        countries: req.session.countries,
       });
     }
   },
 
   edit: (req, res) => {
-    db.Users.findByPk(req.params.id).then((user) => {
+    const { id } = req.params;
+    db.Users.findByPk(id).then((user) => {
       res.render("users/edit", { user });
     });
   },
   update: (req, res) => {
-    
-    const { first_name, last_name, username, mail, password, birth, address } = req.body;
+    const { first_name, last_name, username, mail, password, birth, address } =
+      req.body;
     const { id } = req.params;
 
     db.Users.findByPk(id).then((user) => {
@@ -102,19 +106,6 @@ module.exports = {
         })
         .catch((err) => console.log(err));
     });
-
-    /*  // Si viene una imagen nueva la guardo
-    if (req.file) {
-      user.photo = req.file.filename;
-      // Si no viene una imagen nueva, busco en base la que ya había
-    } /*  else {
-      oldUser = usersTable.find(user.id);
-      user.photo = oldUser.photo;
-    } 
-
-    let userId = usersTable.update(user);
-
-    res.redirect("/users/" + userId); */
   },
 
   destroy: (req, res) => {

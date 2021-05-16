@@ -79,27 +79,6 @@
               />
             </div>
 
-            
-
-            <div class="form-row">
-              <label for="password">Contraseña:</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Ingresa tu contraseña"
-                minlength="8"
-                class="input-text"
-                required
-              />
-            </div>
-            
-            <div class="form-row">
-              <label for="birth">Fecha de nacimiento:</label>
-                
-                <input type="date" name="birth" id="birth" value="<%= user.birth %>" class="input-text" />
-            </div>
-
             <div class="form-row">
               <label for="address">Domicilio:</label>
               <input
@@ -110,6 +89,27 @@
                 class="input-text"
               />
             </div>
+
+            <div class="form-row">
+              <label for="address">Codigo Postal:</label>
+              <input
+                type="text"
+                name="zip"
+                id="zip"
+                value="<%= user.zip %>"
+                class="input-text"
+              />
+            </div>
+
+          
+            
+            <div class="form-row">
+              <label for="birth">Fecha de nacimiento:</label>
+                
+                <input type="date" name="birth" id="birth" value="<%= user.birth %>" class="input-text" />
+            </div>
+
+           
 
             <div class="form-row">
               <input

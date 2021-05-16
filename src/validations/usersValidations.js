@@ -20,11 +20,11 @@ module.exports = {
           }),
         check('password')
             .notEmpty().withMessage('Debes escribir tu contraseña').bail()
-            .isLength({ min: 5 }).withMessage('La contraseña debe tener al menos 8 caracteres')
+            .isLength({ min: 4 }).withMessage('La contraseña debe tener al menos 4 caracteres')
             .isLength({ max: 15 }).withMessage('La contraseña debe tener menos de 15 caracteres'),
         check('check_pass')
             .notEmpty().withMessage('Debes escribir tu contraseña').bail()
-            .isLength({ min: 5 }).withMessage('La contraseña debe tener al menos 8 caracteres')
+            .isLength({ min: 4 }).withMessage('La contraseña debe tener al menos 4 caracteres')
             .isLength({ max: 15 }).withMessage('La contraseña debe tener menos de 15 caracteres')
             .custom((value, { req }) => {
                 if (value !== req.body.password) {
@@ -32,8 +32,7 @@ module.exports = {
                 }
                 return true;
               }),
-       // check('country').notEmpty().withMessage('Tienes que elegir un país'),
-       // check('city').notEmpty().withMessage('Tienes que elegir un país'),
+       
       /*   check('photo').custom((value, { req }) => {
           let file = req.file;
           let acceptedExtensions = ['.jpg', '.png', '.gif'];
@@ -68,11 +67,11 @@ module.exports = {
           }),
         check('password')
             .notEmpty().withMessage('Debes escribir tu contraseña').bail()
-            .isLength({ min: 5 }).withMessage('La contraseña debe tener al menos 8 caracteres')
+            .isLength({ min: 4 }).withMessage('La contraseña debe tener al menos 4 caracteres')
             .isLength({ max: 15 }).withMessage('La contraseña debe tener menos de 15 caracteres'),
         check('check_pass')
             .notEmpty().withMessage('Debes escribir tu contraseña').bail()
-            .isLength({ min: 5 }).withMessage('La contraseña debe tener al menos 8 caracteres')
+            .isLength({ min: 4 }).withMessage('La contraseña debe tener al menos 4 caracteres')
             .isLength({ max: 15 }).withMessage('La contraseña debe tener menos de 15 caracteres')
             .custom((value, { req }) => {
                 if (value !== req.body.password) {
